@@ -37,7 +37,7 @@ Route::prefix('auth')->group(function () {
             'status' => 1
         ]);
 
-        return $admin;
+        return redirect('/');
     });
 });
 
