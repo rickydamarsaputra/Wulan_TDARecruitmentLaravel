@@ -1,5 +1,5 @@
 @extends('layout.dashboard')
-@section('title', 'member page')
+@section('title', 'lowongan page')
 
 @section('content')
 <section class="section">
@@ -11,15 +11,14 @@
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped" id="data__table__member">
+          <table class="table table-striped" id="data__table__lowongan">
             <thead>
               <tr class="text-uppercase">
                 <th class="text-center">#</th>
-                <th>nama member</th>
-                <th>nomor member</th>
-                <th>nama bisnis</th>
-                <th>kode member</th>
-                <th>status</th>
+                <th class="text-center">nama lowongan</th>
+                <th class="text-center">nama member</th>
+                <th class="text-center">tanggal publish</th>
+                <th class="text-center">status</th>
               </tr>
             </thead>
           </table>
@@ -33,18 +32,27 @@
 @push('scripts')
 <script>
   $(document).ready(() => {
-    $("#data__table__member").DataTable({
+    $("#data__table__lowongan").DataTable({
       processing: true,
       serverSide: true,
       responsive: true,
-      ajax: "{{route('datatables.member')}}",
+      ajax: "{{route('datatables.lowongan')}}",
       columns: [{
-          data: 'DT_RowIndex',
+          data: "DT_RowIndex",
           orderable: false,
           searchable: false
         },
         {
-          data: "nama_member",
+          data: "lowongan",
+          render: (data) => {
+            data = JSON.parse(data);
+            let routeURL = "{{route('lowongan.detail', ':idLowongan')}}";
+            routeURL = routeURL.replace(":idLowongan", data.ID_lowongan);
+            return `<a href="${routeURL}">${data.label}</a>`;
+          }
+        },
+        {
+          data: "member.nama_member",
           render: (data) => {
             let routeURL = "{{route('member.detail', ':namaMember')}}";
             routeURL = routeURL.replace(":namaMember", data);
@@ -52,23 +60,20 @@
           }
         },
         {
-          data: "nomor_member",
-        },
-        {
-          data: "nama_bisnis"
-        },
-        {
-          data: "kode_member"
-        },
-        {
-          data: "status_aktivasi",
+          data: "created_at",
           render: (data) => {
-            const message = !data ? "belum diproses" : data == 1 ? "aktif" : "ditolak";
-            const buttonColor = !data ? "info" : data == 1 ? "success" : "danger";
+            return moment(data).format("D MMMM YYYY");
+          }
+        },
+        {
+          data: "status_aktif",
+          render: (data) => {
+            const message = data ? "aktif" : "tidak aktif";
+            const buttonColor = data ? "success" : "danger";
             return `<button class='btn btn-${buttonColor} btn-sm btn-block text-uppercase'>${message}</button>`;
           }
         },
-      ],
+      ]
     });
   });
 </script>
@@ -76,7 +81,7 @@
 
 @push('styles')
 <style>
-  table#data__table__member {
+  table#data__table__lowongan {
     width: -webkit-fill-available !important;
   }
 </style>

@@ -15,8 +15,10 @@ class CreatePelamarTable extends Migration
     {
         Schema::create('pelamar', function (Blueprint $table) {
             $table->id('ID_pelamar');
-            $table->string('kode_pelamar');
+            $table->bigInteger("ID_lowongan");
             $table->string('nama_pelamar');
+            $table->string('kode_pelamar');
+            $table->string("keterangan");
             $table->string('ktp');
             $table->string('sim');
             $table->string('email');
@@ -27,6 +29,7 @@ class CreatePelamarTable extends Migration
             $table->string('link_facebook');
             $table->string('username_tw');
             $table->string('link_youtube');
+            $table->integer('status');
             $table->timestamps();
         });
     }

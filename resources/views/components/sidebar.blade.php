@@ -9,12 +9,13 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li><a href="{{route('dashoard.index')}}" class="nav-link"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-      <li class="menu-header">Member List</li>
+      <li><a href="{{route('member.index')}}" class="nav-link"><i class="fas fa-address-card"></i><span>Member</span></a></li>
+      <li class="menu-header">Lowongan List</li>
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link has-dropdown"><i class="fas fa-address-card"></i><span>Member</span></a>
+        <a href="#" class="nav-link has-dropdown"><i class="fas fa-briefcase"></i><span>Lowongan</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="{{route('member.index')}}"><i class="fas fa-users"></i><span>Member List</span></a></li>
-          <li><a class="nav-link" href="{{route('member.index')}}"><i class="fas fa-users"></i><span>All Member List</span></a></li>
+          <li><a class="nav-link" href="{{route('lowongan.index')}}"><i class="fas fa-file-word"></i><span>Semua Lowongan</span></a></li>
+          <li><a class="nav-link" href="{{route('lowongan.create.view')}}"><i class="fas fa-plus-circle"></i><span>Tambah Lowongan</span></a></li>
         </ul>
       </li>
     </ul>
