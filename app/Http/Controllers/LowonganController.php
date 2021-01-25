@@ -19,10 +19,12 @@ class LowonganController extends Controller
         $this->validate($request, [
             'nama_lowongan' => 'required'
         ]);
+        $defaultMessage = 'Selamat! Data Anda telah terkirim ke perusahaan [namaPerusahaan]. Silakan tunggu info lebih lanjut langsung oleh [namaPerusahaan].';
 
         $lowongan = Lowongan::create([
             'ID_member' => Auth::user()->ID_member,
             'label' => $request->nama_lowongan,
+            'custom_message' => empty($request->custom_message) ? $defaultMessage : nl2br($request->custom_message),
             'status_aktif' => 0
         ]);
         return redirect()->route('lowongan.index');
@@ -31,8 +33,10 @@ class LowonganController extends Controller
     public function update($idLowongan, Request $request)
     {
         $lowongan = Lowongan::findOrfail($idLowongan);
+        $defaultMessage = 'Selamat! Data Anda telah terkirim ke perusahaan [namaPerusahaan]. Silakan tunggu info lebih lanjut langsung oleh [namaPerusahaan].';
         $lowongan->update([
             'label' => $request->nama_lowongan,
+            'custom_message' => empty($request->custom_message) ? $defaultMessage : nl2br($request->custom_message),
         ]);
 
         return redirect()->back();

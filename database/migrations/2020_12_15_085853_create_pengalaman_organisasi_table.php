@@ -15,13 +15,13 @@ class CreatePengalamanOrganisasiTable extends Migration
     {
         Schema::create('pengalaman_organisasi', function (Blueprint $table) {
             $table->id('ID_pengalaman_orgn');
-            $table->bigInteger('ID_member');
-            $table->string('organisasi');
-            $table->string('kota');
-            $table->string('posisi');
-            $table->bigInteger('tahun_awal');
-            $table->bigInteger('tahun_akhir');
-            $table->text('deskripsi');
+            $table->bigInteger('ID_pelamar');
+            $table->string('organisasi')->nullable();
+            // $table->string('kota');
+            $table->string('posisi')->nullable();
+            $table->bigInteger('tahun_awal')->nullable();
+            $table->bigInteger('tahun_akhir')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

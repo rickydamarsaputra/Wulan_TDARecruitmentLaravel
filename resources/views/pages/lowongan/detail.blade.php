@@ -45,6 +45,24 @@
             <input name="nama_lowongan" id="nama_lowongan" type="text" class="form-control" value="{{$lowongan->label}}" placeholder="masukkan nama lowongan...">
             @error('nama_lowongan')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
           </div>
+          <div class="form-group">
+            <label for="text">Custom Message</label>
+            <textarea class="form-control" name="custom_message" placeholder="masukkan custom message (optional)..." style="height: 10rem;">{{$lowongan->custom_message}}</textarea>
+          </div>
+          <div class="tda__note__lowongan__create">
+            <h6>note</h6>
+            <p>
+              custom message ini bersifat <span class="font-weight-bold">opsional</span>, yang nanti akan di tampilkan setelah pelamar mengisi form lowongan.
+              <br>jika dikosongkan maka akan berisi pesan default.
+            </p>
+            <p>
+              gunakan <span class="font-weight-bold">[namaPelamar]</span> untuk mengisi nama pelamar
+              <br>gunakan <span class="font-weight-bold">[namaPerusahaan]</span> untuk mengisi nama perusahaan / nama bisnis anda
+            </p>
+            <p>
+              bila terdapat <span class="font-weight-bold"><code>{{"<br>"}}</code></span> biarkan saja karna itu untuk <span class="font-weight-bold">new line atau baris baru</span>
+            </p>
+          </div>
           <div>
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
@@ -89,7 +107,14 @@
           searchable: false
         },
         {
-          data: "nama_pelamar"
+          data: "pelamar",
+          render: (data) => {
+            data = JSON.parse(data);
+            let requestUrl = "{{route('pelamar.detail', [':kodePelamar'])}}";
+            requestUrl = requestUrl.replace(':kodePelamar', data.kode_pelamar);
+
+            return `<a href="${requestUrl}">${data.nama_pelamar}</a>`;
+          }
         },
         {
           data: "email"
@@ -156,6 +181,16 @@
     position: absolute;
     left: 12rem;
     font-weight: normal;
+  }
+
+  .tda__note__lowongan__create h6,
+  .tda__note__lowongan__create p {
+    text-transform: capitalize;
+    line-height: 1.3rem;
+  }
+
+  .tda__note__lowongan__create p span {
+    text-transform: none;
   }
 </style>
 @endpush

@@ -17,6 +17,7 @@ class CreateLowonganTable extends Migration
             $table->id('ID_lowongan');
             $table->bigInteger('ID_member');
             $table->string('label');
+            $table->string('custom_message');
             $table->integer('status_aktif');
             $table->timestamps();
         });

@@ -43,6 +43,7 @@ class AuthController extends Controller
             'nomor_member' => 'required',
             'nama_bisnis' => 'required',
             'kode_member' => 'required',
+            'email' => 'required',
             'username' => 'required',
             'password' => 'required',
         ]);
@@ -60,6 +61,7 @@ class AuthController extends Controller
             'role' => 'member',
             'username' => $request->username,
             'password' => bcrypt($request->password),
+            'email' => $request->email,
             'status' => 0,
         ]);
         return redirect()->route('login.view');

@@ -3,8 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LowonganController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PelamarController;
+use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\ToolController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +38,7 @@ Route::prefix('auth')->group(function () {
             'role' => 'admin',
             'username' => 'admin',
             'password' => bcrypt('admin'),
+            'email' => 'retrocode.rc@gmail.com',
             'status' => 1
         ]);
 
@@ -46,13 +49,13 @@ Route::prefix('auth')->group(function () {
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashoard.index');
 
-    Route::prefix('/member')->group(function () {
+    Route::prefix('member')->group(function () {
         Route::get('/', [MemberController::class, 'index'])->name('member.index');
         Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
     });
 
-    Route::prefix('/lowongan')->group(function () {
+    Route::prefix('lowongan')->group(function () {
         Route::get('/', [LowonganController::class, 'index'])->name('lowongan.index');
         Route::view('/create', 'pages.lowongan.create')->name('lowongan.create.view');
         Route::post('/create', [LowonganController::class, 'create'])->name('lowongan.create.process');
@@ -61,10 +64,21 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::put('/change/status/{lowongan}/{status}', [LowonganController::class, 'changeStatus'])->name('lowongan.change.status');
     });
 
-    Route::prefix('/pelamar')->group(function () {
+    Route::prefix('pelamar')->group(function () {
         Route::put('/change/status/{idPelamar}', [PelamarController::class, 'changeStatus'])->name('pelamar.change.status');
+        Route::get('/{kodePelamar}', [PelamarController::class, 'detail'])->name('pelamar.detail');
+        Route::get('/download/{tipe}/{kodePelamar}', [PelamarController::class, 'dowloadFilePelamar'])->name('pelamar.download.file');
     });
 });
+
+Route::prefix('perusahaan')->group(function () {
+    Route::get('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormView'])->name('perusahaan.pelamar.view');
+    Route::post('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormProcess'])->name('perusahaan.pelamar.process');
+
+    Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'perusahaanPelamarResultPage'])->name('perusahaan.pelamar.result.page.view');
+});
+
+Route::get('mail-test', [MailController::class, 'test']);
 
 Route::prefix('helpers')->group(function () {
     Route::prefix('generate')->group(function () {

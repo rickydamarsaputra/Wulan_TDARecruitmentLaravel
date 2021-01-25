@@ -6,8 +6,8 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
-    'locale' => 'en',
+    'timezone' => 'Asia/Jakarta',
+    'locale' => 'id',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => 'base64:Xy21K7XRE8/R9uzioZuzpXW/eRtney7E/VhMYxzn0Fc=',
@@ -493,7 +493,7 @@
   ),
   'filesystems' => 
   array (
-    'default' => 'local',
+    'default' => 'public',
     'disks' => 
     array (
       'local' => 
@@ -623,11 +623,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailhog',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.gmail.com',
+        'port' => '587',
+        'encryption' => 'tls',
+        'username' => 'retrocode.email@gmail.com',
+        'password' => 'testretrocode2019',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -660,8 +660,8 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'retrocode.email@gmail.com',
+      'name' => 'TDA | Requitment',
     ),
     'markdown' => 
     array (
@@ -674,7 +674,7 @@
   ),
   'queue' => 
   array (
-    'default' => 'sync',
+    'default' => 'database',
     'connections' => 
     array (
       'sync' => 

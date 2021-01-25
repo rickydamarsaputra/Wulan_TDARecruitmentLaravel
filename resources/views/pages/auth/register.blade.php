@@ -37,6 +37,11 @@
             <input id="kode_member" type="text" class="form-control" name="kode_member" placeholder="masukkan kode member..." readonly>
           </div>
         </div>
+        <div class="form-group">
+          <label for="text">Email</label>
+          <input name="email" id="email" type="text" class="form-control" value="{{old('email')}}" placeholder="masukkan email...">
+          @error('email')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+        </div>
 
         <h6 class="card-subtitle text-primary text-capitalize mb-3">account for login</h6>
         <div class="row">
