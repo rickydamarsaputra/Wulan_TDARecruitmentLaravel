@@ -29,6 +29,6 @@ class TdaMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('email form TDA requitment')->view('layout.mail');
+        return $this->subject('email form TDA recruitment')->view('layout.mail');
     }
 }

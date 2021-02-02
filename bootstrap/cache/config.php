@@ -185,7 +185,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -405,7 +405,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\debugbar',
+      'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
     ),
@@ -499,12 +499,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\app',
+        'root' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\app/public',
+        'root' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -521,7 +521,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\public\\storage' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\app/public',
+      'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\public\\storage' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -555,13 +555,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -611,7 +611,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -661,14 +661,14 @@
     'from' => 
     array (
       'address' => 'retrocode.email@gmail.com',
-      'name' => 'TDA | Requitment',
+      'name' => 'TDA | Recruitment',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -747,7 +747,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -767,9 +767,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\resources\\views',
+      0 => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-requitment\\tda-laravel\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\framework\\views',
   ),
   'flare' => 
   array (

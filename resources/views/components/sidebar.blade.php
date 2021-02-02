@@ -1,7 +1,7 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="{{route('dashoard.index')}}">TDA REQUITMENT</a>
+      <a href="{{route('dashoard.index')}}">TDA RECRUITMENT</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="{{route('dashoard.index')}}">TDA</a>
