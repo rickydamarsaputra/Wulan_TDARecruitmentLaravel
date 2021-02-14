@@ -27,6 +27,14 @@
             </span>
           </h6>
           <h6>tanggal publish <span>{{date_format($lowongan->created_at, 'd M Y')}}</span></h6>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text copy__button" data-clipboard-target="#tda__url__recruitment">
+                <i class="far fa-copy"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" id="tda__url__recruitment" value="{{route('perusahaan.pelamar.view', $lowongan->member->kode_member)}}" readonly>
+          </div>
         </div>
         <div class="d-flex justify-content-end">
           <form action="{{route('lowongan.change.status', [$lowongan->ID_lowongan, !$lowongan->status_aktif ? 'terima' : 'tolak'])}}" method="POST">
@@ -96,6 +104,30 @@
 @push('scripts')
 <script>
   $(document).ready(() => {
+    $('.copy__button').tooltip({
+      trigger: 'click',
+      placement: 'bottom'
+    });
+
+    function setTooltip(message) {
+      $('.copy__button').tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+    }
+
+    function hideTooltip() {
+      setTimeout(function() {
+        $('.copy__button').tooltip('hide');
+      }, 1000);
+    }
+
+    const clipboard = new ClipboardJS('.copy__button');
+
+    clipboard.on('success', (e) => {
+      setTooltip('Copied!');
+      hideTooltip();
+    });
+
     $("#data__table__pelamar__dilowongan__ini").DataTable({
       processing: true,
       serverSide: true,
@@ -154,6 +186,10 @@
 
 @push('styles')
 <style>
+  .copy__button:hover {
+    cursor: pointer;
+  }
+
   .tda__break__line {
     width: 100%;
     height: .1rem;
