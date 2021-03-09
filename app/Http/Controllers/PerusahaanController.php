@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\TdaSendMail;
+use App\Models\Gambaran;
+use App\Models\Interpretasi;
 use App\Models\Lowongan;
 use App\Models\Member;
 use App\Models\Pelamar;
+use App\Models\PelamarGambaran;
+use App\Models\PelamarSummary;
 use App\Models\PendidikanPelamar;
 use App\Models\PengalamanKerja;
 use App\Models\PengalamanOrganisasi;
@@ -38,6 +42,7 @@ class PerusahaanController extends Controller
 
         $this->validate($request, [
             'nama' => 'required',
+            'tempat_lahir' => 'required',
             'alamat' => 'required',
             'pelamar_ktp' => 'required',
             'foto_pelamar' => 'required',
@@ -68,6 +73,8 @@ class PerusahaanController extends Controller
             'nama_pelamar' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'alamat' => $request->alamat,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'kode_pelamar' => Str::slug($request->nama),
             'keterangan' => '-',
             'ktp' => $pathPelamarKtpFile,
@@ -172,36 +179,229 @@ class PerusahaanController extends Controller
             ]);
         }
 
-        $dateAndTime = date_format(Date::now(), 'd F Y H:i:s');
+        // $dateAndTime = date_format(Date::now(), 'd F Y H:i:s');
 
-        $message = $pelamar->lowongan->custom_message;
-        $message = str_replace(['[namaPelamar]', '[namaPerusahaan]'], [$pelamar->nama_pelamar, $pelamar->member->nama_bisnis], $message);
+        // $message = $pelamar->lowongan->custom_message;
+        // $message = str_replace(['[namaPelamar]', '[namaPerusahaan]'], [$pelamar->nama_pelamar, $pelamar->member->nama_bisnis], $message);
 
-        $sendEmailToPelamar = TdaSendMail::dispatch([
-            'email' => $pelamar->email,
-            'message' => $message,
-            'kodePelamar' => null,
+        // $sendEmailToPelamar = TdaSendMail::dispatch([
+        //     'email' => $pelamar->email,
+        //     'message' => $message,
+        //     'kodePelamar' => null,
+        // ]);
+
+        // $memberMessage = "Pelamar baru berhasil mengirim lamaran pekerjaan melalui aplikasi Rekrutmen TDA untuk lowongan [namaLowongan] pada $dateAndTime.";
+        // $memberMessage = str_replace(['[namaLowongan]'], [$pelamar->lowongan->label], $memberMessage);
+        // $sendEmailToMember = TdaSendMail::dispatch([
+        //     'email' => $member->user->email,
+        //     'message' => $memberMessage,
+        //     'kodePelamar' => $pelamar->kode_pelamar,
+        // ]);
+
+        // $adminMessage = "Pelamar baru berhasil mengirim lamaran pekerjaan melalui aplikasi Rekrutmen TDA untuk lowongan [namaLowongan] kepada [namaPerusahaan] (member [namaMember]), pada $dateAndTime.";
+        // $adminMessage = str_replace(['[namaLowongan]', '[namaPerusahaan]', '[namaMember]'], [$pelamar->lowongan->label, $pelamar->member->nama_bisnis, $pelamar->member->nama_member], $adminMessage);
+        // foreach ($admin as $loopItem) {
+        //     $sendEmailToAdmin = TdaSendMail::dispatch([
+        //         'email' => $loopItem->email,
+        //         'message' => $adminMessage,
+        //         'kodePelamar' => $pelamar->kode_pelamar,
+        //     ]);
+        // }
+
+        return redirect()->route('perusahaan.pelamar.test.disc.view', $pelamar->kode_pelamar);
+        // return redirect()->route('perusahaan.pelamar.result.page.view', $pelamar->kode_pelamar);
+    }
+
+    public function discTestView($kodePelamar)
+    {
+        $gambaran = Gambaran::get(['ID_gambaran', 'no_soal', 'deskripsi', 'kunci_m', 'kunci_l']);
+        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+
+        return view('pages.public.perusahaan.disc', [
+            'titlePage' => 'Test DISC',
+            'gambaran' => $gambaran,
+            'pelamar' => $pelamar,
         ]);
+    }
 
-        $memberMessage = "Pelamar baru berhasil mengirim lamaran pekerjaan melalui aplikasi Rekrutmen TDA untuk lowongan [namaLowongan] pada $dateAndTime.";
-        $memberMessage = str_replace(['[namaLowongan]'], [$pelamar->lowongan->label], $memberMessage);
-        $sendEmailToMember = TdaSendMail::dispatch([
-            'email' => $member->user->email,
-            'message' => $memberMessage,
-            'kodePelamar' => $pelamar->kode_pelamar,
-        ]);
+    public function discTestProcess(Request $request, $kodePelamar)
+    {
+        $counter = 0;
+        $discPelamar = [];
+        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
 
-        $adminMessage = "Pelamar baru berhasil mengirim lamaran pekerjaan melalui aplikasi Rekrutmen TDA untuk lowongan [namaLowongan] kepada [namaPerusahaan] (member [namaMember]), pada $dateAndTime.";
-        $adminMessage = str_replace(['[namaLowongan]', '[namaPerusahaan]', '[namaMember]'], [$pelamar->lowongan->label, $pelamar->member->nama_bisnis, $pelamar->member->nama_member], $adminMessage);
-        foreach ($admin as $loopItem) {
-            $sendEmailToAdmin = TdaSendMail::dispatch([
-                'email' => $loopItem->email,
-                'message' => $adminMessage,
-                'kodePelamar' => $pelamar->kode_pelamar,
+        foreach ($request->nomor_soal as $loopItem) {
+            array_push($discPelamar, [
+                'ID_pelamar' => $pelamar->ID_pelamar,
+                'no_soal' => $loopItem,
             ]);
+
+            foreach ($request->only(["gambaran_no_$loopItem"]) as $loopItem) {
+                $discPelamar[$counter]['ID_gambaran_m'] = $loopItem[0];
+                $discPelamar[$counter]['ID_gambaran_l'] = $loopItem[1];
+            }
+
+            $counter++;
         }
 
-        return redirect()->route('perusahaan.pelamar.result.page.view', $pelamar->kode_pelamar);
+        // foreach ($discPelamar as $loopItem) {
+        //     $pelamarGambaran = PelamarGambaran::create([
+        //         'ID_pelamar' => $loopItem['ID_pelamar'],
+        //         'no_soal' => $loopItem['no_soal'],
+        //         'ID_gambaran_m' => $loopItem['ID_gambaran_m'],
+        //         'ID_gambaran_l' => $loopItem['ID_gambaran_l'],
+        //     ]);
+        // }
+
+        function shortArryDESC($args)
+        {
+            usort($args, function ($a, $b) {
+                return $a['nilai'] <= $b['nilai'];
+            });
+            return $args;
+        }
+
+        $mostD = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(1)->count();
+        $mostI = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(2)->count();
+        $mostS = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(3)->count();
+        $mostC = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(4)->count();
+        $mostST = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(5)->count();
+
+        $leastD = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranL(1)->count();
+        $leastI = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranL(2)->count();
+        $leastS = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranL(3)->count();
+        $leastC = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranL(4)->count();
+        $leastST = PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranL(5)->count();
+
+        $changeD = $mostD - $leastD;
+        $changeI = $mostI - $leastI;
+        $changeS = $mostS - $leastS;
+        $changeC = $mostC - $leastC;
+
+        $most = [
+            [
+                'disc' => 'D',
+                'nilai' => $mostD,
+            ],
+            [
+                'disc' => 'I',
+                'nilai' => $mostI,
+            ],
+            [
+                'disc' => 'S',
+                'nilai' => $mostS,
+            ],
+            [
+                'disc' => 'C',
+                'nilai' => $mostC,
+            ],
+            [
+                'disc' => 'ST',
+                'nilai' => $mostST,
+            ],
+        ];
+        $least = [
+            [
+                'disc' => 'D',
+                'nilai' => $leastD,
+            ],
+            [
+                'disc' => 'I',
+                'nilai' => $leastI,
+            ],
+            [
+                'disc' => 'S',
+                'nilai' => $leastS,
+            ],
+            [
+                'disc' => 'C',
+                'nilai' => $leastC,
+            ],
+            [
+                'disc' => 'ST',
+                'nilai' => $leastST,
+            ],
+        ];
+        $change = [
+            [
+                'disc' => 'D',
+                'nilai' => $changeD,
+            ],
+            [
+                'disc' => 'I',
+                'nilai' => $changeI,
+            ],
+            [
+                'disc' => 'S',
+                'nilai' => $changeS,
+            ],
+            [
+                'disc' => 'C',
+                'nilai' => $changeC,
+            ],
+        ];
+
+        // $pelamarSummary = PelamarSummary::create([
+        //     'ID_pelamar' => $pelamar->ID_pelamar,
+        //     'ID_interpretasi' => 0,
+        //     'm_d' => $mostD,
+        //     'm_i' => $mostI,
+        //     'm_s' => $mostS,
+        //     'm_c' => $mostC,
+        //     'm_st' => $mostST,
+        //     'l_d' => $leastD,
+        //     'l_i' => $leastI,
+        //     'l_s' => $leastS,
+        //     'l_c' => $leastC,
+        //     'l_st' => $leastST,
+        //     'c_d' => $changeD,
+        //     'c_i' => $changeI,
+        //     'c_s' => $changeS,
+        //     'c_c' => $changeC,
+        // ]);
+        $shortMost = shortArryDESC($most);
+        $interpretasi = Interpretasi::whereDominan_1($shortMost[0]['disc'] != 'ST' ? $shortMost[0]['disc'] : null)->whereDominan_2($shortMost[1]['disc'] != 'ST' ? $shortMost[1]['disc'] : null)->whereDominan_3($shortMost[2]['disc'] != 'ST' ? $shortMost[2]['disc'] : null)->first();
+
+        // $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
+        // $pelamarSummary->update([
+        //     'ID_interpretasi' => $interpretasi->ID_interpretasi,
+        // ]);
+        return [
+            'most' => [
+                shortArryDESC($most)[0],
+                shortArryDESC($most)[1],
+                shortArryDESC($most)[2],
+            ],
+            'least' =>  [
+                shortArryDESC($least)[0],
+                shortArryDESC($least)[1],
+                shortArryDESC($least)[2],
+            ],
+            'change' =>  [
+                shortArryDESC($change)[0],
+                shortArryDESC($change)[1],
+                shortArryDESC($change)[2],
+            ],
+        ];
+        // return PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(2)->get()->count();
+    }
+
+    public function discTestResult($kodePelamar)
+    {
+        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+        $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
+        $mostDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['m_d', 'm_i', 'm_s', 'm_c', 'm_st']);
+        $leastDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['l_d', 'l_i', 'l_s', 'l_c', 'l_st']);
+        $changeDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['c_d', 'c_i', 'c_s', 'c_c']);
+
+        return view('pages.public.perusahaan.disc-result', [
+            'titlePage' => 'Result Test DISC',
+            'pelamar' => $pelamar,
+            'pelamarSummary' => $pelamarSummary,
+            'mostDISC' => json_encode([$mostDISC->m_d, $mostDISC->m_i, $mostDISC->m_s, $mostDISC->m_c]),
+            'leastDISC' => json_encode([$leastDISC->l_d, $leastDISC->l_i, $leastDISC->l_s, $leastDISC->l_c]),
+            'changeDISC' => json_encode([$changeDISC->c_d, $changeDISC->c_i, $changeDISC->c_s, $changeDISC->c_c]),
+        ]);
     }
 
     public function perusahaanPelamarResultPage($kodePelamar)

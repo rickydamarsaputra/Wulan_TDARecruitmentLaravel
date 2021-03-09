@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lowongan;
+use App\Models\Member;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use DataTables;
 
@@ -14,15 +16,34 @@ class LowonganController extends Controller
         return view('pages.lowongan.index');
     }
 
-    public function create(Request $request)
+    public function createView()
     {
+        // $member = User::where('role', '!=', 'admin')->get();
+        $member = Member::whereStatusAktivasi(1)->get(['ID_member', 'nama_member']);
+
+        return view('pages.lowongan.create', [
+            'member' => $member,
+        ]);
+    }
+
+    public function createProcess(Request $request)
+    {
+        $user = Auth::user();
+        $idMember = $user->role != 'admin' ? $user->ID_member : $request->member;
+
+        if ($user->role == 'admin') {
+            $this->validate($request, [
+                'nama_lowongan' => 'required',
+                'member' => 'required'
+            ]);
+        }
         $this->validate($request, [
             'nama_lowongan' => 'required'
         ]);
         $defaultMessage = 'Selamat! Data Anda telah terkirim ke perusahaan [namaPerusahaan]. Silakan tunggu info lebih lanjut langsung oleh [namaPerusahaan].';
 
         $lowongan = Lowongan::create([
-            'ID_member' => Auth::user()->ID_member,
+            'ID_member' => $idMember,
             'label' => $request->nama_lowongan,
             'custom_message' => empty($request->custom_message) ? $defaultMessage : nl2br($request->custom_message),
             'status_aktif' => 0

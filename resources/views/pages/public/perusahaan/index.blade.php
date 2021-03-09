@@ -29,12 +29,20 @@
             @error('nama')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
           </div>
         </div>
-        <!-- <div class="form-group row mb-4 align-items-center">
-          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">no telp</label>
+        <div class="form-group row mb-4 align-items-center">
+          <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">tempat tanggal lahir</label>
           <div class="col-lg">
-            <input type="text" class="form-control" name="no_telp" placeholder="masukkan no telp...">
+            <div class="row tda__no__telp__data">
+              <div class="col-lg">
+                <input type="text" class="form-control" name="tempat_lahir" placeholder="masukkan tempat lahir...">
+                @error('tempat_lahir')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+              </div>
+              <div class="col-lg">
+                <input type="text" class="form-control tanggal_lahir" name="tanggal_lahir" placeholder="masukkan tanggal lahir...">
+              </div>
+            </div>
           </div>
-        </div> -->
+        </div>
         <div class="form-group row mb-4 align-items-center">
           <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">jenis kelamin</label>
           <div class="col-lg">
@@ -272,6 +280,14 @@
 @push('scripts')
 <script>
   $(document).ready(() => {
+    $(".tanggal_lahir").daterangepicker({
+      maxDate: new Date(),
+      locale: {
+        format: 'YYYY-MM-DD'
+      },
+      singleDatePicker: true,
+    });
+
     let counterPendidikan = 2;
     let counterPengalamanKerja = 2;
     let counterPengalamanOrganisasi = 2;

@@ -9,6 +9,8 @@ use App\Models\Lowongan;
 use App\Models\PendidikanPelamar;
 use App\Models\PengalamanKerja;
 use App\Models\PengalamanOrganisasi;
+use App\Models\PelamarGambaran;
+use App\Models\PelamarSummary;
 
 class Pelamar extends Model
 {
@@ -40,5 +42,15 @@ class Pelamar extends Model
     public function pengalamanOrganisasi()
     {
         return $this->hasMany(PengalamanOrganisasi::class, 'ID_pelamar', 'ID_pelamar');
+    }
+
+    public function pelamarGambaran()
+    {
+        return $this->hasMany(PelamarGambaran::class, 'ID_pelamar', 'ID_pelamar');
+    }
+
+    public function summary()
+    {
+        return $this->hasOne(PelamarSummary::class, 'ID_pelamar', 'ID_pelamar');
     }
 }

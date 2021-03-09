@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::GXZ8GQHkUKLJXrGc',
+            '_route' => 'generated::ZHi91NhFwQpa6ZJM',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::HlLB0l9EYf90hvcf',
+            '_route' => 'generated::jbJ6ZKRIp6Z0TvWV',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xZXjSEY0JLBW4bkZ',
+            '_route' => 'generated::lg0fmULCfj17HMzI',
           ),
           1 => NULL,
           2 => 
@@ -332,7 +332,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::oZGukisk5hfhqKKj',
+            '_route' => 'generated::WVv95eW0TZWrt5i5',
           ),
           1 => NULL,
           2 => 
@@ -409,7 +409,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/([^/]++)(*:153)|change/status/([^/]++)/([^/]++)(*:192))|lowongan/(?|update/([^/]++)(*:228)|detail/([^/]++)(*:251)|change/status/([^/]++)/([^/]++)(*:290))|pelamar/(?|change/status/([^/]++)(*:332)|([^/]++)(*:348)|download/([^/]++)/([^/]++)(*:382)))|tatables/pelamar/lowongan/([^/]++)(*:426))|/perusahaan/(?|([^/]++)(?|(*:461))|result/([^/]++)(*:485))|/helpers/(?|generate/slug/([^/]++)(*:528)|find/lowongan/([^/]++)(*:558)))/?$}sDu',
+      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/([^/]++)(*:153)|change/status/([^/]++)/([^/]++)(*:192))|lowongan/(?|update/([^/]++)(*:228)|detail/([^/]++)(*:251)|change/status/([^/]++)/([^/]++)(*:290))|pelamar/(?|change/status/([^/]++)(*:332)|([^/]++)(*:348)|download/([^/]++)/([^/]++)(*:382)))|tatables/pelamar/lowongan/([^/]++)(*:426))|/perusahaan/(?|disc/(?|result/([^/]++)(*:473)|([^/]++)(?|(*:492)))|([^/]++)(?|(*:513))|result/([^/]++)(*:537))|/helpers/(?|generate/slug/([^/]++)(*:580)|find/lowongan/([^/]++)(*:610)))/?$}sDu',
     ),
     3 => 
     array (
@@ -689,7 +689,72 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      461 => 
+      473 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.disc.result',
+          ),
+          1 => 
+          array (
+            0 => 'kodePelamar',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      492 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.disc.view',
+          ),
+          1 => 
+          array (
+            0 => 'kodePelamar',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.disc.process',
+          ),
+          1 => 
+          array (
+            0 => 'kodePelamar',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      513 => 
       array (
         0 => 
         array (
@@ -731,7 +796,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      485 => 
+      537 => 
       array (
         0 => 
         array (
@@ -754,7 +819,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      528 => 
+      580 => 
       array (
         0 => 
         array (
@@ -777,7 +842,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      558 => 
+      610 => 
       array (
         0 => 
         array (
@@ -1036,7 +1101,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::GXZ8GQHkUKLJXrGc' => 
+    'generated::ZHi91NhFwQpa6ZJM' => 
     array (
       'methods' => 
       array (
@@ -1051,15 +1116,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@fmBfC3qQ2xGc8Mkvl/wF0+8e6Ql29Js8A/lxvFHSEC8=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@gwOMECM1xObXy293DUPB4mVxH4pq4VnascvDE8xd2XY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000002709622f000000001cd11ebf";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000036b2b7720000000021adb13f";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::GXZ8GQHkUKLJXrGc',
+        'as' => 'generated::ZHi91NhFwQpa6ZJM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1074,7 +1139,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::HlLB0l9EYf90hvcf' => 
+    'generated::jbJ6ZKRIp6Z0TvWV' => 
     array (
       'methods' => 
       array (
@@ -1088,15 +1153,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@QR6PM6P6117J6nl9JNjncZyS5E/o/lS2BwK8CWek8Yk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@wc2OSRKFSkJyoBg7cQFtklRaRpmuuS0wnxulJA+ofxo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000027096231000000001cd11ebf";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000036b2b76c0000000021adb13f";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::HlLB0l9EYf90hvcf',
+        'as' => 'generated::jbJ6ZKRIp6Z0TvWV',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1289,7 +1354,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::xZXjSEY0JLBW4bkZ' => 
+    'generated::lg0fmULCfj17HMzI' => 
     array (
       'methods' => 
       array (
@@ -1303,7 +1368,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@Cp/mwD7b+vhAbseXW8TJhWPm61Re8hsD/ir7Whvpnps=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@0jcbBdVvagjJhQN3UsqasnuRm6y2LEjsv8tK2ulz++g=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1314,13 +1379,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000027096238000000001cd11ebf";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000036b2b7650000000021adb13f";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::xZXjSEY0JLBW4bkZ',
+        'as' => 'generated::lg0fmULCfj17HMzI',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1534,8 +1599,8 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
-        'controller' => '\\Illuminate\\Routing\\ViewController',
+        'uses' => 'App\\Http\\Controllers\\LowonganController@createView',
+        'controller' => 'App\\Http\\Controllers\\LowonganController@createView',
         'namespace' => NULL,
         'prefix' => 'dashboard/lowongan',
         'where' => 
@@ -1546,14 +1611,6 @@ app('router')->setCompiledRoutes(
       'fallback' => false,
       'defaults' => 
       array (
-        'view' => 'pages.lowongan.create',
-        'data' => 
-        array (
-        ),
-        'status' => 200,
-        'headers' => 
-        array (
-        ),
       ),
       'wheres' => 
       array (
@@ -1578,8 +1635,8 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\LowonganController@create',
-        'controller' => 'App\\Http\\Controllers\\LowonganController@create',
+        'uses' => 'App\\Http\\Controllers\\LowonganController@createProcess',
+        'controller' => 'App\\Http\\Controllers\\LowonganController@createProcess',
         'namespace' => NULL,
         'prefix' => 'dashboard/lowongan',
         'where' => 
@@ -1819,6 +1876,113 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
+    'perusahaan.pelamar.test.disc.result' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'perusahaan/disc/result/{kodePelamar}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PerusahaanController@discTestResult',
+        'controller' => 'App\\Http\\Controllers\\PerusahaanController@discTestResult',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/disc',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.disc.result',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'perusahaan.pelamar.test.disc.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'perusahaan/disc/{kodePelamar}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PerusahaanController@discTestView',
+        'controller' => 'App\\Http\\Controllers\\PerusahaanController@discTestView',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/disc',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.disc.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'perusahaan.pelamar.test.disc.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'perusahaan/disc/{kodePelamar}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PerusahaanController@discTestProcess',
+        'controller' => 'App\\Http\\Controllers\\PerusahaanController@discTestProcess',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/disc',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.disc.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
     'perusahaan.pelamar.view' => 
     array (
       'methods' => 
@@ -1926,7 +2090,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::oZGukisk5hfhqKKj' => 
+    'generated::WVv95eW0TZWrt5i5' => 
     array (
       'methods' => 
       array (
@@ -1947,7 +2111,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::oZGukisk5hfhqKKj',
+        'as' => 'generated::WVv95eW0TZWrt5i5',
       ),
       'fallback' => false,
       'defaults' => 

@@ -18,6 +18,18 @@
             <input name="nama_lowongan" id="nama_lowongan" type="text" class="form-control" value="{{old('nama_lowongan')}}" placeholder="masukkan nama lowongan...">
             @error('nama_lowongan')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
           </div>
+          @if(auth()->user()->role == 'admin')
+          <div class="form-group">
+            <label for="text">Member</label>
+            <select class="form-control" name="member">
+              <option value="">Pilih Member</option>
+              @foreach($member as $loopItem)
+              <option value="{{$loopItem->ID_member}}">{{$loopItem->nama_member}}</option>
+              @endforeach
+            </select>
+            @error('member')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+          </div>
+          @endif
           <div class="form-group">
             <label for="text">Custom Message</label>
             <textarea class="form-control" name="custom_message" placeholder="masukkan custom message (optional)..." style="height: 10rem;"></textarea>

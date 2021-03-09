@@ -57,8 +57,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::prefix('lowongan')->group(function () {
         Route::get('/', [LowonganController::class, 'index'])->name('lowongan.index');
-        Route::view('/create', 'pages.lowongan.create')->name('lowongan.create.view');
-        Route::post('/create', [LowonganController::class, 'create'])->name('lowongan.create.process');
+        Route::get('/create', [LowonganController::class, 'createView'])->name('lowongan.create.view');
+        Route::post('/create', [LowonganController::class, 'createProcess'])->name('lowongan.create.process');
         Route::put('/update/{idLowongan}', [LowonganController::class, 'update'])->name('lowongan.update');
         Route::get('/detail/{idLowongan}', [LowonganController::class, 'detail'])->name('lowongan.detail');
         Route::put('/change/status/{lowongan}/{status}', [LowonganController::class, 'changeStatus'])->name('lowongan.change.status');
@@ -72,9 +72,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 });
 
 Route::prefix('perusahaan')->group(function () {
+    Route::prefix('disc')->group(function () {
+        Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'discTestResult'])->name('perusahaan.pelamar.test.disc.result');
+        Route::get('/{kodePelamar}', [PerusahaanController::class, 'discTestView'])->name('perusahaan.pelamar.test.disc.view');
+        Route::post('/{kodePelamar}', [PerusahaanController::class, 'discTestProcess'])->name('perusahaan.pelamar.test.disc.process');
+    });
     Route::get('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormView'])->name('perusahaan.pelamar.view');
     Route::post('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormProcess'])->name('perusahaan.pelamar.process');
-
     Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'perusahaanPelamarResultPage'])->name('perusahaan.pelamar.result.page.view');
 });
 

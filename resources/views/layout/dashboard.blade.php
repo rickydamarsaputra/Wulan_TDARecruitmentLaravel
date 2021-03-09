@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/1.10.22/dataTables.bootstrap4.min.css" integrity="sha512-hLC0yQjFQXJ+tjTUGLL6EfiqZ4ViafLZycs1CamSWxhCEhO2ExmMBRe/qhAvHDxvQXSixhF271HIgNLAlszRHw==" crossorigin="anonymous" />
 
   <!-- CSS Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
   @stack('styles')
 
   <!-- Template CSS -->
@@ -56,6 +57,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js" integrity="sha512-H/czL7oaLIK//KA+gobIejOMDjfHlfoPbM4QKJLvy1hxN18xdhXiaXPek6r5Q4KwcSZkKwlyQmLO8FvPRLl0FA==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous"></script>
 
   <!-- Template JS File -->
   <script src="{{asset('/assets/js/scripts.js')}}"></script>
@@ -63,6 +65,13 @@
 
   <!-- Page Specific JS File -->
   @stack('scripts')
+
+  <!-- Default Scripts -->
+  <script>
+    $(document).ready(() => {
+      $("select.form-control").select2();
+    });
+  </script>
 </body>
 
 </html>
