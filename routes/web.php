@@ -49,7 +49,7 @@ Route::prefix('auth')->group(function () {
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashoard.index');
 
-    Route::prefix('member')->group(function () {
+    Route::prefix('member')->middleware('admin')->group(function () {
         Route::get('/', [MemberController::class, 'index'])->name('member.index');
         Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');

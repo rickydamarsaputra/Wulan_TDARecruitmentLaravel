@@ -95,8 +95,10 @@ class LowonganController extends Controller
 
     public function datatables()
     {
-        $model = Lowongan::with(["member"])->get(["ID_lowongan", "label", "ID_member", "created_at", "status_aktif"]);
-        return DataTables::of($model)
+        $user = Auth::user();
+        $model = $user->role == 'admin' ? Lowongan::with(["member"]) : Lowongan::with([]);
+
+        return DataTables::of($model->get(["ID_lowongan", "label", "ID_member", "created_at", "status_aktif"]))
             ->addIndexColumn()
             ->addColumn('lowongan', function ($lowongan) {
                 return $lowongan;
