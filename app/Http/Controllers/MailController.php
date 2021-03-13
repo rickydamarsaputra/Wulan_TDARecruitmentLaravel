@@ -15,7 +15,7 @@ class MailController extends Controller
             'message' => 'hello world',
             'kodeMember' => null,
         ];
-        Mail::to('20390100007@dinamika.ac.id')->send(new TdaMail($data));
+        Mail::to('retrocode.email@gmail.com')->send(new TdaMail($data));
         return 'mail test';
     }
 }

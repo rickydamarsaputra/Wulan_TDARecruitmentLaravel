@@ -3,8 +3,9 @@
 
 @section('content')
 <section class="section">
-  <div class="section-header text-capitalize">
+  <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>@yield('title')</h1>
+    <a href="{{route('lowongan.index')}}" class="btn btn-primary mr-2">kembali</a>
   </div>
 
   <div class="card">

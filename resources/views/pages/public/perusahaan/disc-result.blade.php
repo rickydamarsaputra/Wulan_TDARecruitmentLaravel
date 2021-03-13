@@ -93,11 +93,11 @@
       <div class="tda__line__break"></div>
       <div class="deskripsi__keperibadian">
         <h4>deskripsi keperibadian</h4>
-        <p>{{$pelamarSummary->interpretasi->deskripsi}}</p>
+        <p>{{$pelamarSummary->interpretasi->deskripsi ?? ''}}</p>
       </div>
       <div class="job_match">
         <h4>job match</h4>
-        <p>{{$pelamarSummary->interpretasi->job_match}}</p>
+        <p>{{$pelamarSummary->interpretasi->job_match ?? ''}}</p>
       </div>
     </div>
   </div>

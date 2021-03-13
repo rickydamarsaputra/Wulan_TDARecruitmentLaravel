@@ -244,14 +244,14 @@ class PerusahaanController extends Controller
             $counter++;
         }
 
-        // foreach ($discPelamar as $loopItem) {
-        //     $pelamarGambaran = PelamarGambaran::create([
-        //         'ID_pelamar' => $loopItem['ID_pelamar'],
-        //         'no_soal' => $loopItem['no_soal'],
-        //         'ID_gambaran_m' => $loopItem['ID_gambaran_m'],
-        //         'ID_gambaran_l' => $loopItem['ID_gambaran_l'],
-        //     ]);
-        // }
+        foreach ($discPelamar as $loopItem) {
+            $pelamarGambaran = PelamarGambaran::create([
+                'ID_pelamar' => $loopItem['ID_pelamar'],
+                'no_soal' => $loopItem['no_soal'],
+                'ID_gambaran_m' => $loopItem['ID_gambaran_m'],
+                'ID_gambaran_l' => $loopItem['ID_gambaran_l'],
+            ]);
+        }
 
         function shortArryDESC($args)
         {
@@ -341,48 +341,50 @@ class PerusahaanController extends Controller
             ],
         ];
 
-        // $pelamarSummary = PelamarSummary::create([
-        //     'ID_pelamar' => $pelamar->ID_pelamar,
-        //     'ID_interpretasi' => 0,
-        //     'm_d' => $mostD,
-        //     'm_i' => $mostI,
-        //     'm_s' => $mostS,
-        //     'm_c' => $mostC,
-        //     'm_st' => $mostST,
-        //     'l_d' => $leastD,
-        //     'l_i' => $leastI,
-        //     'l_s' => $leastS,
-        //     'l_c' => $leastC,
-        //     'l_st' => $leastST,
-        //     'c_d' => $changeD,
-        //     'c_i' => $changeI,
-        //     'c_s' => $changeS,
-        //     'c_c' => $changeC,
-        // ]);
+        $pelamarSummary = PelamarSummary::create([
+            'ID_pelamar' => $pelamar->ID_pelamar,
+            'ID_interpretasi' => 0,
+            'm_d' => $mostD,
+            'm_i' => $mostI,
+            'm_s' => $mostS,
+            'm_c' => $mostC,
+            'm_st' => $mostST,
+            'l_d' => $leastD,
+            'l_i' => $leastI,
+            'l_s' => $leastS,
+            'l_c' => $leastC,
+            'l_st' => $leastST,
+            'c_d' => $changeD,
+            'c_i' => $changeI,
+            'c_s' => $changeS,
+            'c_c' => $changeC,
+        ]);
         $shortMost = shortArryDESC($most);
         $interpretasi = Interpretasi::whereDominan_1($shortMost[0]['disc'] != 'ST' ? $shortMost[0]['disc'] : null)->whereDominan_2($shortMost[1]['disc'] != 'ST' ? $shortMost[1]['disc'] : null)->whereDominan_3($shortMost[2]['disc'] != 'ST' ? $shortMost[2]['disc'] : null)->first();
 
-        // $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
-        // $pelamarSummary->update([
-        //     'ID_interpretasi' => $interpretasi->ID_interpretasi,
-        // ]);
-        return [
-            'most' => [
-                shortArryDESC($most)[0],
-                shortArryDESC($most)[1],
-                shortArryDESC($most)[2],
-            ],
-            'least' =>  [
-                shortArryDESC($least)[0],
-                shortArryDESC($least)[1],
-                shortArryDESC($least)[2],
-            ],
-            'change' =>  [
-                shortArryDESC($change)[0],
-                shortArryDESC($change)[1],
-                shortArryDESC($change)[2],
-            ],
-        ];
+        $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
+        $pelamarSummary->update([
+            'ID_interpretasi' => empty($interpretasi->ID_interpretasi) ? 0 :  $interpretasi->ID_interpretasi,
+        ]);
+
+        return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);
+        // return [
+        //     'most' => [
+        //         shortArryDESC($most)[0],
+        //         shortArryDESC($most)[1],
+        //         shortArryDESC($most)[2],
+        //     ],
+        //     'least' =>  [
+        //         shortArryDESC($least)[0],
+        //         shortArryDESC($least)[1],
+        //         shortArryDESC($least)[2],
+        //     ],
+        //     'change' =>  [
+        //         shortArryDESC($change)[0],
+        //         shortArryDESC($change)[1],
+        //         shortArryDESC($change)[2],
+        //     ],
+        // ];
         // return PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(2)->get()->count();
     }
 
