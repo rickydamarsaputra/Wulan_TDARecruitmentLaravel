@@ -1,11 +1,14 @@
 @extends('layout.dashboard')
-@section('title', 'pelamar detail page')
+@section('title', 'Pelamar Detail')
 
 @section('content')
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
-    <h1>@yield('title')</h1>
-    <a href="{{route('lowongan.index')}}" class="btn btn-primary mr-2">kembali</a>
+    <h1>pelamar detail</h1>
+    <div>
+      <a href="{{route('lowongan.detail', $pelamar->lowongan->ID_lowongan)}}" class="btn btn-primary mr-2">kembali</a>
+      <a href="{{route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar)}}" class="btn btn-info mr-2" target="blank">detail test DISC</a>
+    </div>
   </div>
 
   <div class="card">
@@ -57,6 +60,7 @@
             </span>
           </p>
           <h6>berkas <span>pelamar</span></h6>
+          <p>foto pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'foto', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download foto pelamar</a></span></p>
           <p>ktp pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'ktp', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download ktp pelamar</a></span></p>
           <p>sim pelamar
             <span>
@@ -103,9 +107,9 @@
           <div class="tda__break__line mb-4"></div>
           @endforeach
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
           <img src="{{asset('storage/' . $pelamar->foto_pelamar)}}" class="img-thumbnail tda__foto__pelamar" alt="{{$pelamar->kode_pelamar}}-img">
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

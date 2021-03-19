@@ -1,10 +1,11 @@
 @extends('layout.auth')
+@section('title', 'Login')
 
 @section('content')
 <div class="col-lg-4">
-  <div class="login-brand">
+  <!-- <div class="login-brand">
     <img src="../assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
-  </div>
+  </div> -->
 
   <div class="card card-primary">
     <div class="card-header">
@@ -16,7 +17,7 @@
         @csrf
         <div class="form-group">
           <label for="text">Username</label>
-          <input name="username" id="username" type="text" class="form-control" value="{{old('username')}}" placeholder="masukkan username...">
+          <input name="username" id="username" type="text" class="form-control" value="{{old('username')}}" placeholder="masukkan username..." autofocus>
           @error('username')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
         </div>
 

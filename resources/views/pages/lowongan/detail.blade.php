@@ -1,10 +1,10 @@
 @extends('layout.dashboard')
-@section('title', 'detail lowongan ' . $lowongan->label)
+@section('title', 'Lowongan Detail')
 
 @section('content')
 <section class="section" x-data="{ isDetail: true }">
   <div class="section-header text-capitalize d-flex justify-content-between">
-    <h1>@yield('title')</h1>
+    <h1>lowongan detail</h1>
     <div>
       <a href="{{route('lowongan.index')}}" class="btn btn-primary mr-2">kembali</a>
       <button @click="isDetail = !isDetail" x-text="isDetail ? 'update' : 'detail'" :class="{'btn-success': isDetail === true, 'btn-info': isDetail === false}" type="button" class="btn text-capitalize"></button>

@@ -36,7 +36,7 @@ class PelamarController extends Controller
     public function dowloadFilePelamar($tipe, $kodePelamar)
     {
         $pelamar = Pelamar::whereKodePelamar($kodePelamar)->firstOrFail();
-        $downloadFile = ($tipe == 'ktp') ? $pelamar->ktp : (($tipe == 'sim') ? $pelamar->sim : (($tipe == 'document') ? $pelamar->document_lain : false));
+        $downloadFile = ($tipe == 'foto') ? $pelamar->foto_pelamar : (($tipe == 'ktp') ? $pelamar->ktp : (($tipe == 'sim') ? $pelamar->sim : (($tipe == 'document') ? $pelamar->document_lain : false)));
         return Storage::download($downloadFile);
     }
 }

@@ -24,7 +24,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only(['username', 'password']))) {
             if ($user->status) {
-                return redirect()->route('dashoard.index');
+                if ($user->role == 'admin') {
+                    return redirect()->route('dashoard.index');
+                } else {
+                    return redirect()->route('lowongan.index');
+                }
             }
         }
 

@@ -1,10 +1,10 @@
 @extends('layout.dashboard')
-@section('title', 'detail page ' . $member->nama_member)
+@section('title', 'Member Detail')
 
 @section('content')
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
-    <h1>@yield('title')</h1>
+    <h1>Member Detail</h1>
     <a href="{{route('member.index')}}" class="btn btn-primary">kembali</a>
   </div>
 
@@ -18,9 +18,16 @@
           <h6>nama bisnis <span>{{$member->nama_bisnis}}</span></h6>
           <h6>tanggal bergabung <span>{{$member->created_at}}</span></h6>
         </div>
-        @if(!$member->status_aktivasi)
-        <div class="tda__break__line"></div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-end">
+          <form action="{{route('member.change.status', [$member->ID_member, !$member->status_aktivasi ? 'terima' : 'tolak'])}}" method="POST">
+            @csrf
+            @method('put')
+            <button class="btn btn-{{!$member->status_aktivasi ? 'success' : 'danger'}} text-uppercase">{{!$member->status_aktivasi ? 'aktifkan' : 'non aktifkan'}}</button>
+          </form>
+        </div>
+        <!-- @if(!$member->status_aktivasi) -->
+        <!-- <div class="tda__break__line"></div> -->
+        <!-- <div class="d-flex mt-4">
           <form action="{{route('member.change.status', [$member, 'tolak'])}}" method="POST">
             @csrf
             @method('put')
@@ -31,8 +38,8 @@
             @method('put')
             <button class="btn btn-success text-uppercase ml-2">terima member</button>
           </form>
-        </div>
-        @endif
+        </div> -->
+        <!-- @endif -->
       </div>
     </div>
   </div>

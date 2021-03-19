@@ -26,17 +26,18 @@ class MemberController extends Controller
     {
         $currentMember = Member::findOrfail($member);
         $user = User::whereIdMember($member)->first();
-        $statusMember = $status == 'terima' ? 1 : 2;
-        $statusUser = $status == 'terima' ? 1 : 0;
+        $statusMember = $status == "terima" ? 1 : 0;
+        // $statusMember = $status == 'terima' ? 1 : 2;
+        // $statusUser = $status == 'terima' ? 1 : 0;
 
         $currentMember->update([
             'status_aktivasi' => $statusMember,
         ]);
         $user->update([
-            'status' => $statusUser,
+            'status' => $statusMember,
         ]);
 
-        return redirect()->route('member.index');
+        return redirect()->back();
     }
 
     public function datatables()

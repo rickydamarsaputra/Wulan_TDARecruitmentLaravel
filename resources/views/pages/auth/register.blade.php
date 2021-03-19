@@ -1,10 +1,11 @@
 @extends('layout.auth')
+@section('title', 'Register')
 
 @section('content')
 <div class="col-lg-10">
-  <div class="login-brand">
+  <!-- <div class="login-brand">
     <img src="../assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
-  </div>
+  </div> -->
 
   <div class="card card-primary">
     <div class="card-header">

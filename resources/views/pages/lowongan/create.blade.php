@@ -1,10 +1,10 @@
 @extends('layout.dashboard')
-@section('title', 'lowongan create page')
+@section('title', 'Tambah Lowongan')
 
 @section('content')
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
-    <h1>@yield('title')</h1>
+    <h1>tambah lowongan</h1>
     <a href="" class="btn btn-primary">kembali</a>
   </div>
 

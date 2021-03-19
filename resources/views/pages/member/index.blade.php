@@ -1,10 +1,10 @@
 @extends('layout.dashboard')
-@section('title', 'member page')
+@section('title', 'Member')
 
 @section('content')
 <section class="section">
   <div class="section-header text-capitalize">
-    <h1>@yield('title')</h1>
+    <h1>Daftar Member</h1>
   </div>
 
   <div class="section-body">
