@@ -7,6 +7,7 @@ use App\Models\Lowongan;
 use App\Models\Member;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use DataTables;
 
 class LowonganController extends Controller
@@ -91,6 +92,18 @@ class LowonganController extends Controller
                 return $pelamar;
             })
             ->toJson();
+    }
+
+    public function exportPDF()
+    {
+        $user = Auth::user();
+        $lowongan = $user->role == 'admin' ? Lowongan::get(['ID_lowongan', 'ID_member', 'label', 'created_at', 'status_aktif']) : Lowongan::whereIdMember($user->ID_member)->get(['ID_lowongan', 'ID_member', 'label', 'created_at', 'status_aktif']);
+
+        $pdf = PDF::loadView('pages.lowongan.export-pdf', [
+            'lowongan' => $lowongan,
+            'user' => $user,
+        ]);
+        return $pdf->stream();
     }
 
     public function datatables()

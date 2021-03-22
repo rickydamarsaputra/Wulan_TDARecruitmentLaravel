@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use App\Models\User;
+use PDF;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -38,6 +39,16 @@ class MemberController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function exportPDF()
+    {
+        $member = Member::get(['ID_member', 'nama_member', 'nomor_member', 'nama_bisnis', 'kode_member']);
+
+        $pdf = PDF::loadView('pages.member.export-pdf', [
+            'member' => $member,
+        ]);
+        return $pdf->stream();
     }
 
     public function datatables()

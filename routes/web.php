@@ -53,6 +53,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get('/', [MemberController::class, 'index'])->name('member.index');
         Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
+        Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
     });
 
     Route::prefix('lowongan')->group(function () {
@@ -62,6 +63,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::put('/update/{idLowongan}', [LowonganController::class, 'update'])->name('lowongan.update');
         Route::get('/detail/{idLowongan}', [LowonganController::class, 'detail'])->name('lowongan.detail');
         Route::put('/change/status/{lowongan}/{status}', [LowonganController::class, 'changeStatus'])->name('lowongan.change.status');
+        Route::get('/export-pdf', [LowonganController::class, 'exportPDF'])->name('lowongan.export.pdf');
     });
 
     Route::prefix('pelamar')->group(function () {

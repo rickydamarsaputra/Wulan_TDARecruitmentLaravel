@@ -3,8 +3,9 @@
 
 @section('content')
 <section class="section">
-  <div class="section-header text-capitalize">
+  <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Daftar Lowongan</h1>
+    <a href="{{route('lowongan.export.pdf')}}" class="btn btn-danger" target="blank">export PDF</a>
   </div>
 
   <div class="section-body">

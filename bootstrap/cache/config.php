@@ -38,10 +38,11 @@
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Yajra\\DataTables\\DataTablesServiceProvider',
       23 => 'Barryvdh\\Debugbar\\ServiceProvider',
-      24 => 'App\\Providers\\AppServiceProvider',
-      25 => 'App\\Providers\\AuthServiceProvider',
-      26 => 'App\\Providers\\EventServiceProvider',
-      27 => 'App\\Providers\\RouteServiceProvider',
+      24 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      25 => 'App\\Providers\\AppServiceProvider',
+      26 => 'App\\Providers\\AuthServiceProvider',
+      27 => 'App\\Providers\\EventServiceProvider',
+      28 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -82,6 +83,7 @@
       'View' => 'Illuminate\\Support\\Facades\\View',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
       'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade',
     ),
   ),
   'auth' => 
@@ -490,6 +492,29 @@
     'route_prefix' => '_debugbar',
     'route_domain' => NULL,
     'theme' => 'auto',
+  ),
+  'dompdf' => 
+  array (
+    'show_warnings' => false,
+    'orientation' => 'portrait',
+    'defines' => 
+    array (
+      'font_dir' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\fonts/',
+      'font_cache' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\RETROC~1\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel',
+      'enable_font_subsetting' => false,
+      'pdf_backend' => 'CPDF',
+      'default_media_type' => 'screen',
+      'default_paper_size' => 'a4',
+      'default_font' => 'serif',
+      'dpi' => 96,
+      'enable_php' => false,
+      'enable_javascript' => true,
+      'enable_remote' => true,
+      'font_height_ratio' => 1.1,
+      'enable_html5_parser' => false,
+    ),
   ),
   'filesystems' => 
   array (
