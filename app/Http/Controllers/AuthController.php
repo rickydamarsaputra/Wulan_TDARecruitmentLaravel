@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Member;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -30,9 +32,10 @@ class AuthController extends Controller
                     return redirect()->route('lowongan.index');
                 }
             }
+        } else {
+            Alert::error('Username / Password', 'Yang Anda Masukan Salah!');
+            return redirect()->back();
         }
-
-        return redirect()->back();
     }
 
     public function registerView()
@@ -69,6 +72,32 @@ class AuthController extends Controller
             'status' => 0,
         ]);
         return redirect()->route('login.view');
+    }
+
+    public function profile()
+    {
+        return view('pages.auth.profile');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'new_password' => 'required'
+        ]);
+
+        $currentUser = Auth::user();
+
+        if (Hash::check($request->old_password, $currentUser->password)) {
+            $currentUser->update([
+                "password" => bcrypt($request->new_password)
+            ]);
+            Alert::success('Berhasil!', 'Password berhasil diubah.');
+            return redirect()->back();
+        } else {
+            Alert::error('Password Lama', 'Yang Anda Masukkan Tidak Sesuai!');
+            return redirect()->back();
+        }
     }
 
     public function logout(Request $request)

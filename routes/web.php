@@ -44,6 +44,8 @@ Route::prefix('auth')->group(function () {
 
         return redirect('/');
     });
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile.view');
+    Route::post('/change/password', [AuthController::class, 'changePassword'])->name('change.password');
 });
 
 Route::prefix('dashboard')->middleware('auth')->group(function () {
@@ -54,6 +56,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
         Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
+        Route::get('/export-excel', [MemberController::class, 'exportEXCEL'])->name('member.export.excel');
     });
 
     Route::prefix('lowongan')->group(function () {
@@ -64,6 +67,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get('/detail/{idLowongan}', [LowonganController::class, 'detail'])->name('lowongan.detail');
         Route::put('/change/status/{lowongan}/{status}', [LowonganController::class, 'changeStatus'])->name('lowongan.change.status');
         Route::get('/export-pdf', [LowonganController::class, 'exportPDF'])->name('lowongan.export.pdf');
+        Route::get('/export-excel', [LowonganController::class, 'exportEXCEL'])->name('lowongan.export.excel');
     });
 
     Route::prefix('pelamar')->group(function () {

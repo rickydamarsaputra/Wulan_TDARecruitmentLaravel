@@ -39,10 +39,12 @@
       22 => 'Yajra\\DataTables\\DataTablesServiceProvider',
       23 => 'Barryvdh\\Debugbar\\ServiceProvider',
       24 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      25 => 'App\\Providers\\AppServiceProvider',
-      26 => 'App\\Providers\\AuthServiceProvider',
-      27 => 'App\\Providers\\EventServiceProvider',
-      28 => 'App\\Providers\\RouteServiceProvider',
+      25 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+      26 => 'App\\Providers\\AppServiceProvider',
+      27 => 'App\\Providers\\AuthServiceProvider',
+      28 => 'App\\Providers\\EventServiceProvider',
+      29 => 'App\\Providers\\RouteServiceProvider',
+      30 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
     ),
     'aliases' => 
     array (
@@ -84,6 +86,8 @@
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
       'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
       'PDF' => 'Barryvdh\\DomPDF\\Facade',
+      'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
+      'Alert' => 'RealRashid\\SweetAlert\\Facades\\Alert',
     ),
   ),
   'auth' => 
@@ -516,6 +520,112 @@
       'enable_html5_parser' => false,
     ),
   ),
+  'excel' => 
+  array (
+    'exports' => 
+    array (
+      'chunk_size' => 1000,
+      'pre_calculate_formulas' => false,
+      'strict_null_comparison' => false,
+      'csv' => 
+      array (
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'line_ending' => '
+',
+        'use_bom' => false,
+        'include_separator_line' => false,
+        'excel_compatibility' => false,
+      ),
+      'properties' => 
+      array (
+        'creator' => '',
+        'lastModifiedBy' => '',
+        'title' => '',
+        'description' => '',
+        'subject' => '',
+        'keywords' => '',
+        'category' => '',
+        'manager' => '',
+        'company' => '',
+      ),
+    ),
+    'imports' => 
+    array (
+      'read_only' => true,
+      'ignore_empty' => false,
+      'heading_row' => 
+      array (
+        'formatter' => 'slug',
+      ),
+      'csv' => 
+      array (
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'escape_character' => '\\',
+        'contiguous' => false,
+        'input_encoding' => 'UTF-8',
+      ),
+      'properties' => 
+      array (
+        'creator' => '',
+        'lastModifiedBy' => '',
+        'title' => '',
+        'description' => '',
+        'subject' => '',
+        'keywords' => '',
+        'category' => '',
+        'manager' => '',
+        'company' => '',
+      ),
+    ),
+    'extension_detector' => 
+    array (
+      'xlsx' => 'Xlsx',
+      'xlsm' => 'Xlsx',
+      'xltx' => 'Xlsx',
+      'xltm' => 'Xlsx',
+      'xls' => 'Xls',
+      'xlt' => 'Xls',
+      'ods' => 'Ods',
+      'ots' => 'Ods',
+      'slk' => 'Slk',
+      'xml' => 'Xml',
+      'gnumeric' => 'Gnumeric',
+      'htm' => 'Html',
+      'html' => 'Html',
+      'csv' => 'Csv',
+      'tsv' => 'Csv',
+      'pdf' => 'Dompdf',
+    ),
+    'value_binder' => 
+    array (
+      'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
+    ),
+    'cache' => 
+    array (
+      'driver' => 'memory',
+      'batch' => 
+      array (
+        'memory_limit' => 60000,
+      ),
+      'illuminate' => 
+      array (
+        'store' => NULL,
+      ),
+    ),
+    'transactions' => 
+    array (
+      'handler' => 'db',
+    ),
+    'temporary_files' => 
+    array (
+      'local_path' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\framework/laravel-excel',
+      'remote_disk' => NULL,
+      'remote_prefix' => NULL,
+      'force_resync_remote' => NULL,
+    ),
+  ),
   'filesystems' => 
   array (
     'default' => 'public',
@@ -787,6 +897,48 @@
     'secure' => NULL,
     'http_only' => true,
     'same_site' => 'lax',
+  ),
+  'sweetalert' => 
+  array (
+    'cdn' => NULL,
+    'alwaysLoadJS' => false,
+    'neverLoadJS' => false,
+    'timer' => 5000,
+    'width' => '32rem',
+    'height_auto' => true,
+    'padding' => '1.25rem',
+    'animation' => 
+    array (
+      'enable' => false,
+    ),
+    'animatecss' => 'https://cdn.jsdelivr.net/npm/animate.css',
+    'show_confirm_button' => true,
+    'show_close_button' => false,
+    'toast_position' => 'top-end',
+    'middleware' => 
+    array (
+      'autoClose' => false,
+      'toast_position' => 'top-end',
+      'toast_close_button' => true,
+      'timer' => 6000,
+      'auto_display_error_messages' => false,
+    ),
+    'customClass' => 
+    array (
+      'container' => NULL,
+      'popup' => NULL,
+      'header' => NULL,
+      'title' => NULL,
+      'closeButton' => NULL,
+      'icon' => NULL,
+      'image' => NULL,
+      'content' => NULL,
+      'input' => NULL,
+      'actions' => NULL,
+      'confirmButton' => NULL,
+      'cancelButton' => NULL,
+      'footer' => NULL,
+    ),
   ),
   'view' => 
   array (

@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bhLpyaQ1UJDp4Gys',
+            '_route' => 'generated::oP7GbjfTGPv91Dpq',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::StZHITtcA1icSeyu',
+            '_route' => 'generated::V7bOOtM2I7KXDwfh',
           ),
           1 => NULL,
           2 => 
@@ -216,13 +216,52 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::qNiau6Wm6CroqXoK',
+            '_route' => 'generated::SMjCXwj6AebtsikO',
           ),
           1 => NULL,
           2 => 
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/auth/profile' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'profile.view',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/auth/change/password' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'change.password',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -277,6 +316,26 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'member.export.pdf',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/dashboard/member/export-excel' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'member.export.excel',
           ),
           1 => NULL,
           2 => 
@@ -366,13 +425,33 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/dashboard/lowongan/export-excel' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'lowongan.export.excel',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/mail-test' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::bpWo0fQ1ZTStJoij',
+            '_route' => 'generated::RZlzJCP4VHy63Ix5',
           ),
           1 => NULL,
           2 => 
@@ -1141,7 +1220,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::bhLpyaQ1UJDp4Gys' => 
+    'generated::oP7GbjfTGPv91Dpq' => 
     array (
       'methods' => 
       array (
@@ -1156,15 +1235,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@DX3fFKFQzlYARZw/ZS43XOxifmwaOk/39aNrSeDcqbc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@n1yD/yfuUSvoLGPs4D09MgZoKU3BVKRYo/Z2j+vtH4g=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058664ce5000000003ca7f4ce";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000290af5bd00000000416a9e61";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::bhLpyaQ1UJDp4Gys',
+        'as' => 'generated::oP7GbjfTGPv91Dpq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1179,7 +1258,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::StZHITtcA1icSeyu' => 
+    'generated::V7bOOtM2I7KXDwfh' => 
     array (
       'methods' => 
       array (
@@ -1193,15 +1272,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@UaZZTmOwO3k/o/BWvy+xf2JFC6gJe1+MPBAV2mLQLiI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@ZQT+0jL20LjAUBROf3IbVcpwSM+kYErt5/9CjNCx+Zc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058664ce3000000003ca7f4ce";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000290af5bf00000000416a9e61";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::StZHITtcA1icSeyu',
+        'as' => 'generated::V7bOOtM2I7KXDwfh',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1394,7 +1473,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::qNiau6Wm6CroqXoK' => 
+    'generated::SMjCXwj6AebtsikO' => 
     array (
       'methods' => 
       array (
@@ -1408,7 +1487,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@MYABpF64qaJO651tHIRECnmaUQRnKngqop8dkZ8/Jqw=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@sqbxu+sTFAKGulU4RisU1v3r9N+sW9zeBarWRRXtnWk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1419,13 +1498,84 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000058664cda000000003ca7f4ce";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000290af58800000000416a9e61";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::qNiau6Wm6CroqXoK',
+        'as' => 'generated::SMjCXwj6AebtsikO',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'profile.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'auth/profile',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@profile',
+        'controller' => 'App\\Http\\Controllers\\AuthController@profile',
+        'namespace' => NULL,
+        'prefix' => '/auth',
+        'where' => 
+        array (
+        ),
+        'as' => 'profile.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'change.password' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'auth/change/password',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@changePassword',
+        'controller' => 'App\\Http\\Controllers\\AuthController@changePassword',
+        'namespace' => NULL,
+        'prefix' => '/auth',
+        'where' => 
+        array (
+        ),
+        'as' => 'change.password',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1614,6 +1764,44 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'member.export.pdf',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'member.export.excel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/member/export-excel',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\MemberController@exportEXCEL',
+        'controller' => 'App\\Http\\Controllers\\MemberController@exportEXCEL',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/member',
+        'where' => 
+        array (
+        ),
+        'as' => 'member.export.excel',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1870,6 +2058,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'lowongan.export.pdf',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'lowongan.export.excel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/lowongan/export-excel',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LowonganController@exportEXCEL',
+        'controller' => 'App\\Http\\Controllers\\LowonganController@exportEXCEL',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/lowongan',
+        'where' => 
+        array (
+        ),
+        'as' => 'lowongan.export.excel',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2208,7 +2433,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::bpWo0fQ1ZTStJoij' => 
+    'generated::RZlzJCP4VHy63Ix5' => 
     array (
       'methods' => 
       array (
@@ -2229,7 +2454,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bpWo0fQ1ZTStJoij',
+        'as' => 'generated::RZlzJCP4VHy63Ix5',
       ),
       'fallback' => false,
       'defaults' => 

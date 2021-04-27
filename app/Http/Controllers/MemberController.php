@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MembersExport;
 use App\Models\Member;
 use App\Models\User;
 use PDF;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\Date;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MemberController extends Controller
 {
@@ -49,6 +52,13 @@ class MemberController extends Controller
             'member' => $member,
         ]);
         return $pdf->stream();
+    }
+
+    public function exportEXCEL()
+    {
+        $date = date_format(Date::now(), 'dmy');
+        $exportName = "export-excel-members-$date.xlsx";
+        return Excel::download(new MembersExport, $exportName);
     }
 
     public function datatables()

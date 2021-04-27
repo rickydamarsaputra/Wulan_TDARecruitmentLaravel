@@ -5,7 +5,10 @@
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Daftar Member</h1>
-    <a href="{{route('member.export.pdf')}}" class="btn btn-danger" target="blank">export PDF</a>
+    <div>
+      <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2" target="blank">export PDF</a>
+      <a href="{{route('member.export.excel')}}" class="btn btn-success" target="blank">export EXCEL</a>
+    </div>
   </div>
 
   <div class="section-body">

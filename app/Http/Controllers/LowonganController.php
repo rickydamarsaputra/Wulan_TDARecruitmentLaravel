@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LowongansExport;
 use Illuminate\Http\Request;
 use App\Models\Lowongan;
 use App\Models\Member;
@@ -9,6 +10,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 use DataTables;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Date;
 
 class LowonganController extends Controller
 {
@@ -104,6 +107,14 @@ class LowonganController extends Controller
             'user' => $user,
         ]);
         return $pdf->stream();
+    }
+
+    public function exportEXCEL()
+    {
+        $date = date_format(Date::now(), 'dmy');
+        $exportName = "export-excel-lowongan-$date.xlsx";
+
+        return Excel::download(new LowongansExport, $exportName);
     }
 
     public function datatables()
