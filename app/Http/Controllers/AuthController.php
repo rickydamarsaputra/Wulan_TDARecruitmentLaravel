@@ -46,11 +46,11 @@ class AuthController extends Controller
     public function registerProcess(Request $request)
     {
         $this->validate($request, [
-            'nama_member' => 'required',
+            'nama_member' => 'required|unique:member,nama_member',
             'nomor_member' => 'required',
             'nama_bisnis' => 'required',
             'kode_member' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'username' => 'required',
             'password' => 'required',
         ]);

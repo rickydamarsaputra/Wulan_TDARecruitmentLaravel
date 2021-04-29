@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Date;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MemberController extends Controller
 {
@@ -24,6 +25,20 @@ class MemberController extends Controller
         return view('pages.member.detail', [
             'member' => $member,
         ]);
+    }
+
+    public function updateMember(Request $request, $member)
+    {
+        $currentMember = Member::whereNamaMember($member)->first();
+        $currentMember->update([
+            'kode_member' => $request->kode_member,
+            'nomor_member' => $request->nomor_member,
+            'nama_member' => $request->nama_member,
+            'nama_bisnis' => $request->nama_bisnis,
+        ]);
+
+        Alert::success('Update!', 'Berhasil Dilakuan.');
+        return redirect()->back();
     }
 
     public function changeStatus($member, $status)

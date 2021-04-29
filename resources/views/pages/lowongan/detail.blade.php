@@ -228,5 +228,21 @@
   .tda__note__lowongan__create p span {
     text-transform: none;
   }
+
+  /* responsive */
+  @media (max-width: 575.98px) {
+    .card .card-body {
+      padding: 10px !important;
+    }
+
+    .tda__info__lowongan h6 {
+      display: flex;
+      align-items: center;
+    }
+
+    .tda__info__lowongan h6 span {
+      font-size: 12px;
+    }
+  }
 </style>
 @endpush

@@ -168,6 +168,35 @@
             <input type="text" class="form-control" name="link_youtube" placeholder="masukkan link channel youtube...">
           </div>
         </div>
+        <div class="form-group row mb-4 align-items-center">
+          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Status Menikah</label>
+          <div class="col-lg">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="status_menikah" value="1" checked>
+              <label class="form-check-label text-capitalize">
+                Sudah Menikah
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="status_menikah" value="0">
+              <label class="form-check-label text-capitalize">
+                Belum Menikah
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mb-4 align-items-center">
+          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Gaji Terakhir</label>
+          <div class="col-lg">
+            <input type="text" class="form-control" name="gaji_terakhir" placeholder="masukkan gaji terakhir...">
+          </div>
+        </div>
+        <div class="form-group row mb-4 align-items-center">
+          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Gaji Ekspektasi</label>
+          <div class="col-lg">
+            <input type="text" class="form-control" name="gaji_ekspektasi" placeholder="masukkan gaji ekspetasi...">
+          </div>
+        </div>
         <div id="tda__pendidikan__pelamar">
           <div class="form-group row mb-4 align-items-center">
             <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">pendidikan</label>

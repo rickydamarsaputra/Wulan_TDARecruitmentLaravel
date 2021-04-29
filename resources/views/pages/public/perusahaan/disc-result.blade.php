@@ -92,7 +92,7 @@
     <div class="tda__disc__keperibadian__job__match">
       <div class="tda__line__break"></div>
       <div class="deskripsi__keperibadian">
-        <h4>deskripsi keperibadian</h4>
+        <h4>deskripsi kepribadian</h4>
         <p>{{$pelamarSummary->interpretasi->deskripsi ?? ''}}</p>
       </div>
       <div class="job_match">

@@ -54,6 +54,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::prefix('member')->middleware('admin')->group(function () {
         Route::get('/', [MemberController::class, 'index'])->name('member.index');
         Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
+        Route::put('/change/{member}', [MemberController::class, 'updateMember'])->name('member.update');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
         Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
         Route::get('/export-excel', [MemberController::class, 'exportEXCEL'])->name('member.export.excel');
@@ -79,10 +80,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
 Route::prefix('perusahaan')->group(function () {
     Route::prefix('disc')->group(function () {
-        Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'discTestResult'])->name('perusahaan.pelamar.test.disc.result');
+        Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'discTestResult'])->middleware('auth')->name('perusahaan.pelamar.test.disc.result');
         Route::get('/{kodePelamar}', [PerusahaanController::class, 'discTestView'])->name('perusahaan.pelamar.test.disc.view');
         Route::post('/{kodePelamar}', [PerusahaanController::class, 'discTestProcess'])->name('perusahaan.pelamar.test.disc.process');
     });
+    Route::view('/thank-you', 'pages.public.perusahaan.thank-you')->name('perusahaan.thank.you');
+    Route::get('/sorry/{kodeMember}', [PerusahaanController::class, 'notFoundLowongan'])->name('perusahaan.not.found.lowongan');
     Route::get('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormView'])->name('perusahaan.pelamar.view');
     Route::post('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormProcess'])->name('perusahaan.pelamar.process');
     Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'perusahaanPelamarResultPage'])->name('perusahaan.pelamar.result.page.view');

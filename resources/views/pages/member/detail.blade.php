@@ -42,9 +42,60 @@
         <!-- @endif -->
       </div>
     </div>
+    <div class="card">
+      <div class="card-body">
+        <form action="{{route('member.update', $member->nama_member)}}" method="POST">
+          @csrf
+          @method('put')
+          <div class="form-group">
+            <label for="text">Nama</label>
+            <input name="nama_member" id="nama_member" type="text" class="form-control" value="{{$member->nama_member}}" placeholder="masukkan...">
+            @error('nama_member')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+          </div>
+          <div class="form-group">
+            <label for="text">Nomor Member</label>
+            <input name="nomor_member" id="nomor_member" type="text" class="form-control" value="{{$member->nomor_member}}" placeholder="masukkan nomor...">
+            @error('nomor_member')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+          </div>
+          <div class="form-group">
+            <label for="text">Nama Bisnis</label>
+            <input name="nama_bisnis" id="nama_bisnis" type="text" class="form-control" value="{{$member->nama_bisnis}}" placeholder="masukkan nama bisnis...">
+            @error('nama_bisnis')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+          </div>
+          <div class="form-group">
+            <label for="text">Kode Member</label>
+            <input name="kode_member" id="kode_member" type="text" class="form-control" value="{{$member->kode_member}}" readonly>
+            @error('kode_member')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+          </div>
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 @endsection
+
+@push('scripts')
+<script>
+  $(document).ready(() => {
+    const namaBisnis = document.querySelector("#nama_bisnis");
+    const kodeMember = document.querySelector("#kode_member");
+
+    namaBisnis.addEventListener("keyup", (e) => {
+      let requestURL = "{{route('helpers.generate.slug', ':slug')}}";
+      requestURL = requestURL.replace(":slug", e.target.value);
+
+      fetch(requestURL)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          kodeMember.value = data.slug;
+        })
+        .catch((err) => console.error(err));
+    });
+  });
+</script>
+@endpush
 
 @push('styles')
 <style>

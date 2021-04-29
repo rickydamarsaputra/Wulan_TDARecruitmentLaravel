@@ -26,15 +26,29 @@ class PerusahaanController extends Controller
         $member = Member::with(['lowongan'])->whereKodeMember($kodeMember)->firstOrFail();
         $lowongan = Lowongan::whereIdMember($member->ID_member)->whereStatusAktif(1)->get(['ID_lowongan', 'label']);
 
-        return view('pages.public.perusahaan.index', [
-            'titlePage' => $member->nama_bisnis,
-            'member' => $member,
-            'lowongan' => $lowongan,
+        if (count($lowongan) <= 0) {
+            return redirect()->route('perusahaan.not.found.lowongan', $member->kode_member);
+        } else {
+            return view('pages.public.perusahaan.index', [
+                'titlePage' => $member->nama_bisnis,
+                'member' => $member,
+                'lowongan' => $lowongan,
+            ]);
+        }
+    }
+
+    public function notFoundLowongan($kodeMember)
+    {
+        $member = Member::whereKodeMember($kodeMember)->first();
+
+        return view('pages..public.perusahaan.sorry', [
+            'namaBisnis' => $member->nama_bisnis,
         ]);
     }
 
     public function PerusahaanPelamarFormProcess(Request $request, $kodeMember)
     {
+        // return $request->only(['status_menikah', 'gaji_terakhir', 'gaji_ekspetasi']);
         $member = Member::whereKodeMember($kodeMember)->firstOrFail();
         $admin = User::where('role', '=', 'admin')->get();
         $pelamarNama = Str::slug($request->nama);
@@ -89,6 +103,9 @@ class PerusahaanController extends Controller
             'link_facebook' => empty($request->link_facebook) ? null : $request->link_facebook,
             'username_tw' => empty($request->username_tw) ? null : $request->username_tw,
             'link_youtube' => empty($request->link_youtube) ? null : $request->link_youtube,
+            'status_menikah' => $request->status_menikah,
+            'gaji_terakhir' => $request->gaji_terakhir,
+            'gaji_ekspektasi' => $request->gaji_ekspektasi,
             'status' => 0,
         ]);
 
@@ -367,7 +384,8 @@ class PerusahaanController extends Controller
             'ID_interpretasi' => empty($interpretasi->ID_interpretasi) ? 0 :  $interpretasi->ID_interpretasi,
         ]);
 
-        return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);
+        return redirect()->route('perusahaan.thank.you');
+        // return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);
         // return [
         //     'most' => [
         //         shortArryDESC($most)[0],
