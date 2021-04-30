@@ -63,9 +63,9 @@
     <div class="tda__disc__graph__container" x-data="{ graphOpen: 'most' }">
       <div class="tda__line__break"></div>
       <div class="d-flex justify-content-center">
-        <button type="button" :class="{ 'btn-primary': graphOpen == 'most' }" @click=" graphOpen = 'most' " class="btn text-capitalize">chart most</button>
-        <button type="button" :class="{ 'btn-primary': graphOpen == 'least' }" @click=" graphOpen = 'least' " class="btn text-capitalize mx-2">chart least</button>
-        <button type="button" :class="{ 'btn-primary': graphOpen == 'change' }" @click=" graphOpen = 'change' " class="btn text-capitalize">chart change</button>
+        <button type="button" :class="{ 'btn-primary': graphOpen == 'most' }" @click=" graphOpen = 'most' " class="btn text-capitalize">most</button>
+        <button type="button" :class="{ 'btn-primary': graphOpen == 'least' }" @click=" graphOpen = 'least' " class="btn text-capitalize mx-2">least</button>
+        <button type="button" :class="{ 'btn-primary': graphOpen == 'change' }" @click=" graphOpen = 'change' " class="btn text-capitalize">change</button>
       </div>
       <div class="tda__disc__graph__most" x-show=" graphOpen == 'most' ">
         <div class="header">

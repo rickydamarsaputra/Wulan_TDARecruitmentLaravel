@@ -40,11 +40,12 @@
       23 => 'Barryvdh\\Debugbar\\ServiceProvider',
       24 => 'Barryvdh\\DomPDF\\ServiceProvider',
       25 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-      26 => 'App\\Providers\\AppServiceProvider',
-      27 => 'App\\Providers\\AuthServiceProvider',
-      28 => 'App\\Providers\\EventServiceProvider',
-      29 => 'App\\Providers\\RouteServiceProvider',
-      30 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
+      26 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+      27 => 'App\\Providers\\AppServiceProvider',
+      28 => 'App\\Providers\\AuthServiceProvider',
+      29 => 'App\\Providers\\EventServiceProvider',
+      30 => 'App\\Providers\\RouteServiceProvider',
+      31 => 'RealRashid\\SweetAlert\\SweetAlertServiceProvider',
     ),
     'aliases' => 
     array (
@@ -88,6 +89,7 @@
       'PDF' => 'Barryvdh\\DomPDF\\Facade',
       'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
       'Alert' => 'RealRashid\\SweetAlert\\Facades\\Alert',
+      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
   'auth' => 
@@ -231,6 +233,15 @@
       ),
     ),
     'prefix' => 'laravel_cache',
+  ),
+  'captcha' => 
+  array (
+    'secret' => '6LfXr78aAAAAALkdKd93pKMieETuR1ijeTp9KSbf',
+    'sitekey' => '6LfXr78aAAAAAG1EbcApYByL44_PLFSY6T-HLdXQ',
+    'options' => 
+    array (
+      'timeout' => 30,
+    ),
   ),
   'cors' => 
   array (

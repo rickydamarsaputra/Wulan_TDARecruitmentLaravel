@@ -58,10 +58,13 @@ class PerusahaanController extends Controller
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'alamat' => 'required',
-            'pelamar_ktp' => 'required',
-            'foto_pelamar' => 'required',
+            'pelamar_ktp' => 'required|mimes:jpg,png,jpeg',
+            'pelamar_sim' => 'mimes:jpg,png,jpeg',
+            'document_lain' => 'mimes:pdf',
+            'foto_pelamar' => 'required|mimes:jpg,png,jpeg',
             'email' => 'required',
             'no_telp_1' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $pelamarKtpFileExtension = $request->file('pelamar_ktp')->getClientOriginalExtension();

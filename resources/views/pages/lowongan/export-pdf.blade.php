@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Export PDF | Daftar Lowongan</title>
+  <title>{{$user->role == 'admin' ? 'Export PDF' : $user->member->nama_bisnis}} | Daftar Lowongan</title>
 
   <style>
     * {
@@ -57,7 +57,7 @@
 
 <body>
 
-  <h4>export PDF | daftar lowongan {{date('d F Y')}}</h4>
+  <h4>{{$user->role == 'admin' ? 'Export PDF' : $user->member->nama_bisnis}} | daftar lowongan {{date('d F Y')}}</h4>
 
   <table border="1" cellspacing="0">
     <thead>

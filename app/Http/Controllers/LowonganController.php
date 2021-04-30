@@ -12,6 +12,7 @@ use PDF;
 use DataTables;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Str;
 
 class LowonganController extends Controller
 {
@@ -111,8 +112,10 @@ class LowonganController extends Controller
 
     public function exportEXCEL()
     {
+        $user = Auth::user();
         $date = date_format(Date::now(), 'dmy');
-        $exportName = "export-excel-lowongan-$date.xlsx";
+        $fileName = $user->role == 'admin' ? 'export-excel' : Str::slug($user->member->nama_bisnis);
+        $exportName = "$fileName-lowongan-$date.xlsx";
 
         return Excel::download(new LowongansExport, $exportName);
     }

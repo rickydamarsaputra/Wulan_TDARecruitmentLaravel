@@ -64,6 +64,7 @@
 
   <!-- Page Specific JS File -->
   @stack('scripts')
+  {!! NoCaptcha::renderJs() !!}
 
   <!-- Default Scripts -->
   <script>

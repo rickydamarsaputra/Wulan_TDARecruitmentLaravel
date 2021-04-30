@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="col-lg-4">
-  <!-- <div class="login-brand">
-    <img src="../assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
-  </div> -->
+  <div class="login-brand">
+    <img src="{{asset('assets/img/logo-tdasurabaya.png')}}" alt="logo" width="100">
+  </div>
 
   <div class="card card-primary">
     <div class="card-header">

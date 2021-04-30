@@ -18,7 +18,7 @@
               <option value="{{$loopItem->ID_lowongan}}">{{$loopItem->label}}</option>
               @endforeach
             </select>
-            <small class="form-text text-danger text-capitalize"></small>
+            <small class="form-text text-danger"></small>
           </div>
         </div>
         <div class="tda__break__line mb-4"></div>
@@ -26,7 +26,7 @@
           <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">nama</label>
           <div class="col-lg">
             <input type="text" class="form-control" name="nama" placeholder="masukkan nama...">
-            @error('nama')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+            @error('nama')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
@@ -35,7 +35,7 @@
             <div class="row tda__no__telp__data">
               <div class="col-lg">
                 <input type="text" class="form-control" name="tempat_lahir" placeholder="masukkan tempat lahir...">
-                @error('tempat_lahir')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+                @error('tempat_lahir')<small class="form-text text-danger">{{$message}}</small>@enderror
               </div>
               <div class="col-lg">
                 <input type="text" class="form-control tanggal_lahir" name="tanggal_lahir" placeholder="masukkan tanggal lahir...">
@@ -64,7 +64,7 @@
           <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">alamat</label>
           <div class="col-lg">
             <textarea class="form-control" name="alamat" placeholder="masukkan alamat..." style="height: 5rem;"></textarea>
-            @error('alamat')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+            @error('alamat')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
@@ -76,13 +76,14 @@
                   <input type="file" class="custom-file-input" id="pelamar__ktp" name="pelamar_ktp">
                   <label class="custom-file-label" for="pelamar__ktp">upload ktp...(ex : ktp.jpg/png)</label>
                 </div>
-                @error('pelamar_ktp')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+                @error('pelamar_ktp')<small class="form-text text-danger">{{$message}}</small>@enderror
               </div>
               <div class="col-lg">
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="pelamar__sim" name="pelamar_sim">
                   <label class="custom-file-label" for="pelamar__sim">upload sim (optional)...(ex : sim.jpg/png)</label>
                 </div>
+                @error('pelamar_sim')<small class="form-text text-danger">{{$message}}</small>@enderror
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@
               <input type="file" class="custom-file-input" id="document__lain" name="document_lain">
               <label class="custom-file-label" for="document__lain">upload document lain (optional)... (utamakan file pdf, bila diperlukan, ex : file.pdf)</label>
             </div>
-            @error('document_lain')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+            @error('document_lain')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
@@ -104,14 +105,14 @@
               <input type="file" class="custom-file-input" id="foto_pelamar" name="foto_pelamar">
               <label class="custom-file-label" for="foto_pelamar">upload foto...(ex : foto.jpg/png)</label>
             </div>
-            @error('foto_pelamar')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+            @error('foto_pelamar')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
           <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">email</label>
           <div class="col-lg">
             <input type="text" class="form-control" name="email" placeholder="masukkan email...">
-            @error('email')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+            @error('email')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
@@ -126,7 +127,7 @@
             <div class="row tda__no__telp__data">
               <div class="col-lg">
                 <input type="text" class="form-control" name="no_telp_1" placeholder="masukkan no telp pertama...">
-                @error('no_telp_1')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
+                @error('no_telp_1')<small class="form-text text-danger">{{$message}}</small>@enderror
               </div>
               <div class="col-lg">
                 <input type="text" class="form-control" name="no_telp_2" placeholder="masukkan no telp kedua (optional)...">
@@ -192,9 +193,9 @@
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
-          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Gaji Ekspektasi</label>
+          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Gaji yang Diharapkan</label>
           <div class="col-lg">
-            <input type="text" class="form-control" name="gaji_ekspektasi" placeholder="masukkan gaji ekspetasi...">
+            <input type="text" class="form-control" name="gaji_ekspektasi" placeholder="masukkan gaji yang diharapkan...">
           </div>
         </div>
         <div id="tda__pendidikan__pelamar">
@@ -297,8 +298,8 @@
           </div>
           <div class="tda__break__line mb-4"></div>
         </div>
-
-        <button type="submit" class="btn btn-primary text-capitalize">submit</button>
+        {!! NoCaptcha::display() !!}
+        <button type="submit" class="btn btn-primary text-capitalize mt-3">submit</button>
       </form>
     </div>
 
