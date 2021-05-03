@@ -67,8 +67,8 @@
         {
           data: "status_aktivasi",
           render: (data) => {
-            const message = !data ? "belum diproses" : data == 1 ? "aktif" : "ditolak";
-            const buttonColor = !data ? "info" : data == 1 ? "success" : "danger";
+            const message = (data == 0) ? "belum diproses" : (data == 1) ? "aktif" : "ditolak";
+            const buttonColor = (data == 0) ? "info" : (data == 1) ? "success" : "danger";
             return `<button class='btn btn-${buttonColor} btn-sm btn-block text-uppercase'>${message}</button>`;
           }
         },

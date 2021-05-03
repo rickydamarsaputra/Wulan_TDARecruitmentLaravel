@@ -114,8 +114,9 @@
     let mostDISC = JSON.parse('{!! $mostDISC !!}');
     let leastDISC = JSON.parse('{!! $leastDISC !!}');
     let changeDISC = JSON.parse('{!! $changeDISC !!}');
-
+    console.log(mostDISC);
     mostDISC = mostDISC.map((data, i) => Number((defaultMost[i] + Number(data)).toFixed(1)));
+    console.log(mostDISC);
     leastDISC = leastDISC.map((data, i) => Number((defaultLeast[i] - Number(data)).toFixed(1)));
     changeDISC = changeDISC.map((data, i) => Number((defaultChange[i] + Number(data)).toFixed(1)));
 

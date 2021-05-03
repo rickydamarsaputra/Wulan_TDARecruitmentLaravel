@@ -60,8 +60,8 @@
             </span>
           </p>
           <p>status menikah<span>{{$pelamar->status_menikah ? 'Sudah Menikah' : 'Belum Menikah'}}</span></p>
-          <p>gaji terakhir<span>{{!empty($pelamar->gaji_terakhir) ? $pelamar->gaji_terakhir : '-'}}</span></p>
-          <p>gaji yang diharapkan<span>{{!empty($pelamar->gaji_ekspektasi) ? $pelamar->gaji_ekspektasi : '-'}}</span></p>
+          <p>gaji terakhir<span>{{!empty($pelamar->gaji_terakhir) ? 'Rp.' . number_format($pelamar->gaji_terakhir) : '-'}}</span></p>
+          <p>gaji yang diharapkan<span>{{!empty($pelamar->gaji_ekspektasi) ? 'Rp.' . number_format($pelamar->gaji_ekspektasi) : '-'}}</span></p>
           <h6>berkas <span>pelamar</span></h6>
           <p>foto pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'foto', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download foto pelamar</a></span></p>
           <p>ktp pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'ktp', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download ktp pelamar</a></span></p>

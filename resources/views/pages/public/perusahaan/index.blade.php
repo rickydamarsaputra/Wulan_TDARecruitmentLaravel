@@ -299,6 +299,7 @@
           <div class="tda__break__line mb-4"></div>
         </div>
         {!! NoCaptcha::display() !!}
+        @error('g-recaptcha-response')<small class="form-text text-danger">{{$message}}</small>@enderror
         <button type="submit" class="btn btn-primary text-capitalize mt-3">submit</button>
       </form>
     </div>

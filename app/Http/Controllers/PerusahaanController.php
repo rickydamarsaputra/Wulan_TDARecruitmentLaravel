@@ -64,7 +64,7 @@ class PerusahaanController extends Controller
             'foto_pelamar' => 'required|mimes:jpg,png,jpeg',
             'email' => 'required',
             'no_telp_1' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
+            // 'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $pelamarKtpFileExtension = $request->file('pelamar_ktp')->getClientOriginalExtension();
@@ -298,6 +298,72 @@ class PerusahaanController extends Controller
         $changeS = $mostS - $leastS;
         $changeC = $mostC - $leastC;
 
+        // $least = [
+        //     [
+        //         'disc' => 'D',
+        //         'nilai' => $leastD,
+        //     ],
+        //     [
+        //         'disc' => 'I',
+        //         'nilai' => $leastI,
+        //     ],
+        //     [
+        //         'disc' => 'S',
+        //         'nilai' => $leastS,
+        //     ],
+        //     [
+        //         'disc' => 'C',
+        //         'nilai' => $leastC,
+        //     ],
+        //     [
+        //         'disc' => 'ST',
+        //         'nilai' => $leastST,
+        //     ],
+        // ];
+        // $change = [
+        //     [
+        //         'disc' => 'D',
+        //         'nilai' => $changeD,
+        //     ],
+        //     [
+        //         'disc' => 'I',
+        //         'nilai' => $changeI,
+        //     ],
+        //     [
+        //         'disc' => 'S',
+        //         'nilai' => $changeS,
+        //     ],
+        //     [
+        //         'disc' => 'C',
+        //         'nilai' => $changeC,
+        //     ],
+        // ];
+
+        // default most
+        $defaultMost = [-6.0, -7.0, -5.7, -6.0];
+
+        $pelamarSummary = PelamarSummary::create([
+            'ID_pelamar' => $pelamar->ID_pelamar,
+            'ID_interpretasi' => 0,
+            'm_d' => $mostD,
+            'm_i' => $mostI,
+            'm_s' => $mostS,
+            'm_c' => $mostC,
+            'm_st' => $mostST,
+            'l_d' => $leastD,
+            'l_i' => $leastI,
+            'l_s' => $leastS,
+            'l_c' => $leastC,
+            'l_st' => $leastST,
+            'c_d' => $changeD,
+            'c_i' => $changeI,
+            'c_s' => $changeS,
+            'c_c' => $changeC,
+        ]);
+        $mostDISC = PelamarSummary::whereIdPelamar($pelamarSummary->ID_pelamar)->first(['m_d', 'm_i', 'm_s', 'm_c', 'm_st']);
+        $mostDISC = [$mostDISC->m_d, $mostDISC->m_i, $mostDISC->m_s, $mostDISC->m_c];
+        $duplicateValue = null;
+        $afterPlus = [];
         $most = [
             [
                 'disc' => 'D',
@@ -320,67 +386,50 @@ class PerusahaanController extends Controller
                 'nilai' => $mostST,
             ],
         ];
-        $least = [
-            [
-                'disc' => 'D',
-                'nilai' => $leastD,
-            ],
-            [
-                'disc' => 'I',
-                'nilai' => $leastI,
-            ],
-            [
-                'disc' => 'S',
-                'nilai' => $leastS,
-            ],
-            [
-                'disc' => 'C',
-                'nilai' => $leastC,
-            ],
-            [
-                'disc' => 'ST',
-                'nilai' => $leastST,
-            ],
-        ];
-        $change = [
-            [
-                'disc' => 'D',
-                'nilai' => $changeD,
-            ],
-            [
-                'disc' => 'I',
-                'nilai' => $changeI,
-            ],
-            [
-                'disc' => 'S',
-                'nilai' => $changeS,
-            ],
-            [
-                'disc' => 'C',
-                'nilai' => $changeC,
-            ],
-        ];
+        foreach ($mostDISC as $index => $loopItem) {
+            array_push($afterPlus, ($loopItem + $defaultMost[$index]));
+        }
+        foreach (array_count_values($mostDISC) as $index => $loopItem) {
+            if ($loopItem > 1) {
+                $duplicateValue = $index;
+            }
+        }
+        // foreach ($mostDISC as $index => $loopItem) {
+        //     if ($mostDISC[$index] == $duplicateValue) {
+        //         unset($mostDISC[$index]);
+        //     } else {
+        //         $mostDISC[$index] = $mostDISC[$index];
+        //     }
+        // }
 
-        $pelamarSummary = PelamarSummary::create([
-            'ID_pelamar' => $pelamar->ID_pelamar,
-            'ID_interpretasi' => 0,
-            'm_d' => $mostD,
-            'm_i' => $mostI,
-            'm_s' => $mostS,
-            'm_c' => $mostC,
-            'm_st' => $mostST,
-            'l_d' => $leastD,
-            'l_i' => $leastI,
-            'l_s' => $leastS,
-            'l_c' => $leastC,
-            'l_st' => $leastST,
-            'c_d' => $changeD,
-            'c_i' => $changeI,
-            'c_s' => $changeS,
-            'c_c' => $changeC,
-        ]);
+        foreach ($most as $index => $loopItem) {
+            if ($most[$index]['disc'] == 'ST') {
+                unset($most[$index]);
+            } else {
+                $most[$index]['nilai'] = $mostDISC[$index] + $defaultMost[$index];
+            }
+        }
+        // return shortArryDESC($most);
+        foreach ($most as $index => $loopItem) {
+            if ($most[$index]['nilai'] === $duplicateValue) {
+                unset($most[$index]);
+            }
+        }
+        // foreach ($most as $index => $loopItem) {
+        //     $most[$index]["nilai"] = $most[$index]["nilai"] + $defaultMost[$index];
+        // }
+
+        // return shortArryDESC($most);
         $shortMost = shortArryDESC($most);
-        $interpretasi = Interpretasi::whereDominan_1($shortMost[0]['disc'] != 'ST' ? $shortMost[0]['disc'] : null)->whereDominan_2($shortMost[1]['disc'] != 'ST' ? $shortMost[1]['disc'] : null)->whereDominan_3($shortMost[2]['disc'] != 'ST' ? $shortMost[2]['disc'] : null)->first();
+        $interpretasi = Interpretasi::whereDominan_1($shortMost[0]['disc']);
+        if (!empty($shortMost[1])) {
+            $interpretasi->whereDominan_2($shortMost[1]['disc']);
+        }
+        if (!empty($shortMost[2])) {
+            $interpretasi->whereDominan_3($shortMost[2]['disc']);
+        }
+        $interpretasi = $interpretasi->first();
+        // return $interpretasi;
 
         $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
         $pelamarSummary->update([

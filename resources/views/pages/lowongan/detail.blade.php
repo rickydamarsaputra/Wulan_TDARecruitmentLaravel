@@ -164,9 +164,9 @@
           data: "pelamar",
           render: (data) => {
             data = JSON.parse(data);
-            const message = !data.status ? "belum" : data.status == 1 ? "sedang" : "selesai";
-            const buttonColor = !data.status ? "danger" : data.status == 1 ? "warning" : "success";
-            const typeButton = data.status != 2 ? "submit" : "button";
+            const message = (data.status == 0) ? "belum" : (data.status == 1) ? "sedang" : "selesai";
+            const buttonColor = (data.status == 0) ? "danger" : (data.status == 1) ? "warning" : "success";
+            const typeButton = (data.status != 2) ? "submit" : "button";
             let actionURL = "{{route('pelamar.change.status', [':idPelamar'])}}";
             actionURL = actionURL.replace(":idPelamar", data.ID_pelamar);
             return `
