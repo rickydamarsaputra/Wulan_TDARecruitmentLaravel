@@ -66,8 +66,8 @@
       {
         data: "status_aktif",
         render: (data) => {
-          const message = data ? "aktif" : "tidak aktif";
-          const buttonColor = data ? "success" : "danger";
+          const message = (data == 1) ? "aktif" : "tidak aktif";
+          const buttonColor = (data == 1) ? "success" : "danger";
           return `<button class='btn btn-${buttonColor} btn-sm btn-block text-uppercase'>${message}</button>`;
         }
       },
