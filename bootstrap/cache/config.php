@@ -3,8 +3,8 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => true,
-    'url' => 'http://localhost',
+    'debug' => false,
+    'url' => 'https://recruitment.tdasurabaya.org',
     'asset_url' => NULL,
     'timezone' => 'Asia/Jakarta',
     'locale' => 'id',
@@ -651,7 +651,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\Users\\RetroCode\\Desktop\\rowdev\\tda-recruitment\\tda-laravel\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'url' => 'https://recruitment.tdasurabaya.org/storage',
         'visibility' => 'public',
       ),
       's3' => 

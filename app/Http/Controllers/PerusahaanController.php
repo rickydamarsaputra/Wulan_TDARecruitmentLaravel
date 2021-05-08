@@ -360,7 +360,7 @@ class PerusahaanController extends Controller
             'c_s' => $changeS,
             'c_c' => $changeC,
         ]);
-        $mostDISC = PelamarSummary::whereIdPelamar($pelamarSummary->ID_pelamar)->first(['m_d', 'm_i', 'm_s', 'm_c', 'm_st']);
+        $mostDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['m_d', 'm_i', 'm_s', 'm_c', 'm_st']);
         $mostDISC = [$mostDISC->m_d, $mostDISC->m_i, $mostDISC->m_s, $mostDISC->m_c];
         $duplicateValue = null;
         $afterPlus = [];
@@ -387,9 +387,9 @@ class PerusahaanController extends Controller
             ],
         ];
         foreach ($mostDISC as $index => $loopItem) {
-            array_push($afterPlus, ($loopItem + $defaultMost[$index]));
+            array_push($afterPlus, (int) round($loopItem + $defaultMost[$index]));
         }
-        foreach (array_count_values($mostDISC) as $index => $loopItem) {
+        foreach (array_count_values($afterPlus) as $index => $loopItem) {
             if ($loopItem > 1) {
                 $duplicateValue = $index;
             }
@@ -406,10 +406,9 @@ class PerusahaanController extends Controller
             if ($most[$index]['disc'] == 'ST') {
                 unset($most[$index]);
             } else {
-                $most[$index]['nilai'] = $mostDISC[$index] + $defaultMost[$index];
+                $most[$index]['nilai'] = $afterPlus[$index];
             }
         }
-        // return shortArryDESC($most);
         foreach ($most as $index => $loopItem) {
             if ($most[$index]['nilai'] === $duplicateValue) {
                 unset($most[$index]);
@@ -419,8 +418,8 @@ class PerusahaanController extends Controller
         //     $most[$index]["nilai"] = $most[$index]["nilai"] + $defaultMost[$index];
         // }
 
-        // return shortArryDESC($most);
         $shortMost = shortArryDESC($most);
+        // return $shortMost;
         $interpretasi = Interpretasi::whereDominan_1($shortMost[0]['disc']);
         if (!empty($shortMost[1])) {
             $interpretasi->whereDominan_2($shortMost[1]['disc']);
@@ -429,7 +428,6 @@ class PerusahaanController extends Controller
             $interpretasi->whereDominan_3($shortMost[2]['disc']);
         }
         $interpretasi = $interpretasi->first();
-        // return $interpretasi;
 
         $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
         $pelamarSummary->update([
