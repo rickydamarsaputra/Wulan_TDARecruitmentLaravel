@@ -107,8 +107,8 @@ class PerusahaanController extends Controller
             'username_tw' => empty($request->username_tw) ? null : $request->username_tw,
             'link_youtube' => empty($request->link_youtube) ? null : $request->link_youtube,
             'status_menikah' => $request->status_menikah,
-            'gaji_terakhir' => $request->gaji_terakhir,
-            'gaji_ekspektasi' => $request->gaji_ekspektasi,
+            'gaji_terakhir' => empty($request->gaji_terakhir) ? 0 : $request->gaji_terakhir,
+            'gaji_ekspektasi' => empty($request->gaji_ekspektasi) ? 0 : $request->gaji_ekspektasi,
             'status' => 0,
         ]);
 
@@ -387,7 +387,7 @@ class PerusahaanController extends Controller
             ],
         ];
         foreach ($mostDISC as $index => $loopItem) {
-            array_push($afterPlus, (int) round($loopItem + $defaultMost[$index]));
+            array_push($afterPlus, (int) ($loopItem + $defaultMost[$index]));
         }
         foreach (array_count_values($afterPlus) as $index => $loopItem) {
             if ($loopItem > 1) {
@@ -433,6 +433,7 @@ class PerusahaanController extends Controller
         $pelamarSummary->update([
             'ID_interpretasi' => empty($interpretasi->ID_interpretasi) ? 0 :  $interpretasi->ID_interpretasi,
         ]);
+        return $interpretasi;
 
         return redirect()->route('perusahaan.thank.you');
         // return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);

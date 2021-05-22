@@ -115,10 +115,10 @@
     let leastDISC = JSON.parse('{!! $leastDISC !!}');
     let changeDISC = JSON.parse('{!! $changeDISC !!}');
     console.log(mostDISC);
-    mostDISC = mostDISC.map((data, i) => Number((defaultMost[i] + Number(data)).toFixed(1)));
+    mostDISC = mostDISC.map((data, i) => Math.round(Number((defaultMost[i] + Number(data)))));
     console.log(mostDISC);
-    leastDISC = leastDISC.map((data, i) => Number((defaultLeast[i] - Number(data)).toFixed(1)));
-    changeDISC = changeDISC.map((data, i) => Number((defaultChange[i] + Number(data)).toFixed(1)));
+    leastDISC = leastDISC.map((data, i) => Number((defaultLeast[i] - Number(data))));
+    changeDISC = changeDISC.map((data, i) => Number((defaultChange[i] + Number(data))));
 
     const graphMost = document.getElementById('graph_most').getContext('2d');
     const graphLeast = document.getElementById('graph_least').getContext('2d');
