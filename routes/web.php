@@ -48,19 +48,20 @@ Route::prefix('auth')->group(function () {
     Route::post('/change/password', [AuthController::class, 'changePassword'])->name('change.password');
 });
 
-Route::prefix('dashboard')->middleware('auth')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashoard.index');
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name('dashoard.index');
 
     Route::prefix('member')->middleware('admin')->group(function () {
         Route::get('/', [MemberController::class, 'index'])->name('member.index');
-        Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
+        Route::get('/detail/{kodeMember}', [MemberController::class, 'detail'])->name('member.detail');
+        Route::get('/detail/export-excel/{kodeMember}', [MemberController::class, 'pelamarExportExcel'])->name('member.pelamar.export.excel');
         Route::put('/change/{member}', [MemberController::class, 'updateMember'])->name('member.update');
         Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
         Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
         Route::get('/export-excel', [MemberController::class, 'exportEXCEL'])->name('member.export.excel');
     });
 
-    Route::prefix('lowongan')->group(function () {
+    Route::prefix('lowongan')->middleware('auth')->group(function () {
         Route::get('/', [LowonganController::class, 'index'])->name('lowongan.index');
         Route::get('/create', [LowonganController::class, 'createView'])->name('lowongan.create.view');
         Route::post('/create', [LowonganController::class, 'createProcess'])->name('lowongan.create.process');
@@ -72,8 +73,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     });
 
     Route::prefix('pelamar')->group(function () {
-        Route::put('/change/status/{idPelamar}', [PelamarController::class, 'changeStatus'])->name('pelamar.change.status');
-        Route::get('/{kodePelamar}', [PelamarController::class, 'detail'])->name('pelamar.detail');
+        Route::middleware('auth')->group(function () {
+            Route::get('/{kodePelamar}', [PelamarController::class, 'detail'])->name('pelamar.detail');
+            Route::put('/change/status/{idPelamar}', [PelamarController::class, 'changeStatus'])->name('pelamar.change.status');
+        });
         Route::get('/download/{tipe}/{kodePelamar}', [PelamarController::class, 'dowloadFilePelamar'])->name('pelamar.download.file');
     });
 });

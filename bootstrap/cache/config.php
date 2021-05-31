@@ -3,7 +3,7 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => false,
+    'debug' => true,
     'url' => 'https://recruitment.tdasurabaya.org',
     'asset_url' => NULL,
     'timezone' => 'Asia/Jakarta',
@@ -412,7 +412,7 @@
   ),
   'debugbar' => 
   array (
-    'enabled' => NULL,
+    'enabled' => false,
     'except' => 
     array (
       0 => 'telescope*',

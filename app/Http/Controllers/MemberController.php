@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Exports\MembersExport;
+use App\Exports\PelamarsExport;
 use App\Models\Member;
 use App\Models\User;
 use PDF;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Date;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -19,9 +21,9 @@ class MemberController extends Controller
         return view('pages.member.index');
     }
 
-    public function detail($namaMember)
+    public function detail($kodeMember)
     {
-        $member = Member::whereNamaMember($namaMember)->firstOrFail();
+        $member = Member::whereKodeMember($kodeMember)->firstOrFail();
         return view('pages.member.detail', [
             'member' => $member,
         ]);
@@ -74,6 +76,15 @@ class MemberController extends Controller
         $date = date_format(Date::now(), 'dmy');
         $exportName = "export-excel-members-$date.xlsx";
         return Excel::download(new MembersExport, $exportName);
+    }
+
+    public function pelamarExportExcel($kodeMember)
+    {
+        $member = Member::whereKodeMember($kodeMember)->first();
+        $date = date_format(Date::now(), 'dmy');
+        $exportName = "$kodeMember-pelamar-$date.xlsx";
+
+        return Excel::download(new PelamarsExport($member), $exportName);
     }
 
     public function datatables()

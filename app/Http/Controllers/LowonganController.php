@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\LowongansExport;
+use App\Exports\PelamarsExport;
 use Illuminate\Http\Request;
 use App\Models\Lowongan;
 use App\Models\Member;
@@ -118,6 +119,16 @@ class LowonganController extends Controller
         $exportName = "$fileName-lowongan-$date.xlsx";
 
         return Excel::download(new LowongansExport, $exportName);
+    }
+
+    public function pelamarExportExcel($idLowongan)
+    {
+        $lowongan = Lowongan::whereIdLowongan($idLowongan)->first();
+        $namaLowongan = Str::slug($lowongan->label);
+        $date = date_format(Date::now(), 'dmy');
+        $exportName = "$namaLowongan-pelamar-$date.xlsx";
+
+        return Excel::download(new PelamarsExport($lowongan), $exportName);
     }
 
     public function datatables()

@@ -19,6 +19,11 @@ class Member extends Model
         return $this->hasMany(Lowongan::class, 'ID_member', 'ID_member');
     }
 
+    public function pelamar()
+    {
+        return $this->hasMany(Pelamar::class, 'ID_member', 'ID_member');
+    }
+
     public function user()
     {
         return $this->hasOne(User::class, 'ID_member', 'ID_member');

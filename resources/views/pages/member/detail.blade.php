@@ -5,7 +5,10 @@
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Member Detail</h1>
-    <a href="{{route('member.index')}}" class="btn btn-primary">kembali</a>
+    <div>
+      <a href="{{route('member.pelamar.export.excel', $member->kode_member)}}" class="btn btn-success mr-2" target="blank">export EXCEL Pelamar</a>
+      <a href="{{route('member.index')}}" class="btn btn-primary">kembali</a>
+    </div>
   </div>
 
   <div class="section-body">

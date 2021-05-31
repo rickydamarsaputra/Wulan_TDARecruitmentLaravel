@@ -433,7 +433,7 @@ class PerusahaanController extends Controller
         $pelamarSummary->update([
             'ID_interpretasi' => empty($interpretasi->ID_interpretasi) ? 0 :  $interpretasi->ID_interpretasi,
         ]);
-        return $interpretasi;
+        // return $interpretasi;
 
         return redirect()->route('perusahaan.thank.you');
         // return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);
