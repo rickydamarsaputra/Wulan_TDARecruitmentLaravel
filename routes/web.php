@@ -51,14 +51,16 @@ Route::prefix('auth')->group(function () {
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name('dashoard.index');
 
-    Route::prefix('member')->middleware('admin')->group(function () {
-        Route::get('/', [MemberController::class, 'index'])->name('member.index');
-        Route::get('/detail/{kodeMember}', [MemberController::class, 'detail'])->name('member.detail');
+    Route::prefix('member')->group(function () {
+        Route::middleware('admin')->group(function () {
+            Route::get('/', [MemberController::class, 'index'])->name('member.index');
+            Route::get('/detail/{kodeMember}', [MemberController::class, 'detail'])->name('member.detail');
+            Route::put('/change/{member}', [MemberController::class, 'updateMember'])->name('member.update');
+            Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
+            Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
+            Route::get('/export-excel', [MemberController::class, 'exportEXCEL'])->name('member.export.excel');
+        });
         Route::get('/detail/export-excel/{kodeMember}', [MemberController::class, 'pelamarExportExcel'])->name('member.pelamar.export.excel');
-        Route::put('/change/{member}', [MemberController::class, 'updateMember'])->name('member.update');
-        Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
-        Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
-        Route::get('/export-excel', [MemberController::class, 'exportEXCEL'])->name('member.export.excel');
     });
 
     Route::prefix('lowongan')->middleware('auth')->group(function () {

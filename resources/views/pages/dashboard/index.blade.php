@@ -3,8 +3,11 @@
 
 @section('content')
 <section class="section">
-  <div class="section-header text-capitalize">
+  <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>@yield('title')</h1>
+    @if(auth()->user()->role == 'member')
+    <a href="{{route('member.pelamar.export.excel', auth()->user()->member->kode_member)}}" class="btn btn-success mr-2" target="blank">export EXCEL Pelamar</a>
+    @endif
   </div>
 
   <div class="section-body">

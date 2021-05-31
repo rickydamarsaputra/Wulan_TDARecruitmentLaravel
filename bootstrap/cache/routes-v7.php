@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::LaGujJBjQR8ph097',
+            '_route' => 'generated::dA6Zunb7fEjTlk3S',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::wzi4EbiL9bVbp5O9',
+            '_route' => 'generated::APzcvEKSAp4RYzjl',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CvTkze4WYppWbs7t',
+            '_route' => 'generated::yZ2F9QTxVI6OSgIt',
           ),
           1 => NULL,
           2 => 
@@ -471,7 +471,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RU8QTRijfB1i5UGy',
+            '_route' => 'generated::6Dn5xh6omRysE6CX',
           ),
           1 => NULL,
           2 => 
@@ -1308,7 +1308,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::LaGujJBjQR8ph097' => 
+    'generated::dA6Zunb7fEjTlk3S' => 
     array (
       'methods' => 
       array (
@@ -1323,15 +1323,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@Zmwm/uaBtMeRLOBUDdbqDfcCtg8Gsnd/2MfSjzChHZM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@7cOu47O8QxrWmUjQ0iY6Dp1lbXYCw8nEc2C1+/Auk9c=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005f55e56d000000006185342b";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a7ee000000003c44a09d";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::LaGujJBjQR8ph097',
+        'as' => 'generated::dA6Zunb7fEjTlk3S',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1346,7 +1346,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::wzi4EbiL9bVbp5O9' => 
+    'generated::APzcvEKSAp4RYzjl' => 
     array (
       'methods' => 
       array (
@@ -1360,15 +1360,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@jGzwdHYecLkAxc8ygdriIFiSVIQJsyg8RmwNCl0+whE=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@YebmCATrVy3IbwQhnXGPGK9mXxUQacddwqPVU2kl+I4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005f55e563000000006185342b";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a7e0000000003c44a09d";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::wzi4EbiL9bVbp5O9',
+        'as' => 'generated::APzcvEKSAp4RYzjl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1561,7 +1561,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::CvTkze4WYppWbs7t' => 
+    'generated::yZ2F9QTxVI6OSgIt' => 
     array (
       'methods' => 
       array (
@@ -1575,7 +1575,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@E3YdIkf3IZyhgvx2vlg1bJwJhD4h6tykGORnmSQxN7U=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@Zln/lfN/cSK1WTtu0kjljQsUTlo5Iy1Gs4fbuc1oft4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1586,13 +1586,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005f55e51a000000006185342b";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a799000000003c44a09d";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::CvTkze4WYppWbs7t',
+        'as' => 'generated::yZ2F9QTxVI6OSgIt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1789,43 +1789,6 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'member.pelamar.export.excel' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'dashboard/member/detail/export-excel/{kodeMember}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'admin',
-        ),
-        'uses' => 'App\\Http\\Controllers\\MemberController@pelamarExportExcel',
-        'controller' => 'App\\Http\\Controllers\\MemberController@pelamarExportExcel',
-        'namespace' => NULL,
-        'prefix' => 'dashboard/member',
-        'where' => 
-        array (
-        ),
-        'as' => 'member.pelamar.export.excel',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
     'member.update' => 
     array (
       'methods' => 
@@ -1958,6 +1921,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'member.export.excel',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'member.pelamar.export.excel' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/member/detail/export-excel/{kodeMember}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\MemberController@pelamarExportExcel',
+        'controller' => 'App\\Http\\Controllers\\MemberController@pelamarExportExcel',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/member',
+        'where' => 
+        array (
+        ),
+        'as' => 'member.pelamar.export.excel',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2669,7 +2668,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::RU8QTRijfB1i5UGy' => 
+    'generated::6Dn5xh6omRysE6CX' => 
     array (
       'methods' => 
       array (
@@ -2690,7 +2689,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::RU8QTRijfB1i5UGy',
+        'as' => 'generated::6Dn5xh6omRysE6CX',
       ),
       'fallback' => false,
       'defaults' => 
