@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::dA6Zunb7fEjTlk3S',
+            '_route' => 'generated::KawyQt3MaO9ZMfgf',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::APzcvEKSAp4RYzjl',
+            '_route' => 'generated::6B34QKvsspMlPdpP',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::yZ2F9QTxVI6OSgIt',
+            '_route' => 'generated::BYeL6TJynGsPOHcY',
           ),
           1 => NULL,
           2 => 
@@ -302,6 +302,42 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/dashboard/member/register' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'member.register.view',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'member.register.process',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -471,7 +507,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::6Dn5xh6omRysE6CX',
+            '_route' => 'generated::D8Z7GMPXdWGIO3zy',
           ),
           1 => NULL,
           2 => 
@@ -632,7 +668,7 @@ app('router')->setCompiledRoutes(
           ),
           1 => 
           array (
-            0 => 'kodeMember',
+            0 => 'namaMember',
           ),
           2 => 
           array (
@@ -1308,7 +1344,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::dA6Zunb7fEjTlk3S' => 
+    'generated::KawyQt3MaO9ZMfgf' => 
     array (
       'methods' => 
       array (
@@ -1323,15 +1359,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@7cOu47O8QxrWmUjQ0iY6Dp1lbXYCw8nEc2C1+/Auk9c=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@ZFE7Con+TURM2I3yw+IyhUP9ymVvwcPqyuf8rmAmvyk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a7ee000000003c44a09d";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e46186000000003668384c";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::dA6Zunb7fEjTlk3S',
+        'as' => 'generated::KawyQt3MaO9ZMfgf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1346,7 +1382,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::APzcvEKSAp4RYzjl' => 
+    'generated::6B34QKvsspMlPdpP' => 
     array (
       'methods' => 
       array (
@@ -1360,15 +1396,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@YebmCATrVy3IbwQhnXGPGK9mXxUQacddwqPVU2kl+I4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@NVznQQDET268cVVK4N5GYbeS178kZRff33vcpN1EDAY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a7e0000000003c44a09d";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e46188000000003668384c";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::APzcvEKSAp4RYzjl',
+        'as' => 'generated::6B34QKvsspMlPdpP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1561,7 +1597,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::yZ2F9QTxVI6OSgIt' => 
+    'generated::BYeL6TJynGsPOHcY' => 
     array (
       'methods' => 
       array (
@@ -1575,7 +1611,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@Zln/lfN/cSK1WTtu0kjljQsUTlo5Iy1Gs4fbuc1oft4=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@HV8rxbesF54EJeYW8UfeNk2E4wcnuPbrb/kM0GEWscU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1586,13 +1622,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000042b5a799000000003c44a09d";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e461f1000000003668384c";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::yZ2F9QTxVI6OSgIt',
+        'as' => 'generated::BYeL6TJynGsPOHcY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1752,6 +1788,79 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
+    'member.register.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/member/register',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@registerView',
+        'controller' => 'App\\Http\\Controllers\\AuthController@registerView',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/member',
+        'where' => 
+        array (
+        ),
+        'as' => 'member.register.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'member.register.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'dashboard/member/register',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AuthController@registerProcess',
+        'controller' => 'App\\Http\\Controllers\\AuthController@registerProcess',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/member',
+        'where' => 
+        array (
+        ),
+        'as' => 'member.register.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
     'member.detail' => 
     array (
       'methods' => 
@@ -1759,7 +1868,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'dashboard/member/detail/{kodeMember}',
+      'uri' => 'dashboard/member/detail/{namaMember}',
       'action' => 
       array (
         'middleware' => 
@@ -2668,7 +2777,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::6Dn5xh6omRysE6CX' => 
+    'generated::D8Z7GMPXdWGIO3zy' => 
     array (
       'methods' => 
       array (
@@ -2689,7 +2798,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::6Dn5xh6omRysE6CX',
+        'as' => 'generated::D8Z7GMPXdWGIO3zy',
       ),
       'fallback' => false,
       'defaults' => 

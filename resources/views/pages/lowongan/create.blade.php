@@ -30,11 +30,11 @@
             @error('member')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
           </div>
           @endif
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="text">Custom Message</label>
             <textarea class="form-control" name="custom_message" placeholder="masukkan custom message (optional)..." style="height: 10rem;"></textarea>
-          </div>
-          <div class="tda__note__lowongan__create">
+          </div> -->
+          <!-- <div class="tda__note__lowongan__create">
             <h6>note</h6>
             <p>
               custom message ini bersifat <span class="font-weight-bold">opsional</span>, yang nanti akan di tampilkan setelah pelamar mengisi form lowongan.
@@ -44,7 +44,7 @@
               gunakan <span class="font-weight-bold">[namaPelamar]</span> untuk mengisi nama pelamar
               <br>gunakan <span class="font-weight-bold">[namaPerusahaan]</span> untuk mengisi nama perusahaan / nama bisnis anda
             </p>
-          </div>
+          </div> -->
           <div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>

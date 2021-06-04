@@ -8,12 +8,13 @@
   </div>
 
   <div class="card card-primary">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between">
       <h4>Register For Member TDA</h4>
+      <a href="{{route('member.index')}}" class="btn btn-primary">kembali</a>
     </div>
 
     <div class="card-body">
-      <form action="{{route('register.process')}}" method="POST">
+      <form action="{{route('member.register.process')}}" method="POST">
         @csrf
         <div class="row">
           <div class="form-group col-6">
@@ -80,9 +81,9 @@
           </div>
         </div>
       </form>
-      <div class="text-muted text-center text-capitalize">
+      <!-- <div class="text-muted text-center text-capitalize">
         sudah punya akun? <a href="{{route('login.view')}}">login</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

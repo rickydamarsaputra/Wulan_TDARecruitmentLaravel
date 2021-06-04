@@ -37,9 +37,9 @@
           </button>
         </div>
       </form>
-      <div class="text-muted text-center text-capitalize">
+      <!-- <div class="text-muted text-center text-capitalize">
         belum punya akun? <a href="{{route('register.view')}}">registrasi</a>
-      </div>
+      </div> -->
 
     </div>
   </div>

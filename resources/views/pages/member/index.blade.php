@@ -6,7 +6,8 @@
   <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Daftar Member</h1>
     <div>
-      <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2" target="blank">export PDF</a>
+      <a href="{{route('member.export.pdf')}}" class="btn btn-danger" target="blank">export PDF</a>
+      <a href="{{route('member.register.view')}}" class="btn btn-primary mx-2" target="blank">create member</a>
       <a href="{{route('member.export.excel')}}" class="btn btn-success" target="blank">export EXCEL</a>
     </div>
   </div>
@@ -48,11 +49,12 @@
           searchable: false
         },
         {
-          data: "kode_member",
+          data: "nama_and_kode",
           render: (data) => {
             let routeURL = "{{route('member.detail', ':kodeMember')}}";
-            routeURL = routeURL.replace(":kodeMember", data);
-            return `<a href="${routeURL}">${data}</a>`;
+            routeURL = routeURL.replace(":kodeMember", data[1]);
+
+            return `<a href="${routeURL}">${data[0]}</a>`;
           }
         },
         {

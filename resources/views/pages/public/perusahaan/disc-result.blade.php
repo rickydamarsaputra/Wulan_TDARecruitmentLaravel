@@ -69,22 +69,25 @@
       </div>
       <div class="tda__disc__graph__most" x-show=" graphOpen == 'most' ">
         <div class="header">
-          <h4>graph 1 most</h4>
-          <p>mask public self</p>
+          <h4>Grafik Most</h4>
+          <p>Mask (Public Self)</p>
+          <p class="desc">Grafik ini menunjukkan bagaimana seseorang percaya bagaimana ia diharapkan oleh orang lain. Grafik ini disebut topeng karena bisa jadi nilainya tidak secara akurat merepresentasikan orang yang melakukan tes. Grafik ini berdasarkan jawaban "yang paling mewakili saya" pada formulir DISC dan paling berpotensi untuk berubah. Sebagai contoh, jika pada grafik ini "I" berada di posisi lebih tinggi padahal berada di posisi lebih rendah di grafik Least dan Change, berarti orang ini mungkin percaya bahwa mereka diharapkan untuk menjadi lebih mudah akrab dan ramah, yang mana padahal sebenarnya mereka lebih pasif atau berorientasi pada pekerjaan.</p>
         </div>
         <canvas id="graph_most" width="400" height="200"></canvas>
       </div>
       <div class="tda__disc__graph__least" x-show=" graphOpen == 'least' ">
         <div class="header">
-          <h4>graph 1 least</h4>
-          <p>core private self</p>
+          <h4>Grafik least</h4>
+          <p>Inti (Private Self)</p>
+          <p class="desc">Grafik ini berdasarkan jawaban "yang paling tidak mewakili saya" pada formulir DISC dan paling tidak berpotensi berubah karena grafik ini menunjukkan respon yang mereka pelajari dan mendarah daging terhadap peristiwa masa lalu. Terkadang grafik ini disebut sebagai grafik stres karena kecenderungan seseorang untuk kembali ke prilaku inti mereka saat berada dalam tekanan. Sebagai contoh, "S" seseorang mungkin bisa berada di posisi sangat tinggi, menunjukkan bagaimana mereka lebih memilih untuk mundur, memperlambat dan mengevaluasi situasi sebelum melanjutkan atau membuat keputusan yang terburu-buru.</p>
         </div>
         <canvas id="graph_least" width="400" height="200"></canvas>
       </div>
       <div class="tda__disc__graph__change" x-show=" graphOpen == 'change' ">
         <div class="header">
-          <h4>graph 1 change</h4>
-          <p>mirror perceived self</p>
+          <h4>Grafik change</h4>
+          <p>Cermin (Perceived Self)</p>
+          <p class="desc">Grafik ini merupakan rata-rata dari grafik Most dan Least, dan yang paling menggambarkan prilaku alami seseorang. Grafik ini menggabungkan bagaimana seseorang mempercayai bagaimana mereka diharapkan di situasi saat ini dengan prilaku inti mereka dari respon masa lalu yang mereka pelajari. Grafik ini menunjukkan persepsi diri seseorang dan menunjukkan bagaimana mereka berkomunikasi dan berprilaku dalam sebagian besar situasi.</p>
         </div>
         <canvas id="graph_change" width="400" height="200"></canvas>
       </div>
@@ -220,10 +223,20 @@
   .tda__disc__graph__most .header,
   .tda__disc__graph__least .header,
   .tda__disc__graph__change .header {
-    padding: 1rem 0;
+    padding: 1rem;
     margin: 1rem 0;
     border: 2px solid #ACACAC;
     text-align: center;
+  }
+
+  .tda__disc__graph__most .header .desc,
+  .tda__disc__graph__least .header .desc,
+  .tda__disc__graph__change .header .desc {
+    text-align: left;
+    text-transform: none;
+    line-height: 1.2rem;
+    font-size: 12px;
+    color: #333;
   }
 
   .tda__disc__graph__most .header h4,

@@ -53,11 +53,11 @@
             <input name="nama_lowongan" id="nama_lowongan" type="text" class="form-control" value="{{$lowongan->label}}" placeholder="masukkan nama lowongan...">
             @error('nama_lowongan')<small class="form-text text-danger text-capitalize">{{$message}}</small>@enderror
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="text">Custom Message</label>
             <textarea class="form-control" name="custom_message" placeholder="masukkan custom message (optional)..." style="height: 10rem;">{{$lowongan->custom_message}}</textarea>
-          </div>
-          <div class="tda__note__lowongan__create">
+          </div> -->
+          <!-- <div class="tda__note__lowongan__create">
             <h6>note</h6>
             <p>
               custom message ini bersifat <span class="font-weight-bold">opsional</span>, yang nanti akan di tampilkan setelah pelamar mengisi form lowongan.
@@ -70,7 +70,7 @@
             <p>
               bila terdapat <span class="font-weight-bold"><code>{{"<br>"}}</code></span> biarkan saja karna itu untuk <span class="font-weight-bold">new line atau baris baru</span>
             </p>
-          </div>
+          </div> -->
           <div>
             <button type="submit" class="btn btn-primary">Update</button>
           </div>

@@ -29,6 +29,10 @@ class AuthController extends Controller
                 if ($user->role == 'admin') {
                     return redirect()->route('dashoard.index');
                 } else {
+                    if ($user->member->status_aktivasi != 1) {
+                        Alert::error($user->member->nama_member, 'Akun Anda Belum Di Aktivasi Oleh Admin!');
+                        return redirect()->back();
+                    }
                     return redirect()->route('lowongan.index');
                 }
             }
@@ -71,7 +75,8 @@ class AuthController extends Controller
             'email' => $request->email,
             'status' => 0,
         ]);
-        return redirect()->route('login.view');
+        return redirect()->route('member.index');
+        // return redirect()->route('login.view');
     }
 
     public function profile()

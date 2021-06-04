@@ -21,9 +21,9 @@ class MemberController extends Controller
         return view('pages.member.index');
     }
 
-    public function detail($kodeMember)
+    public function detail($namaMember)
     {
-        $member = Member::whereKodeMember($kodeMember)->firstOrFail();
+        $member = Member::whereNamaMember($namaMember)->firstOrFail();
         return view('pages.member.detail', [
             'member' => $member,
         ]);
@@ -92,6 +92,9 @@ class MemberController extends Controller
         $model = Member::select("member.*");
         return DataTables::of($model)
             ->addIndexColumn()
+            ->addColumn('nama_and_kode', function ($member) {
+                return [$member->nama_member, $member->kode_member];
+            })
             ->toJson();
     }
 }
