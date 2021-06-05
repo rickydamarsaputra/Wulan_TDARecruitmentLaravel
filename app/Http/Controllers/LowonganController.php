@@ -141,6 +141,9 @@ class LowonganController extends Controller
             ->addColumn('lowongan', function ($lowongan) {
                 return $lowongan;
             })
+            ->addColumn('member_nama_and_id', function ($lowongan) {
+                return [$lowongan->member->nama_member, $lowongan->member->ID_member];
+            })
             ->toJson();
     }
 }

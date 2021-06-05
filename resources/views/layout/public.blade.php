@@ -64,6 +64,7 @@
 
   <!-- Page Specific JS File -->
   @stack('scripts')
+  @include('sweetalert::alert')
   {!! NoCaptcha::renderJs() !!}
 
   <!-- Default Scripts -->

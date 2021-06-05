@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PerusahaanController extends Controller
 {
@@ -53,6 +54,13 @@ class PerusahaanController extends Controller
         $admin = User::where('role', '=', 'admin')->get();
         $pelamarNama = Str::slug($request->nama);
         $date = date_format(Date::now(), 'dmy');
+
+        $currentPelamar = Pelamar::whereIdLowongan($request->id_lowongan)->whereKodePelamar(Str::slug($request->nama))->first();
+
+        if ($currentPelamar) {
+            Alert::error($currentPelamar->nama_pelamar, "Anda Sudah Melamar Di" . " " . $currentPelamar->lowongan->label . "!");
+            return redirect()->back();
+        }
 
         $this->validate($request, [
             'nama' => 'required',
@@ -236,6 +244,12 @@ class PerusahaanController extends Controller
     {
         $gambaran = Gambaran::get(['ID_gambaran', 'no_soal', 'deskripsi', 'kunci_m', 'kunci_l']);
         $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+        $currentPelamarDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
+
+        if ($currentPelamarDISC) {
+            Alert::error($pelamar->nama_pelamar, "Anda Sudah Melakukan Test DISC!");
+            return redirect()->route('perusahaan.pelamar.view', $pelamar->member->kode_member);
+        }
 
         return view('pages.public.perusahaan.disc', [
             'titlePage' => 'Test DISC',

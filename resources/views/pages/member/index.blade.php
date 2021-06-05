@@ -49,10 +49,10 @@
           searchable: false
         },
         {
-          data: "nama_and_kode",
+          data: "nama_and_id",
           render: (data) => {
-            let routeURL = "{{route('member.detail', ':kodeMember')}}";
-            routeURL = routeURL.replace(":kodeMember", data[1]);
+            let routeURL = "{{route('member.detail', ':id')}}";
+            routeURL = routeURL.replace(":id", data[1]);
 
             return `<a href="${routeURL}">${data[0]}</a>`;
           }

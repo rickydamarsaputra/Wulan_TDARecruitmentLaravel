@@ -36,6 +36,9 @@ class CreatePelamarTable extends Migration
             $table->string('link_facebook')->nullable();
             $table->string('username_tw')->nullable();
             $table->string('link_youtube')->nullable();
+            $table->integer('status_menikah')->default(0);
+            $table->string('gaji_terakhir')->default(0);
+            $table->string('gaji_ekspektasi')->default(0);
             $table->integer('status');
             $table->timestamps();
         });

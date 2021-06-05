@@ -142,8 +142,8 @@
           data: "pelamar",
           render: (data) => {
             data = JSON.parse(data);
-            let requestUrl = "{{route('pelamar.detail', [':kodePelamar'])}}";
-            requestUrl = requestUrl.replace(':kodePelamar', data.kode_pelamar);
+            let requestUrl = "{{route('pelamar.detail', [':id'])}}";
+            requestUrl = requestUrl.replace(':id', data.ID_pelamar);
 
             return `<a href="${requestUrl}">${data.nama_pelamar}</a>`;
           }

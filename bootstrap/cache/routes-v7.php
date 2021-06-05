@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KawyQt3MaO9ZMfgf',
+            '_route' => 'generated::HuEgtATUeTeBg7FG',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::6B34QKvsspMlPdpP',
+            '_route' => 'generated::IYAu4ACZXXFEL77B',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BYeL6TJynGsPOHcY',
+            '_route' => 'generated::sIebwfITKMkm8MIV',
           ),
           1 => NULL,
           2 => 
@@ -507,7 +507,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::D8Z7GMPXdWGIO3zy',
+            '_route' => 'generated::U61fwrKNVSOET4RN',
           ),
           1 => NULL,
           2 => 
@@ -584,7 +584,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/([^/]++)(*:305)|change/status/([^/]++)/([^/]++)(*:344))|pelamar/(?|([^/]++)(*:372)|change/status/([^/]++)(*:402)|download/([^/]++)/([^/]++)(*:436)))|tatables/pelamar/lowongan/([^/]++)(*:480))|/perusahaan/(?|disc/(?|result/([^/]++)(*:527)|([^/]++)(?|(*:546)))|sorry/([^/]++)(*:570)|([^/]++)(?|(*:589))|result/([^/]++)(*:613))|/helpers/(?|generate/slug/([^/]++)(*:656)|find/lowongan/([^/]++)(*:686)))/?$}sDu',
+      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/([^/]++)(*:305)|change/status/([^/]++)/([^/]++)(*:344))|pelamar/(?|d(?|etail/([^/]++)(*:382)|ownload/([^/]++)/([^/]++)(*:415))|change/status/([^/]++)(*:446)))|tatables/pelamar/lowongan/([^/]++)(*:490))|/perusahaan/(?|disc/(?|result/([^/]++)(*:537)|([^/]++)(?|(*:556)))|sorry/([^/]++)(*:580)|([^/]++)(?|(*:599))|result/([^/]++)(*:623))|/helpers/(?|generate/slug/([^/]++)(*:666)|find/lowongan/([^/]++)(*:696)))/?$}sDu',
     ),
     3 => 
     array (
@@ -817,7 +817,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      372 => 
+      382 => 
       array (
         0 => 
         array (
@@ -827,7 +827,7 @@ app('router')->setCompiledRoutes(
           ),
           1 => 
           array (
-            0 => 'kodePelamar',
+            0 => 'id',
           ),
           2 => 
           array (
@@ -840,29 +840,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      402 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'pelamar.change.status',
-          ),
-          1 => 
-          array (
-            0 => 'idPelamar',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      436 => 
+      415 => 
       array (
         0 => 
         array (
@@ -886,7 +864,29 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      480 => 
+      446 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'pelamar.change.status',
+          ),
+          1 => 
+          array (
+            0 => 'idPelamar',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      490 => 
       array (
         0 => 
         array (
@@ -909,7 +909,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      527 => 
+      537 => 
       array (
         0 => 
         array (
@@ -932,7 +932,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      546 => 
+      556 => 
       array (
         0 => 
         array (
@@ -974,7 +974,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      570 => 
+      580 => 
       array (
         0 => 
         array (
@@ -997,7 +997,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      589 => 
+      599 => 
       array (
         0 => 
         array (
@@ -1039,7 +1039,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      613 => 
+      623 => 
       array (
         0 => 
         array (
@@ -1062,7 +1062,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      656 => 
+      666 => 
       array (
         0 => 
         array (
@@ -1085,7 +1085,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      686 => 
+      696 => 
       array (
         0 => 
         array (
@@ -1344,7 +1344,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::KawyQt3MaO9ZMfgf' => 
+    'generated::HuEgtATUeTeBg7FG' => 
     array (
       'methods' => 
       array (
@@ -1359,15 +1359,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@ZFE7Con+TURM2I3yw+IyhUP9ymVvwcPqyuf8rmAmvyk=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@kRL41889gvc0OHiypevl02EG7pv8pHqhlgHgNEfFZ1A=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e46186000000003668384c";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005fd30bef000000006010bc6a";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::KawyQt3MaO9ZMfgf',
+        'as' => 'generated::HuEgtATUeTeBg7FG',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1382,7 +1382,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::6B34QKvsspMlPdpP' => 
+    'generated::IYAu4ACZXXFEL77B' => 
     array (
       'methods' => 
       array (
@@ -1396,15 +1396,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@NVznQQDET268cVVK4N5GYbeS178kZRff33vcpN1EDAY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@scZYwq0aCsV2hlzWpLI7qj67v2t37FKTXHHiljIY+xM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e46188000000003668384c";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005fd30be1000000006010bc6a";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::6B34QKvsspMlPdpP',
+        'as' => 'generated::IYAu4ACZXXFEL77B',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1597,7 +1597,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::BYeL6TJynGsPOHcY' => 
+    'generated::sIebwfITKMkm8MIV' => 
     array (
       'methods' => 
       array (
@@ -1611,7 +1611,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@HV8rxbesF54EJeYW8UfeNk2E4wcnuPbrb/kM0GEWscU=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@8GWQFbvv2HUscUtOfaEc75leZHwLVDrukQZ1yPxty8M=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1622,13 +1622,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000006e461f1000000003668384c";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005fd30b98000000006010bc6a";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::BYeL6TJynGsPOHcY',
+        'as' => 'generated::sIebwfITKMkm8MIV',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2380,7 +2380,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'dashboard/pelamar/{kodePelamar}',
+      'uri' => 'dashboard/pelamar/detail/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -2777,7 +2777,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::D8Z7GMPXdWGIO3zy' => 
+    'generated::U61fwrKNVSOET4RN' => 
     array (
       'methods' => 
       array (
@@ -2798,7 +2798,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::D8Z7GMPXdWGIO3zy',
+        'as' => 'generated::U61fwrKNVSOET4RN',
       ),
       'fallback' => false,
       'defaults' => 

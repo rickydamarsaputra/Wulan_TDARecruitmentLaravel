@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PelamarController extends Controller
 {
-    public function detail($kodePelamar)
+    public function detail($id)
     {
-        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->firstOrFail();
+        $pelamar = Pelamar::whereIdPelamar($id)->firstOrFail();
 
         return view('pages.pelamar.detail', [
             'pelamar' => $pelamar,

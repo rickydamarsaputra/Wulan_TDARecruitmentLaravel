@@ -75,11 +75,11 @@
 
     if (userRole == 'admin') {
       columnsTableLowongan.insert(2, {
-        data: "member.nama_member",
+        data: "member_nama_and_id",
         render: (data) => {
-          let routeURL = "{{route('member.detail', ':namaMember')}}";
-          routeURL = routeURL.replace(":namaMember", data);
-          return `<a href="${routeURL}">${data}</a>`;
+          let routeURL = "{{route('member.detail', ':id')}}";
+          routeURL = routeURL.replace(":id", data[1]);
+          return `<a href="${routeURL}">${data[0]}</a>`;
         }
       });
     }

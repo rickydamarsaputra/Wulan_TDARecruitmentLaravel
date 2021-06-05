@@ -7,7 +7,11 @@
     <h1>pelamar detail</h1>
     <div>
       <a href="{{route('lowongan.detail', $pelamar->lowongan->ID_lowongan)}}" class="btn btn-primary mr-2">kembali</a>
+      @if($pelamar->summary)
       <a href="{{route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar)}}" class="btn btn-info mr-2" target="blank">detail test DISC</a>
+      @else
+      <a href="{{route('perusahaan.pelamar.test.disc.view', $pelamar->kode_pelamar)}}" class="btn btn-danger mr-2" target="blank">lakukan test DISC</a>
+      @endif
     </div>
   </div>
 
@@ -16,6 +20,7 @@
       <div class="row">
         <div class="col-lg tda__pelamar__info">
           <h6>profile <span>pelamar</span></h6>
+          <p>status test DISC <span class="badge badge-status {{$pelamar->summary ? 'badge-success' : 'badge-danger'}}">{{$pelamar->summary ? 'sudah' : 'belum'}}</span></p>
           <p>nama pelamar <span>{{$pelamar->nama_pelamar}}</span></p>
           <p>jenis kelamin <span>{{$pelamar->jenis_kelamin != 'laki_laki' ? 'Perempuan' : 'Laki - Laki'}}</span></p>
           <p>email <span>{{$pelamar->email}}</span></p>
@@ -60,8 +65,8 @@
             </span>
           </p>
           <p>status menikah<span>{{$pelamar->status_menikah ? 'Sudah Menikah' : 'Belum Menikah'}}</span></p>
-          <p>gaji terakhir<span>{{!empty($pelamar->gaji_terakhir) ? 'Rp.' . number_format($pelamar->gaji_terakhir) : '-'}}</span></p>
-          <p>gaji yang diharapkan<span>{{!empty($pelamar->gaji_ekspektasi) ? 'Rp.' . number_format($pelamar->gaji_ekspektasi) : '-'}}</span></p>
+          <p>gaji terakhir<span>{{!empty($pelamar->gaji_terakhir) ? $pelamar->gaji_terakhir : '-'}}</span></p>
+          <p>gaji yang diharapkan<span>{{!empty($pelamar->gaji_ekspektasi) ? $pelamar->gaji_ekspektasi : '-'}}</span></p>
           <h6>berkas <span>pelamar</span></h6>
           <p>foto pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'foto', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download foto pelamar</a></span></p>
           <p>ktp pelamar <span><a href="{{route('pelamar.download.file', ['tipe' => 'ktp', 'kodePelamar' => $pelamar->kode_pelamar])}}" target="blank">download ktp pelamar</a></span></p>
@@ -125,6 +130,11 @@
     width: 100%;
     height: .1rem;
     background: #f9f9f9;
+  }
+
+  span.badge-status {
+    padding: 5px 12px;
+    top: -5px;
   }
 
   img.tda__foto__pelamar {

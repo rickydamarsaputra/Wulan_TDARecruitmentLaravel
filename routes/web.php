@@ -56,7 +56,7 @@ Route::prefix('dashboard')->group(function () {
             Route::get('/', [MemberController::class, 'index'])->name('member.index');
             Route::get('/register', [AuthController::class, 'registerView'])->name('member.register.view');
             Route::post('/register', [AuthController::class, 'registerProcess'])->name('member.register.process');
-            Route::get('/detail/{namaMember}', [MemberController::class, 'detail'])->name('member.detail');
+            Route::get('/detail/{id}', [MemberController::class, 'detail'])->name('member.detail');
             Route::put('/change/{member}', [MemberController::class, 'updateMember'])->name('member.update');
             Route::put('/change/status/{member}/{status}', [MemberController::class, 'changeStatus'])->name('member.change.status');
             Route::get('/export-pdf', [MemberController::class, 'exportPDF'])->name('member.export.pdf');
@@ -78,7 +78,7 @@ Route::prefix('dashboard')->group(function () {
 
     Route::prefix('pelamar')->group(function () {
         Route::middleware('auth')->group(function () {
-            Route::get('/{kodePelamar}', [PelamarController::class, 'detail'])->name('pelamar.detail');
+            Route::get('/detail/{id}', [PelamarController::class, 'detail'])->name('pelamar.detail');
             Route::put('/change/status/{idPelamar}', [PelamarController::class, 'changeStatus'])->name('pelamar.change.status');
         });
         Route::get('/download/{tipe}/{kodePelamar}', [PelamarController::class, 'dowloadFilePelamar'])->name('pelamar.download.file');
