@@ -5,10 +5,10 @@
 <section class="section">
   <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Daftar Lowongan</h1>
-    <div>
+    <!-- <div>
       <a href="{{route('lowongan.export.pdf')}}" class="btn btn-danger mr-2" target="blank">export PDF</a>
       <a href="{{route('lowongan.export.excel')}}" class="btn btn-success" target="blank">export EXCEL</a>
-    </div>
+    </div> -->
   </div>
 
   <div class="section-body">

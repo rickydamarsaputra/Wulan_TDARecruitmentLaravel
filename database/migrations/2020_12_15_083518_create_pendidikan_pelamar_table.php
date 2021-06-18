@@ -17,12 +17,12 @@ class CreatePendidikanPelamarTable extends Migration
             $table->id('ID_pendidikan');
             $table->bigInteger('ID_pelamar');
             $table->string('institusi')->nullable();
-            // $table->enum('tingkat', ['SD', 'SMP', 'SMA/SMK/MA', 'S1', 'S2', 'non formal']);
-            // $table->string('kota');
+            $table->string('jenjang');
             $table->string('jurusan')->nullable();
             $table->bigInteger('tahun_awal')->nullable();
             $table->bigInteger('tahun_akhir')->nullable();
             $table->timestamps();
+            // $table->string('kota');
         });
     }
 

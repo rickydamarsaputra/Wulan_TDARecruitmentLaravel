@@ -26,6 +26,7 @@ class PerusahaanController extends Controller
     {
         $member = Member::with(['lowongan'])->whereKodeMember($kodeMember)->firstOrFail();
         $lowongan = Lowongan::whereIdMember($member->ID_member)->whereStatusAktif(1)->get(['ID_lowongan', 'label']);
+        $jenjang = ['SMP', 'SMA/SMK', 'MA/Sederajat', 'D1', 'D2', 'D3', 'S1', 'S2', 'Informal'];
 
         if (count($lowongan) <= 0) {
             return redirect()->route('perusahaan.not.found.lowongan', $member->kode_member);
@@ -34,6 +35,7 @@ class PerusahaanController extends Controller
                 'titlePage' => $member->nama_bisnis,
                 'member' => $member,
                 'lowongan' => $lowongan,
+                'jenjang' => $jenjang,
             ]);
         }
     }
@@ -49,7 +51,7 @@ class PerusahaanController extends Controller
 
     public function PerusahaanPelamarFormProcess(Request $request, $kodeMember)
     {
-        // return $request->only(['status_menikah', 'gaji_terakhir', 'gaji_ekspetasi']);
+        // return $request->nama_jenjang;
         $member = Member::whereKodeMember($kodeMember)->firstOrFail();
         $admin = User::where('role', '=', 'admin')->get();
         $pelamarNama = Str::slug($request->nama);
@@ -98,6 +100,7 @@ class PerusahaanController extends Controller
             'nama_pelamar' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'alamat' => $request->alamat,
+            'agama' => $request->agama,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'kode_pelamar' => Str::slug($request->nama),
@@ -108,8 +111,8 @@ class PerusahaanController extends Controller
             'foto_pelamar' => $pathPelamarFotoFile,
             'email' => $request->email,
             'web_blog' => empty($request->web_blog) ? null : $request->web_blog,
-            'no_hp1' => $request->no_telp_1,
-            'no_hp2' => empty($request->no_telp_2) ? null : $request->no_telp_2,
+            'no_hp1' => '62' . $request->no_telp_1,
+            'no_hp2' => empty($request->no_telp_2) ? null : '62' . $request->no_telp_2,
             'username_ig' => empty($request->username_ig) ? null : $request->username_ig,
             'link_facebook' => empty($request->link_facebook) ? null : $request->link_facebook,
             'username_tw' => empty($request->username_tw) ? null : $request->username_tw,
@@ -126,6 +129,7 @@ class PerusahaanController extends Controller
         $pendidikanPelamarTahunAkhir = $request->tahun_akhir_pendidikan;
         $pendidikanPelamarNamaInstitusi = $request->nama_institusi_pendidikan;
         $pendidikanPelamarNamaJurusan = $request->nama_jurusan_pendidikan;
+        $pendidikanPelamarNamaJenjang = $request->nama_jenjang;
 
         $counterPengalamanKerja = 0;
         $pengalamanKerja = [];
@@ -149,6 +153,7 @@ class PerusahaanController extends Controller
                 'tahun_akhir' => $pendidikanPelamarTahunAkhir[$counterPendidikan],
                 'institusi' => $pendidikanPelamarNamaInstitusi[$counterPendidikan],
                 'jurusan' => $pendidikanPelamarNamaJurusan[$counterPendidikan],
+                'jenjang' => $pendidikanPelamarNamaJenjang[$counterPendidikan],
             ]);
             $counterPendidikan++;
         }
@@ -180,6 +185,7 @@ class PerusahaanController extends Controller
                 'ID_pelamar' => $pelamar->ID_pelamar,
                 'institusi' => empty($loopItem['institusi']) ? null : $loopItem['institusi'],
                 'jurusan' => empty($loopItem['jurusan']) ? null : $loopItem['jurusan'],
+                'jenjang' => $loopItem['jenjang'],
                 'tahun_awal' => empty($loopItem['tahun_awal']) ? null : $loopItem['tahun_awal'],
                 'tahun_akhir' => empty($loopItem['tahun_akhir']) ? null : $loopItem['tahun_akhir'],
             ]);
@@ -236,14 +242,14 @@ class PerusahaanController extends Controller
         //     ]);
         // }
 
-        return redirect()->route('perusahaan.pelamar.test.disc.view', $pelamar->kode_pelamar);
+        return redirect()->route('perusahaan.pelamar.test.disc.view', [$pelamar->ID_pelamar, $pelamar->kode_pelamar]);
         // return redirect()->route('perusahaan.pelamar.result.page.view', $pelamar->kode_pelamar);
     }
 
-    public function discTestView($kodePelamar)
+    public function discTestView($idPelamar, $kodePelamar)
     {
         $gambaran = Gambaran::get(['ID_gambaran', 'no_soal', 'deskripsi', 'kunci_m', 'kunci_l']);
-        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+        $pelamar = Pelamar::whereIdPelamar($idPelamar)->whereKodePelamar($kodePelamar)->first();
         $currentPelamarDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
 
         if ($currentPelamarDISC) {
@@ -258,11 +264,11 @@ class PerusahaanController extends Controller
         ]);
     }
 
-    public function discTestProcess(Request $request, $kodePelamar)
+    public function discTestProcess(Request $request, $idPelamar, $kodePelamar)
     {
         $counter = 0;
         $discPelamar = [];
-        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+        $pelamar = Pelamar::whereIdPelamar($idPelamar)->whereKodePelamar($kodePelamar)->first();
 
         foreach ($request->nomor_soal as $loopItem) {
             array_push($discPelamar, [
@@ -471,9 +477,9 @@ class PerusahaanController extends Controller
         // return PelamarGambaran::whereIdPelamar($pelamar->ID_pelamar)->whereIdGambaranM(2)->get()->count();
     }
 
-    public function discTestResult($kodePelamar)
+    public function discTestResult($idPelamar, $kodePelamar)
     {
-        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->first();
+        $pelamar = Pelamar::whereIdPelamar($idPelamar)->whereKodePelamar($kodePelamar)->first();
         $pelamarSummary = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first();
         $mostDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['m_d', 'm_i', 'm_s', 'm_c', 'm_st']);
         $leastDISC = PelamarSummary::whereIdPelamar($pelamar->ID_pelamar)->first(['l_d', 'l_i', 'l_s', 'l_c', 'l_st']);

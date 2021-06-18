@@ -13,7 +13,7 @@
         <br />
         2. Pilih bulatan pada kolom dibawah huruf <span class="font-weight-bold">[L]</span> di samping kalimat yang <span class="font-weight-bold">PALING TIDAK menggambarkan</span> diri anda
       </p>
-      <form action="{{route('perusahaan.pelamar.test.disc.process', $pelamar->kode_pelamar)}}" method="POST">
+      <form action="{{route('perusahaan.pelamar.test.disc.process', [$pelamar->ID_pelamar, $pelamar->kode_pelamar])}}" method="POST">
         @csrf
         <table class="table table-bordered">
           <thead>
@@ -29,7 +29,11 @@
             $i = 1;
             @endphp
             @foreach($gambaran as $loopItem)
+            @if($i == 4)
+            <tr style="border-bottom: 0.2rem solid black;">
+              @else
             <tr>
+              @endif
               @if($i == 1)
               <th scope="row" rowspan="4" class="text-center bg-secondary">{{$loopItem->no_soal}}</th>
               <input type="hidden" name="nomor_soal[]" value="{{$loopItem->no_soal}}">

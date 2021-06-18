@@ -38,7 +38,8 @@
                 @error('tempat_lahir')<small class="form-text text-danger">{{$message}}</small>@enderror
               </div>
               <div class="col-lg">
-                <input type="text" class="form-control tanggal_lahir" name="tanggal_lahir" placeholder="masukkan tanggal lahir...">
+                <!-- <input type="text" class="form-control tanggal_lahir" name="tanggal_lahir" placeholder="masukkan tanggal lahir..."> -->
+                <input type="text" name="tanggal_lahir" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask placeholder="masukkan tanggal lahir..." required>
               </div>
             </div>
           </div>
@@ -63,8 +64,15 @@
         <div class="form-group row mb-4 align-items-center">
           <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">alamat</label>
           <div class="col-lg">
-            <textarea class="form-control" name="alamat" placeholder="masukkan alamat..." style="height: 5rem;"></textarea>
+            <textarea class="form-control" name="alamat" placeholder="masukkan alamat lengkap, ex: JL Jeruk No 40 Kec. Gubeng Surabaya..." style="height: 5rem;"></textarea>
             @error('alamat')<small class="form-text text-danger">{{$message}}</small>@enderror
+          </div>
+        </div>
+        <div class="form-group row mb-4 align-items-center">
+          <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">agama</label>
+          <div class="col-lg">
+            <input type="text" class="form-control" name="agama" placeholder="masukkan agama...">
+            @error('agama')<small class="form-text text-danger">{{$message}}</small>@enderror
           </div>
         </div>
         <div class="form-group row mb-4 align-items-center">
@@ -121,16 +129,28 @@
             <input type="text" class="form-control" name="web_blog" placeholder="masukkan alamat blog...">
           </div>
         </div>
-        <div class="form-group row mb-4 align-items-center">
+        <div class="form-group row mb-4">
           <label class="tda__required__field col-form-label col-form-label text-nowrap text-capitalize col-sm-2">no telp</label>
           <div class="col-lg">
             <div class="row tda__no__telp__data">
               <div class="col-lg">
-                <input type="text" class="form-control" name="no_telp_1" placeholder="masukkan no telp pertama...">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">+62</span>
+                  </div>
+                  <input type="text" class="form-control" name="no_telp_1" placeholder="masukkan no telp pertama...">
+                </div>
                 @error('no_telp_1')<small class="form-text text-danger">{{$message}}</small>@enderror
+                <!-- <input type="text" class="form-control" name="no_telp_1" placeholder="masukkan no telp pertama..."> -->
               </div>
               <div class="col-lg">
-                <input type="text" class="form-control" name="no_telp_2" placeholder="masukkan no telp kedua (optional)...">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">+62</span>
+                  </div>
+                  <input type="text" class="form-control" name="no_telp_2" placeholder="masukkan no telp kedua (optional)...">
+                </div>
+                <!-- <input type="text" class="form-control" name="no_telp_2" placeholder="masukkan no telp kedua (optional)..."> -->
               </div>
             </div>
           </div>
@@ -221,6 +241,15 @@
           <div class="form-group row mb-4 justify-content-end align-items-center">
             <div class="col-lg-10">
               <input type="text" class="form-control" name="nama_jurusan_pendidikan[]" placeholder="masukkan nama jurusan...">
+            </div>
+          </div>
+          <div class="form-group row mb-4 justify-content-end align-items-center">
+            <div class="col-lg-10">
+              <select class="form-control" name="nama_jenjang[]">
+                @foreach($jenjang as $loopItem)
+                <option value="{{$loopItem}}">{{$loopItem}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="tda__flex__button__group">
@@ -319,6 +348,8 @@
       singleDatePicker: true,
     });
 
+    $('[data-mask]').inputmask();
+
     let counterPendidikan = 2;
     let counterPengalamanKerja = 2;
     let counterPengalamanOrganisasi = 2;
@@ -352,11 +383,21 @@
             <input type="text" class="form-control" name="nama_jurusan_pendidikan[]" placeholder="masukkan nama jurusan...">
           </div>
         </div>
+        <div class="form-group row mb-4 justify-content-end align-items-center">
+            <div class="col-lg-10">
+              <select class="form-control" name="nama_jenjang[]">
+                @foreach($jenjang as $loopItem)
+                <option value="{{$loopItem}}">{{$loopItem}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
         <div class="tda__break__line mb-4"></div>
       </div>
       `;
 
       $('#tda__pendidikan__pelamar').append(element);
+      $("select.form-control").select2();
       counterPendidikan++;
     });
 

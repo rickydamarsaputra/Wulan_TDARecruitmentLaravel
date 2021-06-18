@@ -71,6 +71,7 @@ Route::prefix('dashboard')->group(function () {
         Route::post('/create', [LowonganController::class, 'createProcess'])->name('lowongan.create.process');
         Route::put('/update/{idLowongan}', [LowonganController::class, 'update'])->name('lowongan.update');
         Route::get('/detail/{idLowongan}', [LowonganController::class, 'detail'])->name('lowongan.detail');
+        Route::get('/detail/export-excel/{idLowongan}', [LowonganController::class, 'exportDetailEXCEL'])->name('lowongan.export.detail.excel');
         Route::put('/change/status/{lowongan}/{status}', [LowonganController::class, 'changeStatus'])->name('lowongan.change.status');
         Route::get('/export-pdf', [LowonganController::class, 'exportPDF'])->name('lowongan.export.pdf');
         Route::get('/export-excel', [LowonganController::class, 'exportEXCEL'])->name('lowongan.export.excel');
@@ -78,8 +79,11 @@ Route::prefix('dashboard')->group(function () {
 
     Route::prefix('pelamar')->group(function () {
         Route::middleware('auth')->group(function () {
+            Route::get('/', [PelamarController::class, 'index'])->name('pelamar.index');
             Route::get('/detail/{id}', [PelamarController::class, 'detail'])->name('pelamar.detail');
             Route::put('/change/status/{idPelamar}', [PelamarController::class, 'changeStatus'])->name('pelamar.change.status');
+            Route::get('/export-excel', [PelamarController::class, 'exportEXCEL'])->name('pelamar.export.excel');
+            Route::get('/export-pdf', [PelamarController::class, 'exportPDF'])->name('pelamar.export.pdf');
         });
         Route::get('/download/{tipe}/{kodePelamar}', [PelamarController::class, 'dowloadFilePelamar'])->name('pelamar.download.file');
     });
@@ -87,9 +91,9 @@ Route::prefix('dashboard')->group(function () {
 
 Route::prefix('perusahaan')->group(function () {
     Route::prefix('disc')->group(function () {
-        Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'discTestResult'])->middleware('auth')->name('perusahaan.pelamar.test.disc.result');
-        Route::get('/{kodePelamar}', [PerusahaanController::class, 'discTestView'])->name('perusahaan.pelamar.test.disc.view');
-        Route::post('/{kodePelamar}', [PerusahaanController::class, 'discTestProcess'])->name('perusahaan.pelamar.test.disc.process');
+        Route::get('/result/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'discTestResult'])->middleware('auth')->name('perusahaan.pelamar.test.disc.result');
+        Route::get('/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'discTestView'])->name('perusahaan.pelamar.test.disc.view');
+        Route::post('/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'discTestProcess'])->name('perusahaan.pelamar.test.disc.process');
     });
     Route::view('/thank-you', 'pages.public.perusahaan.thank-you')->name('perusahaan.thank.you');
     Route::get('/sorry/{kodeMember}', [PerusahaanController::class, 'notFoundLowongan'])->name('perusahaan.not.found.lowongan');
@@ -111,5 +115,6 @@ Route::prefix('helpers')->group(function () {
 Route::prefix('datatables')->group(function () {
     Route::get('/member', [MemberController::class, 'datatables'])->name('datatables.member');
     Route::get('/lowongan', [LowonganController::class, 'datatables'])->name('datatables.lowongan');
+    Route::post('/pelamar', [PelamarController::class, 'datatables'])->name('datatables.pelamar');
     Route::get('/pelamar/lowongan/{idLowongan}', [LowonganController::class, 'datatablesPelamarLowongan'])->name('datatables.pelamar.lowongan');
 });

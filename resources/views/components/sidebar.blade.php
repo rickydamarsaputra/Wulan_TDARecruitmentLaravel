@@ -12,6 +12,7 @@
       @if(auth()->user()->role == 'admin')
       <li><a href="{{route('member.index')}}" class="nav-link"><i class="fas fa-address-card"></i><span>Member</span></a></li>
       @endif
+      <li><a href="{{route('pelamar.index')}}" class="nav-link"><i class="fas fa-users"></i><span>Pelamar</span></a></li>
       <li class="menu-header">Lowongan List</li>
       <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-briefcase"></i><span>Lowongan</span></a>

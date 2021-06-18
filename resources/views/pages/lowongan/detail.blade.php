@@ -7,7 +7,8 @@
     <h1>lowongan detail</h1>
     <div>
       <a href="{{route('lowongan.index')}}" class="btn btn-primary">kembali</a>
-      <button @click="isDetail = !isDetail" x-text="isDetail ? 'update' : 'detail'" :class="{'btn-success': isDetail === true, 'btn-info': isDetail === false}" type="button" class="btn text-capitalize mx-2"></button>
+      <button @click="isDetail = !isDetail" x-text="isDetail ? 'update' : 'detail'" :class="{'btn-warning': isDetail === true, 'btn-info': isDetail === false}" type="button" class="btn text-capitalize mx-2"></button>
+      <a href="{{route('lowongan.export.detail.excel', $lowongan->ID_lowongan)}}" class="btn btn-success">Export Excel Pelamar {{$lowongan->label}}</a>
     </div>
   </div>
 
