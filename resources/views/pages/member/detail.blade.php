@@ -16,6 +16,8 @@
       <div class="card-body">
         <div class="tda__info__member">
           <h6>nama <span>{{$member->nama_member}}</span></h6>
+          <h6>email <span>{{$member->user->email}}</span></h6>
+          <h6>username <span>{{$member->user->username}}</span></h6>
           <h6>kode member <span>{{$member->kode_member}}</span></h6>
           <h6>nomor member <span>{{$member->nomor_member}}</span></h6>
           <h6>nama bisnis <span>{{$member->nama_bisnis}}</span></h6>

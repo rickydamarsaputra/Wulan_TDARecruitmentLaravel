@@ -1,5 +1,5 @@
 @extends('layout.dashboard')
-@section('title', 'Member')
+@section('title', 'Pelamar')
 
 @section('content')
 <section class="section">
@@ -38,14 +38,14 @@
             <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">Status Menikah</label>
             <div class="col-lg">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="status_menikah" value="1">
-                <label class="form-check-label text-capitalize">
+                <input class="form-check-input" type="radio" id="status_menikah_sudah" name="status_menikah" value="1">
+                <label class="form-check-label text-capitalize" for="status_menikah_sudah">
                   Sudah Menikah
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="status_menikah" value="0">
-                <label class="form-check-label text-capitalize">
+                <input class="form-check-input" type="radio" id="status_menikah_belum" name="status_menikah" value="0">
+                <label class="form-check-label text-capitalize" for="status_menikah_belum">
                   Belum Menikah
                 </label>
               </div>
@@ -55,14 +55,14 @@
             <label class="col-form-label col-form-label text-nowrap text-capitalize col-sm-2">jenis kelamin</label>
             <div class="col-lg">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="jenis_kelamin" value="laki_laki">
-                <label class="form-check-label text-capitalize">
+                <input class="form-check-input" type="radio" id="jenis_kelamin_laki_laki" name="jenis_kelamin" value="laki_laki">
+                <label class="form-check-label text-capitalize" for="jenis_kelamin_laki_laki">
                   laki laki
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="jenis_kelamin" value="perempuan">
-                <label class="form-check-label text-capitalize">
+                <input class="form-check-input" type="radio" id="jenis_kelamin_perempuan" name="jenis_kelamin" value="perempuan">
+                <label class="form-check-label text-capitalize" for="jenis_kelamin_perempuan">
                   perempuan
                 </label>
               </div>
@@ -81,13 +81,15 @@
             <thead>
               <tr class="text-uppercase">
                 <th class="text-center">#</th>
-                <th>nama pelamar</th>
-                <th>nama lowongan</th>
-                <th>jenjang pendidikan</th>
+                <th>nama</th>
+                <th>lowongan</th>
+                <!-- <th>jenjang pendidikan</th> -->
                 <th>jenis kelamin</th>
                 <th>status menikah</th>
-                <th>alamat</th>
-                <th>status</th>
+                <th>test DISC</th>
+                <th>jenjang</th>
+                <!-- <th>alamat</th> -->
+                <!-- <th>status</th> -->
               </tr>
             </thead>
           </table>
@@ -112,17 +114,23 @@
           searchable: false
         },
         {
-          data: "nama_pelamar"
+          data: "nama_and_id",
+          render: (data) => {
+            let redirectURL = "{{route('pelamar.detail', ':id')}}";
+            redirectURL = redirectURL.replace(':id', data[1]);
+
+            return `<a href="${redirectURL}" target="_blank" style="text-decoration: underline;">${data[0]}</a>`;
+          }
         },
         {
           data: "label"
         },
-        {
-          data: "jenjang",
-          render: (data) => {
-            return data.length ? data : "-";
-          }
-        },
+        // {
+        //   data: "jenjang",
+        //   render: (data) => {
+        //     return data.length ? data : "-";
+        //   }
+        // },
         {
           data: "jenis_kelamin",
           render: (data) => {
@@ -136,15 +144,48 @@
           }
         },
         {
-          data: "alamat"
+          data: 'disc',
+          render: (data) => {
+            if (data == '-' || data == null) {
+              return 'belum mengikuti test';
+            } else {
+              const disc = JSON.parse(data);
+              let discResult = disc.judul;
+              discResult = discResult.replace('Profile:', '');
+
+              return discResult;
+            }
+          }
         },
         {
-          data: "status",
+          data: 'jenjang',
           render: (data) => {
-            const badgeColor = (data == 0) ? "danger" : (data == 1) ? "warning" : "success";
-            return `<span class="bagde badge-${badgeColor} px-2 py-1 rounded-pill">${badgeColor}</span>`;
+            const jenjang = JSON.parse(data);
+            let title;
+            jenjang.map((item, index) => {
+              if (index < (jenjang.length - 1) && item.jenjang.length != 0) {
+                title += item.jenjang + ' - ';
+              } else if (item.jenjang.length != 0) {
+                title += item.jenjang;
+              } else {
+                title += '-';
+              }
+            });
+            title = title.replace('undefined', '');
+            return title;
           }
-        }
+        },
+        // {
+        //   data: "alamat"
+        // },
+        // {
+        //   data: 'status',
+        //   render: (data) => {
+        //     const badgeColor = (data == 0) ? "danger" : (data == 1) ? "warning" : "success";
+        //     const badgeMessage = (data == 0) ? "belum" : (data == 1) ? "sedang" : "selesai";
+        //     return `<span class="bagde badge-${badgeColor} px-2 py-1 rounded-pill">${badgeMessage}</span>`;
+        //   }
+        // }
       ];
 
       if ($.fn.dataTable.isDataTable("#data-table-pelamar")) {

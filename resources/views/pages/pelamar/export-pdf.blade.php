@@ -58,13 +58,12 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>nama pelamar</th>
-        <th>kode pelamar</th>
-        <th>nama lowongan</th>
+        <th>nama</th>
+        <th>lowongan</th>
         <th>jenis kelamin</th>
-        <th>alamat</th>
-        <th>tempat lahir</th>
-        <th>tanggal lahir</th>
+        <th>status menikah</th>
+        <th>test DISC</th>
+        <th>Jenjang</th>
       </tr>
     </thead>
     <tbody>
@@ -72,12 +71,15 @@
       <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$loopItem->nama_pelamar}}</td>
-        <td>{{$loopItem->kode_pelamar}}</td>
         <td>{{$loopItem->lowongan->label}}</td>
         <td>{{$loopItem->jenis_kelamin}}</td>
-        <td>{{$loopItem->alamat}}</td>
-        <td>{{$loopItem->tempat_lahir}}</td>
-        <td>{{$loopItem->tanggal_lahir}}</td>
+        <td>{{$loopItem->status_menikah == 1 ? 'Sudah Menikah' : 'Belum Menikah'}}</td>
+        <td>{{!empty($loopItem->summary) && $loopItem->summary->ID_interpretasi != 0 ? str_replace('Profile:', '', $loopItem->summary->interpretasi->judul) : '-'}}</td>
+        <td>
+          @foreach($loopItem->pendidikanPelamar as $pendidikan)
+          {{!$loop->last ? "$pendidikan->jenjang |" : "$pendidikan->jenjang"}}
+          @endforeach
+        </td>
       </tr>
       @endforeach
     </tbody>

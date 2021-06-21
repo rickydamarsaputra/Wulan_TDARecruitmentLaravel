@@ -6,9 +6,9 @@
   <div class="section-header text-capitalize d-flex justify-content-between">
     <h1>Daftar Member</h1>
     <div>
-      <a href="{{route('member.export.pdf')}}" class="btn btn-danger" target="blank">export PDF</a>
-      <a href="{{route('member.register.view')}}" class="btn btn-primary mx-2" target="blank">create member</a>
-      <a href="{{route('member.export.excel')}}" class="btn btn-success" target="blank">export EXCEL</a>
+      <a href="{{route('member.export.pdf')}}" class="btn btn-danger" target="blank">export PDF Member</a>
+      <a href="{{route('member.export.excel')}}" class="btn btn-success mx-2" target="blank">export EXCEL Member</a>
+      <a href="{{route('member.register.view')}}" class="btn btn-primary">create member</a>
     </div>
   </div>
 

@@ -3,6 +3,7 @@
     <tr>
       <th>#</th>
       <th>nama pelamar</th>
+      <th>agama</th>
       <th>kode pelamar</th>
       <th>nama lowongan</th>
       <th>jenis kelamin</th>
@@ -35,6 +36,7 @@
     <tr>
       <td>{{$loop->iteration}}</td>
       <td>{{$loopItem->nama_pelamar}}</td>
+      <td>{{!empty($loopItem->agama) ? $loopItem->agama : '-'}}</td>
       <td>{{$loopItem->kode_pelamar}}</td>
       <td>{{$loopItem->lowongan->label}}</td>
       <td>{{$loopItem->jenis_kelamin}}</td>

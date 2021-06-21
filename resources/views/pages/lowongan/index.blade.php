@@ -23,6 +23,7 @@
                 @if(auth()->user()->role == 'admin')
                 <th class="text-center">nama member</th>
                 @endif
+                <th class="text-center">jumlah pelamar</th>
                 <th class="text-center">tanggal publish</th>
                 <th class="text-center">status</th>
               </tr>
@@ -56,6 +57,9 @@
           routeURL = routeURL.replace(":idLowongan", data.ID_lowongan);
           return `<a href="${routeURL}">${data.label}</a>`;
         }
+      },
+      {
+        data: "jumlah_pelamar"
       },
       {
         data: "created_at",

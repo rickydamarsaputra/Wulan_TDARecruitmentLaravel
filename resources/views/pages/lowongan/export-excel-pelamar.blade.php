@@ -3,6 +3,7 @@
     <tr>
       <th>#</th>
       <th>nama pelamar</th>
+      <th>agama</th>
       <th>kode pelamar</th>
       <th>nama lowongan</th>
       <th>jenis kelamin</th>
@@ -27,6 +28,7 @@
       <th>pendidikan</th>
       <th>pengalaman kerja</th>
       <th>pengalaman organisasi</th>
+      <th>Hasil Test DISC</th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +36,7 @@
     <tr>
       <td>{{$loop->iteration}}</td>
       <td>{{$loopItem->nama_pelamar}}</td>
+      <td>{{!empty($loopItem->agama) ? $loopItem->agama : '-'}}</td>
       <td>{{$loopItem->kode_pelamar}}</td>
       <td>{{$loopItem->lowongan->label}}</td>
       <td>{{$loopItem->jenis_kelamin}}</td>
@@ -69,7 +72,7 @@
       </td>
       <td>
         @foreach($loopItem->pendidikanPelamar as $pendidikan)
-        {{!$loop->last ? "$pendidikan->institusi - $pendidikan->jurusan |" : "$pendidikan->institusi - $pendidikan->jurusan"}}
+        {{!$loop->last ? "$pendidikan->tahun_awal ~ $pendidikan->tahun_akhir - $pendidikan->jenjang - $pendidikan->jurusan - $pendidikan->institusi |" : "$pendidikan->tahun_awal ~ $pendidikan->tahun_akhir - $pendidikan->jenjang - $pendidikan->jurusan - $pendidikan->institusi"}}
         @endforeach
       </td>
       <td>
@@ -82,6 +85,7 @@
         {{!$loop->last ? "$organisasi->organisasi - $organisasi->posisi |" : "$organisasi->organisasi - $organisasi->posisi"}}
         @endforeach
       </td>
+      <td>{{!empty($loopItem->summary) ? str_replace("Profile: ", "", $loopItem->summary->interpretasi->judul) : '-'}}</td>
     </tr>
     @endforeach
   </tbody>
