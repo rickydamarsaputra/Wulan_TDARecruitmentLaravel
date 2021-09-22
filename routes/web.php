@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IqTestController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MemberController;
@@ -87,6 +88,12 @@ Route::prefix('dashboard')->group(function () {
         });
         Route::get('/download/{tipe}/{kodePelamar}', [PelamarController::class, 'dowloadFilePelamar'])->name('pelamar.download.file');
     });
+
+    Route::prefix('iq-question')->group(function () {
+        Route::get('/', [IqTestController::class, 'questionIndex'])->name('iq-question.index');
+        Route::get('/create', [IqTestController::class, 'questionCreateView'])->name('iq-question.create.view');
+        Route::post('/create', [IqTestController::class, 'questionCreateProcess'])->name('iq-question.create.process');
+    });
 });
 
 Route::prefix('perusahaan')->group(function () {
@@ -95,11 +102,16 @@ Route::prefix('perusahaan')->group(function () {
         Route::get('/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'discTestView'])->name('perusahaan.pelamar.test.disc.view');
         Route::post('/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'discTestProcess'])->name('perusahaan.pelamar.test.disc.process');
     });
+    Route::prefix('iq')->group(function () {
+        Route::get('/{idPelamar}/{kodePelamar}', [IqTestController::class, 'index'])->name('perusahaan.pelamar.test.iq.view');
+        Route::get('/{idPelamar}/{kodePelamar}/question/{questionNumber}', [IqTestController::class, 'questionView'])->name('perusahaan.pelamar.test.iq.question.view');
+        Route::post('/{idPelamar}/{kodePelamar}/question/{questionNumber}', [IqTestController::class, 'questionProcess'])->name('perusahaan.pelamar.test.iq.question.process');
+    });
     Route::view('/thank-you', 'pages.public.perusahaan.thank-you')->name('perusahaan.thank.you');
     Route::get('/sorry/{kodeMember}', [PerusahaanController::class, 'notFoundLowongan'])->name('perusahaan.not.found.lowongan');
     Route::get('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormView'])->name('perusahaan.pelamar.view');
     Route::post('/{kodeMember}', [PerusahaanController::class, 'PerusahaanPelamarFormProcess'])->name('perusahaan.pelamar.process');
-    Route::get('/result/{kodePelamar}', [PerusahaanController::class, 'perusahaanPelamarResultPage'])->name('perusahaan.pelamar.result.page.view');
+    Route::get('/result/{idPelamar}/{kodePelamar}', [PerusahaanController::class, 'perusahaanPelamarResultPage'])->name('perusahaan.pelamar.result.page.view');
 });
 
 Route::get('mail-test', [MailController::class, 'test']);
@@ -116,5 +128,6 @@ Route::prefix('datatables')->group(function () {
     Route::get('/member', [MemberController::class, 'datatables'])->name('datatables.member');
     Route::get('/lowongan', [LowonganController::class, 'datatables'])->name('datatables.lowongan');
     Route::post('/pelamar', [PelamarController::class, 'datatables'])->name('datatables.pelamar');
+    Route::get('/test_iq', [IqTestController::class, 'datatables'])->name('datatables.test.iq');
     Route::get('/pelamar/lowongan/{idLowongan}', [LowonganController::class, 'datatablesPelamarLowongan'])->name('datatables.pelamar.lowongan');
 });

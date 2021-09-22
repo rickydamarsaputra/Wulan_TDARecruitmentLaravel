@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::DHe2hLIUwVaBanVE',
+            '_route' => 'generated::PgUjeygdbQXY5tFr',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KHBU4Jp3MxXpSxe0',
+            '_route' => 'generated::JnriJZfQ0WrW354c',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ApgTooJFUYZ1tHev',
+            '_route' => 'generated::9HuxSypdgqOLmNuc',
           ),
           1 => NULL,
           2 => 
@@ -541,6 +541,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/dashboard/iq-question' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'iq-question.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/dashboard/iq-question/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'iq-question.create.view',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'iq-question.create.process',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/perusahaan/thank-you' => 
       array (
         0 => 
@@ -567,7 +623,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::gc4JcVBnZxqYeWj3',
+            '_route' => 'generated::jSXt28ruOuBsIY3o',
           ),
           1 => NULL,
           2 => 
@@ -660,10 +716,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/datatables/test_iq' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'datatables.test.iq',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/(?|([^/]++)(*:308)|export\\-excel/([^/]++)(*:338))|change/status/([^/]++)/([^/]++)(*:378))|pelamar/(?|d(?|etail/([^/]++)(*:416)|ownload/([^/]++)/([^/]++)(*:449))|change/status/([^/]++)(*:480)))|tatables/pelamar/lowongan/([^/]++)(*:524))|/perusahaan/(?|disc/(?|result/([^/]++)/([^/]++)(*:580)|([^/]++)/([^/]++)(?|(*:608)))|sorry/([^/]++)(*:632)|([^/]++)(?|(*:651))|result/([^/]++)(*:675))|/helpers/(?|generate/slug/([^/]++)(*:718)|find/lowongan/([^/]++)(*:748)))/?$}sDu',
+      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/(?|([^/]++)(*:308)|export\\-excel/([^/]++)(*:338))|change/status/([^/]++)/([^/]++)(*:378))|pelamar/(?|d(?|etail/([^/]++)(*:416)|ownload/([^/]++)/([^/]++)(*:449))|change/status/([^/]++)(*:480)))|tatables/pelamar/lowongan/([^/]++)(*:524))|/perusahaan/(?|disc/(?|result/([^/]++)/([^/]++)(*:580)|([^/]++)/([^/]++)(?|(*:608)))|iq/([^/]++)/([^/]++)(?|(*:641)|/question/([^/]++)(?|(*:670)))|sorry/([^/]++)(*:694)|([^/]++)(?|(*:713))|result/([^/]++)/([^/]++)(*:746))|/helpers/(?|generate/slug/([^/]++)(*:789)|find/lowongan/([^/]++)(*:819)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1079,7 +1155,77 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      632 => 
+      641 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.iq.view',
+          ),
+          1 => 
+          array (
+            0 => 'idPelamar',
+            1 => 'kodePelamar',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      670 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.iq.question.view',
+          ),
+          1 => 
+          array (
+            0 => 'idPelamar',
+            1 => 'kodePelamar',
+            2 => 'questionNumber',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'perusahaan.pelamar.test.iq.question.process',
+          ),
+          1 => 
+          array (
+            0 => 'idPelamar',
+            1 => 'kodePelamar',
+            2 => 'questionNumber',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      694 => 
       array (
         0 => 
         array (
@@ -1102,7 +1248,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      651 => 
+      713 => 
       array (
         0 => 
         array (
@@ -1144,7 +1290,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      675 => 
+      746 => 
       array (
         0 => 
         array (
@@ -1154,7 +1300,8 @@ app('router')->setCompiledRoutes(
           ),
           1 => 
           array (
-            0 => 'kodePelamar',
+            0 => 'idPelamar',
+            1 => 'kodePelamar',
           ),
           2 => 
           array (
@@ -1167,7 +1314,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      718 => 
+      789 => 
       array (
         0 => 
         array (
@@ -1190,7 +1337,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      748 => 
+      819 => 
       array (
         0 => 
         array (
@@ -1449,7 +1596,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::DHe2hLIUwVaBanVE' => 
+    'generated::PgUjeygdbQXY5tFr' => 
     array (
       'methods' => 
       array (
@@ -1464,15 +1611,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@ZTKh4a9ck+df/jY5LeNjJItdOO2Qj0Etw7Ue8+PnJTc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@JRqSCGyQWJZ4WYU0ElrmqBD/LE9c+/JCzivtA0kySXg=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000006474482b0000000039884b54";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b296300000000274895df";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::DHe2hLIUwVaBanVE',
+        'as' => 'generated::PgUjeygdbQXY5tFr',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1487,7 +1634,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::KHBU4Jp3MxXpSxe0' => 
+    'generated::JnriJZfQ0WrW354c' => 
     array (
       'methods' => 
       array (
@@ -1501,15 +1648,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@n8kUc+f5+rH56dofTGjaNKGPaPho2Fka7oQ2pHEQwpc=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@dyUgvVKUnAyvXZ4KGXxFpnf4bwGtuP04w1J6ZuMEmmo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000647448250000000039884b54";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b296d00000000274895df";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::KHBU4Jp3MxXpSxe0',
+        'as' => 'generated::JnriJZfQ0WrW354c',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1702,7 +1849,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::ApgTooJFUYZ1tHev' => 
+    'generated::9HuxSypdgqOLmNuc' => 
     array (
       'methods' => 
       array (
@@ -1716,7 +1863,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@9vtMRkBzPObmjHspdud8Fa/bH04PFy0crGp6DKYtzjI=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@KZM7K5EwaCHidwJ/K0V+Kskz7w7dcaDqIKO8uYS3dDM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1727,13 +1874,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000006474485c0000000039884b54";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b291400000000274895df";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::ApgTooJFUYZ1tHev',
+        'as' => 'generated::9HuxSypdgqOLmNuc',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2735,6 +2882,113 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
+    'iq-question.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/iq-question',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionIndex',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionIndex',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/iq-question',
+        'where' => 
+        array (
+        ),
+        'as' => 'iq-question.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'iq-question.create.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/iq-question/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionCreateView',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionCreateView',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/iq-question',
+        'where' => 
+        array (
+        ),
+        'as' => 'iq-question.create.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'iq-question.create.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'dashboard/iq-question/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionCreateProcess',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionCreateProcess',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/iq-question',
+        'where' => 
+        array (
+        ),
+        'as' => 'iq-question.create.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
     'perusahaan.pelamar.test.disc.result' => 
     array (
       'methods' => 
@@ -2829,6 +3083,113 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'perusahaan.pelamar.test.disc.process',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'perusahaan.pelamar.test.iq.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'perusahaan/iq/{idPelamar}/{kodePelamar}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@index',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@index',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/iq',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.iq.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'perusahaan.pelamar.test.iq.question.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'perusahaan/iq/{idPelamar}/{kodePelamar}/question/{questionNumber}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionView',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionView',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/iq',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.iq.question.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'perusahaan.pelamar.test.iq.question.process' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'perusahaan/iq/{idPelamar}/{kodePelamar}/question/{questionNumber}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionProcess',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionProcess',
+        'namespace' => NULL,
+        'prefix' => 'perusahaan/iq',
+        'where' => 
+        array (
+        ),
+        'as' => 'perusahaan.pelamar.test.iq.question.process',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3001,7 +3362,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'perusahaan/result/{kodePelamar}',
+      'uri' => 'perusahaan/result/{idPelamar}/{kodePelamar}',
       'action' => 
       array (
         'middleware' => 
@@ -3030,7 +3391,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::gc4JcVBnZxqYeWj3' => 
+    'generated::jSXt28ruOuBsIY3o' => 
     array (
       'methods' => 
       array (
@@ -3051,7 +3412,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::gc4JcVBnZxqYeWj3',
+        'as' => 'generated::jSXt28ruOuBsIY3o',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3267,6 +3628,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'datatables.pelamar',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'datatables.test.iq' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'datatables/test_iq',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@datatables',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@datatables',
+        'namespace' => NULL,
+        'prefix' => '/datatables',
+        'where' => 
+        array (
+        ),
+        'as' => 'datatables.test.iq',
       ),
       'fallback' => false,
       'defaults' => 

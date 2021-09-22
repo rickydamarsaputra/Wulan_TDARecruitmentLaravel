@@ -85,7 +85,7 @@
         {{!$loop->last ? "$organisasi->organisasi - $organisasi->posisi |" : "$organisasi->organisasi - $organisasi->posisi"}}
         @endforeach
       </td>
-      <td>{{!empty($loopItem->summary) ? str_replace("Profile: ", "", $loopItem->summary->interpretasi->judul) : '-'}}</td>
+      <td>{{!empty($loopItem->summary) && $loopItem->summary->ID_interpretasi != 0 ? str_replace("Profile: ", "", $loopItem->summary->interpretasi->judul) : '-'}}</td>
     </tr>
     @endforeach
   </tbody>

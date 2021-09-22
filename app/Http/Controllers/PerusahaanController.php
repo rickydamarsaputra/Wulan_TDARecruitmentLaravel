@@ -100,7 +100,7 @@ class PerusahaanController extends Controller
             'nama_pelamar' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'alamat' => $request->alamat,
-            'agama' => $request->agama,
+            'agama' => empty($request->agama) ? null : $request->agama,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'kode_pelamar' => Str::slug($request->nama),
@@ -455,7 +455,8 @@ class PerusahaanController extends Controller
         ]);
         // return $interpretasi;
 
-        return redirect()->route('perusahaan.thank.you');
+        return redirect()->route('perusahaan.pelamar.test.iq.view', ['idPelamar' => $idPelamar, 'kodePelamar' => $kodePelamar]);
+        // return redirect()->route('perusahaan.thank.you');
         // return redirect()->route('perusahaan.pelamar.test.disc.result', $pelamar->kode_pelamar);
         // return [
         //     'most' => [
@@ -495,9 +496,9 @@ class PerusahaanController extends Controller
         ]);
     }
 
-    public function perusahaanPelamarResultPage($kodePelamar)
+    public function perusahaanPelamarResultPage($idPelamar, $kodePelamar)
     {
-        $pelamar = Pelamar::whereKodePelamar($kodePelamar)->firstOrFail();
+        $pelamar = Pelamar::whereIdPelamar($idPelamar)->whereKodePelamar($kodePelamar)->firstOrFail();
 
         $message = $pelamar->lowongan->custom_message;
         $message = str_replace(['[namaPelamar]', '[namaPerusahaan]'], [$pelamar->nama_pelamar, $pelamar->member->nama_bisnis], $message);

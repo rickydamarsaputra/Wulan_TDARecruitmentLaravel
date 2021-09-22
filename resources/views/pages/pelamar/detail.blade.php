@@ -105,9 +105,9 @@
           <h6>riwayat pendidikan <span>pelamar</span></h6>
           @foreach($pelamar->pendidikanPelamar as $loopItem)
           <p>tahun masuk dan lulus <span>{{$loopItem->tahun_awal}} - {{$loopItem->tahun_akhir}}</span></p>
-          <p>nama institusi <span>{{$loopItem->institusi ?? '-'}}</span></p>
-          <p>nama jurusan <span>{{$loopItem->jurusan ?? '-'}}</span></p>
           <p>nama jenjang <span>{{$loopItem->jenjang ?? '-'}}</span></p>
+          <p>nama jurusan <span>{{$loopItem->jurusan ?? '-'}}</span></p>
+          <p>nama institusi <span>{{$loopItem->institusi ?? '-'}}</span></p>
           <div class="tda__break__line mb-4"></div>
           @endforeach
 
