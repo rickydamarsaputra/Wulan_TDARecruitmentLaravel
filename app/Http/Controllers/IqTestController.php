@@ -9,7 +9,6 @@ use App\Models\TestIQItem;
 use Illuminate\Http\Request;
 use DataTables;
 
-use function PHPUnit\Framework\returnSelf;
 
 class IqTestController extends Controller
 {
@@ -139,6 +138,28 @@ class IqTestController extends Controller
                 ]);
             }
         }
+        return redirect()->back();
+    }
+
+    public function questionUpdateView($id)
+    {
+        $soal = Soal::with('opsi')->find($id);
+
+        return view('pages.iq-question.update', [
+            'soal' => $soal
+        ]);
+    }
+
+    public function questionUpdateAction($id, Request $request)
+    {
+        $soal = Soal::where('ID_tiq_soal', '=', $id)->first();
+
+        $soal->update([
+            'desc_soal' => $request->deskripsi_soal,
+            'jawaban_benar' => $request->jawaban_benar,
+            'poin_benar' => $request->poin_benar
+        ]);
+
         return redirect()->back();
     }
 

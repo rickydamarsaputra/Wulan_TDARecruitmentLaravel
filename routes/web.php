@@ -93,6 +93,8 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/', [IqTestController::class, 'questionIndex'])->name('iq-question.index');
         Route::get('/create', [IqTestController::class, 'questionCreateView'])->name('iq-question.create.view');
         Route::post('/create', [IqTestController::class, 'questionCreateProcess'])->name('iq-question.create.process');
+        Route::get('/update/{id}', [IqTestController::class, 'questionUpdateView'])->name('iq-question.update.view');
+        Route::put('/update/{id}', [IqTestController::class, 'questionUpdateAction'])->name('iq-question.update.action');
     });
 });
 

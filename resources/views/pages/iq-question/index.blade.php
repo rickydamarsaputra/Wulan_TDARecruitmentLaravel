@@ -18,6 +18,7 @@
                 <th>deskripsi</th>
                 <th>point benar</th>
                 <th>jawaban benar</th>
+                <th>action</th>
               </tr>
             </thead>
           </table>
@@ -45,7 +46,7 @@
         {
           data: 'desc_soal',
           render: (data) =>{
-            return `<pre>${data.slice(0, 150)}...</pre>`
+            return `<pre>${data.trim().slice(0, 50)}...</pre>`
           }
         },
         {
@@ -54,6 +55,15 @@
         {
           data: 'jawaban_benar',
         },
+        {
+          data: 'ID_tiq_soal',
+          render: (data) =>{
+            let updateURL = "{{ route('iq-question.update.view', ':id') }}";
+            updateURL = updateURL.replace(':id', data);
+
+            return `<a href="${updateURL}" class="btn btn-success">Update</a>`
+          }
+        }
       ]
     });
   });

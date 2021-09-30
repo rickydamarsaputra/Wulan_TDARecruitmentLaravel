@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::PgUjeygdbQXY5tFr',
+            '_route' => 'generated::QiiYuiHsORviUVNB',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::JnriJZfQ0WrW354c',
+            '_route' => 'generated::6wFAfTuFldl0XPzo',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9HuxSypdgqOLmNuc',
+            '_route' => 'generated::vNVEgP05t5dpB5o3',
           ),
           1 => NULL,
           2 => 
@@ -623,7 +623,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::jSXt28ruOuBsIY3o',
+            '_route' => 'generated::QReARBmRu40X4OwP',
           ),
           1 => NULL,
           2 => 
@@ -739,7 +739,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/(?|([^/]++)(*:308)|export\\-excel/([^/]++)(*:338))|change/status/([^/]++)/([^/]++)(*:378))|pelamar/(?|d(?|etail/([^/]++)(*:416)|ownload/([^/]++)/([^/]++)(*:449))|change/status/([^/]++)(*:480)))|tatables/pelamar/lowongan/([^/]++)(*:524))|/perusahaan/(?|disc/(?|result/([^/]++)/([^/]++)(*:580)|([^/]++)/([^/]++)(?|(*:608)))|iq/([^/]++)/([^/]++)(?|(*:641)|/question/([^/]++)(?|(*:670)))|sorry/([^/]++)(*:694)|([^/]++)(?|(*:713))|result/([^/]++)/([^/]++)(*:746))|/helpers/(?|generate/slug/([^/]++)(*:789)|find/lowongan/([^/]++)(*:819)))/?$}sDu',
+      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/da(?|shboard/(?|member/(?|detail/(?|([^/]++)(*:156)|export\\-excel/([^/]++)(*:186))|change/(?|([^/]++)(*:213)|status/([^/]++)/([^/]++)(*:245)))|lowongan/(?|update/([^/]++)(*:282)|detail/(?|([^/]++)(*:308)|export\\-excel/([^/]++)(*:338))|change/status/([^/]++)/([^/]++)(*:378))|pelamar/(?|d(?|etail/([^/]++)(*:416)|ownload/([^/]++)/([^/]++)(*:449))|change/status/([^/]++)(*:480))|iq\\-question/update/([^/]++)(?|(*:520)))|tatables/pelamar/lowongan/([^/]++)(*:564))|/perusahaan/(?|disc/(?|result/([^/]++)/([^/]++)(*:620)|([^/]++)/([^/]++)(?|(*:648)))|iq/([^/]++)/([^/]++)(?|(*:681)|/question/([^/]++)(?|(*:710)))|sorry/([^/]++)(*:734)|([^/]++)(?|(*:753))|result/([^/]++)/([^/]++)(*:786))|/helpers/(?|generate/slug/([^/]++)(*:829)|find/lowongan/([^/]++)(*:859)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1064,7 +1064,49 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      524 => 
+      520 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'iq-question.update.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'iq-question.update.action',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      564 => 
       array (
         0 => 
         array (
@@ -1087,7 +1129,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      580 => 
+      620 => 
       array (
         0 => 
         array (
@@ -1111,7 +1153,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      608 => 
+      648 => 
       array (
         0 => 
         array (
@@ -1155,7 +1197,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      641 => 
+      681 => 
       array (
         0 => 
         array (
@@ -1179,7 +1221,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      670 => 
+      710 => 
       array (
         0 => 
         array (
@@ -1225,7 +1267,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      694 => 
+      734 => 
       array (
         0 => 
         array (
@@ -1248,7 +1290,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      713 => 
+      753 => 
       array (
         0 => 
         array (
@@ -1290,7 +1332,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      746 => 
+      786 => 
       array (
         0 => 
         array (
@@ -1314,7 +1356,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      789 => 
+      829 => 
       array (
         0 => 
         array (
@@ -1337,7 +1379,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      819 => 
+      859 => 
       array (
         0 => 
         array (
@@ -1596,7 +1638,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::PgUjeygdbQXY5tFr' => 
+    'generated::QiiYuiHsORviUVNB' => 
     array (
       'methods' => 
       array (
@@ -1611,15 +1653,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:api',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@JRqSCGyQWJZ4WYU0ElrmqBD/LE9c+/JCzivtA0kySXg=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":289:{@eJGT6r6AGxm0gfyTZfoEX8nGuuztInFVF0Cbc0Nv8sg=.a:5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b296300000000274895df";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004ff386a30000000023d40eb9";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::PgUjeygdbQXY5tFr',
+        'as' => 'generated::QiiYuiHsORviUVNB',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1634,7 +1676,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::JnriJZfQ0WrW354c' => 
+    'generated::6wFAfTuFldl0XPzo' => 
     array (
       'methods' => 
       array (
@@ -1648,15 +1690,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@dyUgvVKUnAyvXZ4KGXxFpnf4bwGtuP04w1J6ZuMEmmo=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":272:{@iYyjzKVrG2vRUGiiTGNZoi+NITlGBBMkjmMVOuZbitY=.a:5:{s:3:"use";a:0:{}s:8:"function";s:60:"function () {
     return \\redirect()->route(\'login.view\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b296d00000000274895df";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004ff386a50000000023d40eb9";}}',
         'namespace' => NULL,
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::JnriJZfQ0WrW354c',
+        'as' => 'generated::6wFAfTuFldl0XPzo',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1849,7 +1891,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::9HuxSypdgqOLmNuc' => 
+    'generated::vNVEgP05t5dpB5o3' => 
     array (
       'methods' => 
       array (
@@ -1863,7 +1905,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@KZM7K5EwaCHidwJ/K0V+Kskz7w7dcaDqIKO8uYS3dDM=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
+        'uses' => 'C:32:"Opis\\Closure\\SerializableClosure":538:{@+s+6qE5I4aHTeJ5VDecQqdlkl3TdOZFw5covuWURmqw=.a:5:{s:3:"use";a:0:{}s:8:"function";s:325:"function () {
         $admin = \\App\\Models\\User::create([
             \'ID_member\' => null,
             \'role\' => \'admin\',
@@ -1874,13 +1916,13 @@ app('router')->setCompiledRoutes(
         ]);
 
         return \\redirect(\'/\');
-    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007e9b291400000000274895df";}}',
+    }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004ff386ac0000000023d40eb9";}}',
         'namespace' => NULL,
         'prefix' => '/auth',
         'where' => 
         array (
         ),
-        'as' => 'generated::9HuxSypdgqOLmNuc',
+        'as' => 'generated::vNVEgP05t5dpB5o3',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2989,6 +3031,77 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
+    'iq-question.update.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard/iq-question/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionUpdateView',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionUpdateView',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/iq-question',
+        'where' => 
+        array (
+        ),
+        'as' => 'iq-question.update.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'iq-question.update.action' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'dashboard/iq-question/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\IqTestController@questionUpdateAction',
+        'controller' => 'App\\Http\\Controllers\\IqTestController@questionUpdateAction',
+        'namespace' => NULL,
+        'prefix' => 'dashboard/iq-question',
+        'where' => 
+        array (
+        ),
+        'as' => 'iq-question.update.action',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
     'perusahaan.pelamar.test.disc.result' => 
     array (
       'methods' => 
@@ -3391,7 +3504,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::jSXt28ruOuBsIY3o' => 
+    'generated::QReARBmRu40X4OwP' => 
     array (
       'methods' => 
       array (
@@ -3412,7 +3525,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::jSXt28ruOuBsIY3o',
+        'as' => 'generated::QReARBmRu40X4OwP',
       ),
       'fallback' => false,
       'defaults' => 

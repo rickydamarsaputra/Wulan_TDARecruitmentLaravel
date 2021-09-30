@@ -33,7 +33,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright {{date('Y')}} Bazarku · App by <a href="http://rowcell.id">rowcell.id</a>
+          Copyright {{date('Y')}} Rekrutmen TDA Surabaya · App by <a href="http://rowcell.id">rowcell.id</a>
         </div>
         <!-- <div class="footer-right">
           2.3.0
